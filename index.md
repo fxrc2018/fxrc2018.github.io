@@ -4,9 +4,9 @@
 
 我以前在简书上写作，但简书的广告越来越多，就换到了github上。
 
-[第一篇文章](https://github.com/fxrc2018/fxrc2018.github.io/edit/master/first.md)
+[第一篇文章](https://fxrc2018.github.io/first.md)
 
-You can use the [editor on GitHub](https://github.com/fxrc2018/fxrc2018.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+You can use the [editor on GitHub](https://github.com/fxrc2018/fxrc2018.github.io/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
