@@ -5,3 +5,7 @@
 ### [协同函数](/unity/coroutine.html)
 
 ### [资源加载](/unity/resource_loading.html)
+
+## 算法
+
+### [排序算法](/algorithm/sort.html)
