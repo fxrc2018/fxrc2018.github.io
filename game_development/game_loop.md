@@ -39,3 +39,54 @@ loop
 
 ### 游戏对象
 
+广义上的游戏对象是每一帧都需要更新或者绘制的对象。因此，游戏对象可以分为三种：
+
+- 更新和绘制都需要的对象。
+- 只绘制不更新的对象，称为静态对象。
+- 只更新但不绘制的对象。
+
+因此，游戏对象可以设计为以下的接口：
+
+```cpp
+class GameObject
+    interface Drawable
+        function Draw()
+    end
+
+    interface Updateable
+        function Update (float deltaTime)
+    end
+end
+```
+
+在游戏世界中需要管理这些游戏对象。
+
+```cpp
+class GameWorld
+    List updateableObjects
+    list drawableObjects
+end
+```
+
+游戏世界的更新可以写成下面的伪代码。
+
+```cpp
+while game is running 
+    realDeltaTime = time since last frame
+    gameDeltaTime = realDeltaTime * gameTimeFactor
+
+    //处理输入
+    ...
+
+    //更新游戏世界
+    foreach Updateable o in GameWorld.updateableObjects
+        o.update(gameDeltaTime)
+    loop
+
+    //渲染输出
+    ...
+
+    //限制帧数代码
+    ...
+loop
+```
