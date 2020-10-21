@@ -1,14 +1,3 @@
-## Lua入门
-
-### 面向对象编程
-
-
-
-Lua可以有两种方式可以实现继承——设置元表和复制。
-
-#### 通过设置元表实现继承
-
-```lua
 A = {}
 A.a = "a"
 function A:new()
@@ -22,10 +11,10 @@ function A:new()
     return res
 end
 
-B = A:new() --B继承自A
+B = A:new()
 B.b = "b"
 
-C = B:new() --C继承自B
+C = B:new()
 C.c = "c"
 
 c = C:new()
@@ -45,13 +34,4 @@ print(c1.a)
 --通过元表去访问时得到的值还是原来的值
 print(c.__index.a) 
 print(c1.__index.a)
-```
-
-#### 通过复制实现继承
-
-
-
-#### 多重继承
-
-### 环境和模块
 
