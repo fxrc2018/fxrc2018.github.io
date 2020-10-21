@@ -4,6 +4,8 @@
 
 ### [游戏循环](/game_development/game_loop.html)
 
+### [Lua](/game_development/introduce_to_lua.html)
+
 ## Unity
 
 ### [协同函数](/unity/coroutine.html)
