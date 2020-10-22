@@ -1,4 +1,13 @@
-# 繁星若尘的博客
+<!-- ---
+ebook:
+  theme: github-light.css
+  title: Markdown Preview Enhanced
+  author: shd101wyy
+  base-font-size: 8
+  margin: [4, 8]
+--- -->
+
+# 我的码农日记
 
 ## 游戏开发基础
 
