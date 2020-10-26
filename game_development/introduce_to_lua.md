@@ -2,8 +2,23 @@
 
 ### Lua简介
 
-
 #### 类型与值
+
+Lua语言是一种动态类型语言，在这种语言中没有类型定义，每个值都带有其自身的类型信息。
+
+Lua语言中一共有8种基本类型，可以使用type函数获得一个值对应的类型名称。
+
+- nil
+空，只有一个nil值的类型，它的主要作用就是与其他所有值进行区分。
+- boolean
+布尔值，只有两个值，true和false。
+- number
+
+- string
+- userdata
+- function
+- thread
+- table
 
 #### 表达式
 
@@ -62,9 +77,93 @@ print(c1.__index.a)
 
 #### 通过复制实现继承
 
+```lua
+function cloneTab(tab)  
+    local ins = {}  
+    for key, var in pairs(tab) do  
+        ins[key] = var  
+    end  
+    return ins  
+end  
 
+Object = {class_id = 1}
+
+function Object.new()
+　　local o = cloneTab(Object)
+　　return o
+end
+
+-- 使用这个类
+local p = Object.new()
+```
 
 #### 多重继承
 
+
+
+
 ### 环境和模块
+
+
+### 高级特性
+
+#### 协程
+
+Lua语言中协程相关的所有函数都被放在表coroutine中。函数create用于创建新协程，该函数只有一个参数，即协程要执行的代码的函数。函数create返回一个“thread”类型的值，即新协程。
+
+一个协程有以下四种状态，即挂起、运行、正常和死亡。函数status来检查协程的状态。刚创建的协程的状态为挂起。函数resume用于启动或再次启动一个协程的执行，并将其状态由挂起改为运行。函数yeild可以让一个运行中的协程挂起自己，直到协程被唤醒，然后继续执行直到遇到下一个yeild或执行结束。函数resume有返回值，第一个返回为true表示没有错误，之后的返回值对应函数yeild的参数。
+
+```lua
+co = coroutine.create( function()
+    for i = 1, 3 do 
+        coroutine.yield(i)
+    end
+end
+)
+
+
+print(coroutine.status(co)) --协程的状态挂起
+for i = 1,5 do
+    local flag,res = coroutine.resume(co)
+    if flag then
+        print(res) --i=4时执行到最后，没有res
+    else
+        --在一个已死亡的协程上调用resume会返回false，并返回一个提示字符串
+        print(coroutine.status(co))
+        print(res) 
+    end
+end
+```
+
+可以用协程来实现生产者-消费者模式。
+
+```lua
+function producer()
+    while true do 
+        local x = io.read()
+        send(x)
+    end
+end
+
+pco = coroutine.create( producer )
+
+function consumer()
+    while true do 
+        local x = receive()
+        io.write(x, "\n")
+    end
+end
+
+function receive()
+    local status, value = coroutine.resume(pco)
+    return value
+end
+
+function send(x)
+    coroutine.yield( x )
+end
+
+consumer()
+```
+
 

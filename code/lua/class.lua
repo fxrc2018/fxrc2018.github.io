@@ -35,3 +35,27 @@ print(c1.a)
 print(c.__index.a) 
 print(c1.__index.a)
 
+--Lua中的面向对象  
+--[[  
+  复制表方式面向对象  
+  参数为一张表，通过遍历这张表取值，赋给一张空表，最后返回新建的表，来达到克隆表  
+]]  
+function cloneTab(tab)  
+    local ins = {}  
+    for key, var in pairs(tab) do  
+        ins[key] = var  
+    end  
+    return ins  
+end  
+
+Object = {class_id = 1}
+
+function Object.new()
+　　local o = cloneTab(Object)
+　　return o
+end
+
+
+-- 使用这个类
+local p = Object.new()
+
