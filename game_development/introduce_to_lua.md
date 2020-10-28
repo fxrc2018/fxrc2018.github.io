@@ -1,29 +1,67 @@
-## Lua入门
+## Lua基础
 
-### Lua简介
+本文使用的Lua版本5.1.4。
+
+### 基本语法
 
 #### 类型与值
 
 Lua语言是一种动态类型语言，在这种语言中没有类型定义，每个值都带有其自身的类型信息。
 
-Lua语言中一共有8种基本类型，可以使用type函数获得一个值对应的类型名称。
+Lua语言中一共有8种基本类型：
 
 - nil
 空，只有一个nil值的类型，它的主要作用就是与其他所有值进行区分。
 - boolean
-布尔值，只有两个值，true和false。
+布尔值，只有两个值，true和false。在Lua中，只有false和nil表示假，其他情况都为真，数字0也为真。
 - number
-
+实数，不论浮点数还是整型数都是number类型。
 - string
+字符串。
 - userdata
+用户数据。
 - function
+函数。
 - thread
+线程。
 - table
+表。
+
+可以使用type函数获得一个值对应的类型名称。
 
 #### 表达式
 
+- 算术运算符
+算术运算符有+（加）、-（减）、*（乘）、/（除）、^（指数）、%（取模）、-（负号）。
+- 关系运算符
+关系运算符有<（小于）、>（大于）、<=（小于等于）、>=（大于等于）、~=（不等于）、==（等于）。
+- 逻辑操作符
+逻辑操作符有and（与）、or（或）和not（非）。
+    - 对于and，当第一个操作数为假时，返回第一个操作数，否则返回第二个操作数。
+    - 对于or，当一个操作数为真时，返回第一个操作数，否则返回第二个操作数。
+- 字符串连接符
+字符串连接操作符“..”用来连接两个字符串，当后一个为其他类型时会转化为字符串。
+- table构造式
+构造式用来创建和初始化table的表达式，是Lua中特有的一种表达式。
+```lua
+t = {} --空表
+t = {
+    1, --未设置key的项，key会自动冲1开始编号 t[1] = 1
+    x = 1, --t[x] = 1
+    y = 2, --t[]
+    2 --t[2] = 2
+}
+```
+
 #### 语句
 
+- 赋值语句
+Lua中的赋值，直接使用赋值操作符号。当有多个参数赋值时，可以同时给多个参数赋值。
+```lua
+a = 10
+a, b = 10, 20
+a, b = b, a --交换两个变量的值
+```
 
 #### 函数
 
@@ -78,32 +116,32 @@ print(c1.__index.a)
 #### 通过复制实现继承
 
 ```lua
-function cloneTab(tab)  
-    local ins = {}  
-    for key, var in pairs(tab) do  
-        ins[key] = var  
-    end  
-    return ins  
-end  
+A = {}
+A.val = 1
 
-Object = {class_id = 1}
-
-function Object.new()
-　　local o = cloneTab(Object)
-　　return o
+function A:new(o)
+    o = o or {}
+    for k,v in pairs(self) do
+        o[k] = v
+    end
+    return o
 end
 
--- 使用这个类
-local p = Object.new()
+a1 = A:new()
+a2 = A:new()
+print(a1.val)
+print(a2.val)
+a1.val = 2
+a2.val = 3
+print(a1.val)
+print(a2.val)
 ```
 
 #### 多重继承
 
-
-
-
 ### 环境和模块
 
+### 热更新
 
 ### 高级特性
 
@@ -120,7 +158,6 @@ co = coroutine.create( function()
     end
 end
 )
-
 
 print(coroutine.status(co)) --协程的状态挂起
 for i = 1,5 do

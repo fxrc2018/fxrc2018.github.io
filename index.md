@@ -24,3 +24,5 @@ ebook:
 ## 算法
 
 ### [排序算法](/algorithm/sort.html)
+
+### [动态规划](/algorithm/DP.html)
