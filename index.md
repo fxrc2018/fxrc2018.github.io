@@ -9,9 +9,13 @@ ebook:
 
 # 我的码农笔记
 
+## 计算机基础
+
+### [ASCII和UTF-8](/basic/ascii_utf_8.html)
+
 ## 游戏开发基础
 
-### [游戏循环](/game_development/game_loop.html)
+### [游戏程序三要素](/game_development/game_loop.html)
 
 ### [Lua](/game_development/introduce_to_lua.html)
 

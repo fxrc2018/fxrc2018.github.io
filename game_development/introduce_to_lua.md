@@ -143,6 +143,29 @@ print(a2.val)
 
 ### 热更新
 
+#### 重载一个模块
+
+当我们加载一个模块的时候，会先判断是否在package.loaded中已存在，若存在则返回改模块，不存在才会加载(loadfile)，防止重复加载。
+
+最简单粗暴的热更新就是将package.loaded[modelname]的值置为nil，强制重新加载：
+
+这样做虽然能完成热更，但问题是已经引用了该模块的地方不会得到更新， 因此我们需要将引用该模块的地方的值也做对应的更新。
+
+```lua
+function reload_module(module_name)
+    local old_module = _G[module_name]
+    package.loaded[module_name] = nil
+    require (module_name)
+    local new_module = _G[module_name]
+    for k, v in pairs(new_module) do
+        old_module[k] = v
+    end
+    package.loaded[module_name] = old_module
+end
+```
+
+#### 使用loadstring动态更新一个函数
+
 ### 高级特性
 
 #### 协程
