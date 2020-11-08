@@ -11,7 +11,7 @@ ebook:
 
 ## 计算机基础
 
-### [ASCII和UTF-8](/basic/ascii_utf_8.html)
+### [ASCII、Unicode和UTF-8](/basic/ascii_utf_8.html)
 
 ## 游戏开发基础
 
