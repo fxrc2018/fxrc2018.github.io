@@ -1,203 +1,162 @@
-——主要参考了中国大学MOOC[数据结构](https://www.icourse163.org/course/ZJU-93001?tid=1002654021)课程的内容
-这里讨论排序算法，它的函数模型是：
+## 排序
 
-```c
-void xSort ( ElementType A[], int N )
+这里讨论的排序还有如下两个特点：
+- 只讨论基于比较的排序（> = < 有定义）
+- 只讨论内部排序（排序工作能够在主存中完成） 
+
+大多数情况下，为简单起见，讨论从小大的整数排序。这里使用的函数模型是：
+
+```cpp
+void xSort(vector<int> &arr)
 ```
 
-大多数情况下，为简单起见，讨论从小大的整数排序。这里讨论的排序还有如下两个特点：
-* 只讨论基于比较的排序（> = < 有定义）
-* 只讨论内部排序（排序工作能够在主存中完成） 
+除了面试外，在日常的工作中，我们是不可能去手写排序算法了，但是了解排序算法的工作原理还是很有意义的，里面使用的一些技巧很值得借鉴。
 
-在排序算法中，有一个稳定性的概念，即任意两个相等的数据， 排序前后的相对位置不发生改变。这里之所以要讨论多种排序，是因为，没有一种排序是任何情况下都表现最好的。如果有的话最好，因为就只用学一种就行了。下面给出排序算法的一些比较：
-|排序方法|平均时间复杂度|最坏情况下时间复杂度|额外空间复杂度|稳定性|
-|:--:|:--:|:--:|:--:|:--:|
-简单选择排序|$O(N^2)$| $O(N^2)$|	$O(1)$|	不稳定
- |冒泡排序|$O(N^2)$|$O(N^2)$|$O(1)$|稳定|
-|直接插入排序|$O(N^2)$|$O(N^2)$|$O(1)$|	稳定|
- |希尔排序|$O(N^d)$|$O(N^2)$|$O(1)$|	不稳定|
- |堆排序|$O(NlogN)$|$O(NlogN)$|$O(1)$|不稳定|
- |快速排序|$O(NlogN)$|$O(N^2)$|$O(logN)$|不稳定|
- |归并排序|$O(NlogN)$|$O(NlogN)$|$O(N)$|稳定|
- |基数排序|$O(P(N+B))$|	$O(P(N+B))$|$O(N+B)$|	稳定|
-##简单排序
- 冒泡排序的思想十分简单，就是每次找到最大/最小的数，然后重复N次。所以，写这种程序还是比较简单的，下面直接给出冒泡排序的代码：
+在排序算法中，有一个稳定性的概念，即任意两个相等的数据， 排序前后的相对位置不发生改变。
 
-```c
-#include<stdio.h>
+先给出我用于测试排序函数正确性的测试函数，本文所有的排序算法都只通过了这个测试函数，所有有可能有一些BUG。
 
-void swap(int* a,int* b){
-	int temp = *a;
-	*a = *b;
-	*b = temp;
-}
-
-void bubbleSort(int array[],int N) {
-	int i,j;
-	for(i=N-1;i>=0;i--){
-		int flag = 0;//记录一轮是否发生了交换 
-		for(j=0;j<i;j++){
-			if(array[j] > array[j+1]){
-				swap(&array[j],&array[j+1]);
-				flag = 1;//发生了改变 
-			}
-		}
-		if(flag == 0){
-			break;//如果没发生交换，说明已经排好序了 
-		}
-	}
-}
-
-void insertionSort(int array[],int N){
-	int i,j;
-	for(i=1;i<N;i++){
-		int temp = array[i];
-		for(j=i;j>0&&temp<array[j-1];j--){//如果前一个比较大
-			array[j] = array[j-1];//往后挪一个位置 
-		}
-		array[j] = temp;
-	}
-}
-
-int main() {
-	int array[] = {7,1,3,8,12,11,2,9};
-	int size = sizeof(array)/sizeof(int);
-//	bubbleSort(array,size);
-	insertionSort(array,size);
-	int i = 0;
-	for(i=0; i<size; i++) {
-		printf("%d ",array[i]);
-	}
-	return 0;
+```cpp
+void testSortFunc(void(*sortFunc)(vector<int>&)){
+    int TIMES = 10000;
+    int SIZE = 100;
+    for(int i=0;i<TIMES;i++){
+        vector<int> arr;
+        for(int j=0;j<SIZE;j++){
+            arr.push_back(rand());
+        }
+        vector<int> arr1 = arr, arr2 = arr;
+        sort(arr1.begin(),arr1.end());
+        sortFunc(arr2);
+        for(int j=0;j<SIZE;j++){
+            if(arr1[j] != arr2[j]){
+                cout<<"error"<<endl;
+                return;
+            }
+        }
+    }
+    cout<<"pass all test"<<endl;
 }
 ```
 
+### 冒泡排序
+冒泡排序的思想十分简单，就是每次找到最大/最小的数，然后重复N次。所以，写这种程序还是比较简单的，下面直接给出冒泡排序的代码：
+
+```cpp
+void bubbleSort(vector<int> &arr){
+    for(int i = arr.size()-1;i>0;i--){
+        //通过交换，每次将剩余的最大数调整到i
+        for(int j=0;j<i;j++){
+            if(arr[j] > arr[j+1]){
+                swap(arr[j],arr[j+1]);
+            }
+        }
+    }
+}
+```
+
+### 插入排序
 插入排序的算法就好像打牌的时候，摸牌之后的操作。这个算法个人感觉比冒泡排序要难一点。
-##希尔排序
+
+```cpp
+void insertSort(vector<int> &arr){
+    for(int i = 1;i<arr.size();i++){
+        int num = arr[i];
+        int j;
+        //如果前一个数大于当前数，将前一个数后移一位，然后继续和下一个数比较
+        for(j = i;j>0 && arr[j-1] > num;j--){
+            arr[j] = arr[j-1];
+        }
+        //停止的时候就到了正确的位置
+        arr[j] = num;
+    }
+}
+```
+
+### 希尔排序
 希尔排序其实和简单排序差不多，只不过是每次是个n个进行排序。这个我已经空了很久了，在K&R那本书里面看到了这个算法，然后就搬到了这里。下面是具体的代码：
 
-```c
-#include<stdio.h>
-
-/* 使用希尔排序算法进行排序 */
-void shellsort(int v[],int n){
-	int gap,i,j,temp;
-	/* 每次隔gap进行排序 */
-	for(gap=n/2;gap>0;gap/=2){
-	    /* 每次都是插入排序 */
-	    for(i=gap;i<n;i++){
-	        for(j=i-gap;j>=0&&v[j]>v[j+gap];j-=gap){
-	            temp = v[j];
-	            v[j] = v[j+gap];
-	            v[j+gap] = temp;
-	        }
-	    }
-	}
-}
-
-int main()
-{
-      int array[] = {7,1,3,8,12,11,2,9};
-	int size = sizeof(array)/sizeof(int);
-	shellsort(array,size);
-	int i;
-	for(i=0;i<size;i++){
-		printf("%d ",array[i]);
-	}
-      return 0;
+```cpp
+void shellSort(vector<int> &arr){
+    for(int gap = arr.size() / 2; gap > 0; gap /= 2){
+        for(int i = gap;i < arr.size(); i++){
+            for(int j = i - gap;j >= 0 && arr[j] > arr[j + gap];j -= gap){
+                swap(arr[j],arr[j+gap]);
+            }
+        }
+    }
 }
 ```
-##分治排序
- 快速排序是现在常用的算法，其核心是在线性时间内将一个数组以pivot(自己选择)为中点，使得比它大的都在其右边，比它小的都在其左边，然后进行递归调用，直到只剩下一个数字。我想的方法需要额外的空间，就是比pivot大的从右边开始放，比它小的从左边开始放，最后一个放在剩下的位置。它使用的算法要好一点，无需额外的空间。它和冒泡排序的不同之处在于，它一次把数组近似地分成了两份，而一次冒泡分成了1和n-1；所以，当运气不好的时候，它的复杂度也是 O(n^2 ),和冒泡排序一样，一般的复杂度是$O(nlogn)$。所以，计算pivot都是使用的随机化的方法，此处为了简单起见，pivot取数组的第一个数字。快速排序的简单代码如下：
 
-```c
-#include<stdio.h>
+### 快速排序
 
-void swap(int* a,int* b){
-	int temp = *a;
-	*a = *b;
-	*b = temp;
+快速排序是现在常用的算法，其核心是在线性时间内将一个数组以pivot(自己选择)为中点，使得比它大的都在其右边，比它小的都在其左边，然后进行递归调用，直到只剩下一个数字。
+
+```cpp
+void quickSort(vector<int> &arr, int left, int right){
+    if(left >= right){ //递归出口
+        return;
+    }
+    //随机选一个数作为参考数
+    int len = right - left + 1;
+    int randPos = rand() % len + left;
+    swap(arr[left],arr[randPos]);
+    //partition操作，执行之后，左边的数小于参考数，右边的数大于参考数
+    int pos = left; //pos表示在pos右边的数都要大于arr[left]
+    for(int i=left+1;i<=right;i++){
+        if(arr[i] < arr[left]){
+            swap(arr[i],arr[++pos]);
+        }
+    } 
+    swap(arr[left],arr[pos]);
+    
+    quickSort(arr,left,pos-1);
+    quickSort(arr,pos+1,right);
 }
 
-void quickSort(int array[],int left,int right){
-	if(left>=right){
-		return;
-	}
-	int i = left;
-	int j = right;
-	while(i!=j){
-		while(j>i&&array[j]>=array[i]){
-			j--;
-		}
-		swap(&array[i],&array[j]);
-		while(i<j&&array[i]<array[j]){
-			i++;
-		}
-		swap(&array[i],&array[j]);
-	}
-	quickSort(array,left,i-1);
-	quickSort(array,i+1,right);
+void quickSort(vector<int> &arr){
+    quickSort(arr,0,arr.size()-1);
 }
-
-int main(){
-	int array[] = {7,1,3,8,12,11,2,9};
-	int size = sizeof(array)/sizeof(int);
-	quickSort(array,0,size-1);
-	int i;
-	for(i=0;i<size;i++){
-		printf("%d ",array[i]);
-	}
-	return 0;
-} 
 ```
+
+### 归并排序
 
 归并排序和快速排序的复杂度都是O(nlogn)  ，它的基本思想是，在线性时间内，对已经排序的数组合在一起。为了这样做，它需要额外的空间。它的代码如下：
 
-```c
-#include<stdio.h>
+```cpp
+void mergeSort(vector<int> &arr1, vector<int> &arr2, int left, int right){
+    if(left >= right){
+        return;
+    }
+    int mid = left + (right - left) / 2;
+    mergeSort(arr1,arr2,left,mid);
+    mergeSort(arr1,arr2,mid+1,right);
 
-void merge(int array[],int left,int mid,int right,int temp[]){
-	int i = left;
-	int j = mid;
-	int index = 0;
-	while(i<mid&&j<right+1){
-		if(array[i]<array[j]){
-			temp[index++] = array[i++]; 
-		}else{
-			temp[index++] = array[j++];
-		}
-	}
-	while(i<mid){
-		temp[index++] = array[i++];
-	}
-	while(j<right+1){
-		temp[index++] = array[j++];
-	}
-	for(i = 0,j = left;i<index;i++,j++){
-		array[j] = temp[i];
-	}
+    //到这里的时候可以认为，两个数组都排好序了，执行merge操作
+    int k = left;
+    int i = left;
+    int j = mid + 1;
+    while(i <= mid && j <= right){
+        if(arr1[i] <= arr1[j]){
+            arr2[k++] = arr1[i++];
+        }else{
+            arr2[k++] = arr1[j++];
+        }
+    }
+    while(i <= mid){
+        arr2[k++] = arr1[i++];
+    }
+    while(j <= right){
+        arr2[k++] = arr1[j++];
+    }
+    for(i=left;i<=right;i++){
+        arr1[i] = arr2[i];
+    }
 }
 
-void mergeSort(int array[],int left,int right,int temp[]){
-	if(left<right){
-		int mid = left + (right - left)/2;
-		mergeSort(array,left,mid,temp);
-		mergeSort(array,mid+1,right,temp);
-		merge(array,left,mid+1,right,temp);
-	}
-}
-
-int main(){
-	
-	int array[] = {7,1,3,8,12,11,2,9};
-	int size = sizeof(array)/sizeof(int);
-	int temp[size];
-	mergeSort(array,0,size,temp);
-	int i = 0;
-	for(i=0;i<size;i++){
-		printf("%d ",array[i]);
-	}
-	return 0;
+void mergeSort(vector<int> &arr){
+    vector<int> arr2(arr.size(),0);
+    mergeSort(arr,arr2,0,arr.size()-1);
 }
 ```
 
