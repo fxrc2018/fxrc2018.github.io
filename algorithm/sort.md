@@ -38,6 +38,22 @@ void testSortFunc(void(*sortFunc)(vector<int>&)){
     cout<<"pass all test"<<endl;
 }
 ```
+### 选择排序
+选择排序非常简单，每次选择最大的一个数，放到指定的位置即可。
+
+```cpp
+void selectSort(vector<int> &arr){
+    for(int i=arr.size()-1;i>0;i--){
+        int maxPos = 0;
+        for(int j=1;j<=i;j++){
+            if(arr[j] > arr[maxPos]){
+                maxPos = j;
+            }
+        }
+        swap(arr[i],arr[maxPos]);
+    }
+}
+```
 
 ### 冒泡排序
 冒泡排序的思想十分简单，就是每次找到最大/最小的数，然后重复N次。所以，写这种程序还是比较简单的，下面直接给出冒泡排序的代码：
@@ -160,256 +176,57 @@ void mergeSort(vector<int> &arr){
 }
 ```
 
-##优先队列和堆排序
-优先队列（Priority Queue）：特殊的“队列”，取出元素的顺序是依照元素的优先权（关键字）大小，而不是元素进入队列的先后顺序。优先队列的实现一般是用堆。
+### 堆排序
 
-类型名称：最大堆（MaxHeap）
-数据对象集：完全二叉树，每个结点的元素值不小于其子结点的元素值。
-操作集：最大堆H ∈ MaxHeap，元素item  ∈ ElementType，主要操作有：
-1. MaxHeap Create( int MaxSize )：创建一个空的最大堆。
-2. Boolean IsFull( MaxHeap H )：判断最大堆H是否已满。
-3. Insert( MaxHeap H, ElementType item )：将元素item插入最大堆H。
-4. Boolean IsEmpty( MaxHeap H )：判断最大堆H是否为空。
-5. ElementType DeleteMax( MaxHeap H )：返回H中最大元素(高优先级)。
+可以利用堆的性质来进行排序。代码如下：
 
-下面给出它的实现：
-
-```c
-#include<stdio.h>
-#include<stdlib.h>
-
-typedef struct heap* Heap;
-
-struct heap{
-    int *array;
-    int size;/* 记录当前值 */
-    int max; /* 记录最大值 */
-};
-
-Heap createHeap(int max){
-    Heap heap = (Heap)malloc(sizeof(struct heap));
-    heap->size = 0;
-    heap->array = (int *)malloc(sizeof(int) * (max + 1));
-    heap->max = max;
-    return heap;
-}
-
-void swap(Heap heap,int i,int j){
-    int temp = heap->array[i];
-    heap->array[i] = heap->array[j];
-    heap->array[j] = temp;
-}
-
-void insert(Heap heap,int val){
-    /* 先判断是否满了 */
-    if(heap->size+1 > heap->max){
-        printf("堆满\n");
-        return;
-    }
-    /* 先将val插入到数组最后 */
-    heap->array[++heap->size] = val;
-    /* 进行上浮 */
-    int k = heap->size;
-    printf("k = %d val = %d\n",k,heap->array[heap->size]);
-    while(k>1 && heap->array[k] > heap->array[k/2]){
-        swap(heap,k,k/2);
-        k = k/2;
-    }
-}
-
-int delMax(Heap heap){
-    /* 先判断是否空了 */
-    if(heap->size < 1){
-        printf("堆空\n");
-        return -1;
-    }
-    /* 先保存最大值 */
-    int ret = heap->array[1];
-    /* 把最后一个交换到第一个，然后进行下沉 */
-    swap(heap,1,heap->size);
-    heap->size--;
-    int k = 1;
-    while(2*k <= heap->size){/* 如果没有孩子不能交换 */
-        /* 找到两个孩子中较大的那个 */
-        int j = k*2;
-        if(j<heap->size && heap->array[j] < heap->array[j+1]){
-            j++;
+```cpp
+//堆的下沉操作
+void heapSink(vector<int> &arr, int pos, int len){
+    int parent = pos;
+    int child = parent * 2 + 1;
+    int num = arr[pos];
+    while(child < len){
+        if(child + 1 < len && arr[child+1] > arr[child]){
+            child++;
         }
-        /* 如果k大于两个，结束 */
-        if(heap->array[k] >= heap->array[j]){
+        if(num > arr[child]){
             break;
         }
-        swap(heap,k,j);
-        k = j;
+        arr[parent] = arr[child];
+        parent = child;
+        child = parent * 2 + 1;
     }
-    return ret;
+    arr[parent] = num;
 }
 
-void freeHeap(Heap heap){
-    if(heap != NULL && heap->array != NULL){
-        free(heap->array);
+void heapSort(vector<int> &arr){
+    for(int i=arr.size()/2;i>=0;i--){
+        heapSink(arr,i,arr.size()); //通过有规律的下沉操作，迅速构造堆
     }
-    if(heap != NULL){
-        free(heap);
+    for(int i=arr.size()-1;i>0;i--){
+        swap(arr[0],arr[i]); //每次弹出最大的一个数
+        heapSink(arr,0,i); //执行下沉操作
     }
-}
-
-int main(int argc, char const *argv[])
-{
-    Heap heap = createHeap(100);
-    int i;
-    for(i=0;i<20;i++){
-        insert(heap,rand()%100);
-    }
-     for(i=0;i<20;i++){
-        printf("%d ",delMax(heap));
-    }
-    freeHeap(heap);
-    return 0;
 }
 ```
 
-这个的实现个人看来还是相当简单的。值得注意的是，这里插入之后，就不能改变元素的属性了。当然，这里的示例代码是没办法改，但是对于指针类型的，就应当注意了。对于堆排序，我开始以为就是创建一个堆，然后插入之后再弹出。而事实上却不是这样的。因为堆的内部就是一个数组实现，而且在初始化堆的时候用了一些技巧，还是很值得学习的，下面给出代码。
+### 桶排序
 
-```c
-#include <stdio.h>
-#include <stdlib.h>
+以上的排序都是基于比较，但如果在取值比较少的情况下，可以用桶排序实现线性时间的排序。桶排序主要思想是，先按照值将数据放在桶里，然后按照值的大小依次统计每个桶的数量，实现排序。这种排序方式只适用于值的取值范围比较小的情况。
 
-void swap(int *arr, int x, int y){
-    int temp = arr[x];
-    arr[x] = arr[y];
-    arr[y] = temp;
-}
-
-void sink(int *arr, int k, int n){
-    while (2 * k <= n)
-    {
-        int j = k * 2;
-        if (j < n && arr[j] < arr[j + 1]){
-            j++;
-        }
-        if (arr[k] >= arr[j]){
-            break;
-        }
-        swap(arr, k, j);
-        k = j;
+```cpp
+void bucketSort(vector<int> &arr){
+    //假设arr[i]的取值范围为0 - 100
+    vector<int> bucket(101,0);
+    for(int num : arr){
+        bucket[num]++;
     }
-}
-
-void heapSort(int *arr, int n){
-    /* 先构造堆，从第一个父节点开始，执行下沉操作 */
-    int k;
-    for (k = n / 2; k >= 1; k--){
-        sink(arr, k, n);
-    }
-    k = n;
-    /* 一次弹出最大的点，然后执行下沉操作 */
-    while (n > 1){
-        swap(arr, 1, n);
-        sink(arr, 1, --n);
-    }
-    /* 排列第一个 */
-    for(n=0;n<k;n++){
-        if(arr[n] > arr[n+1]){
-            swap(arr,n,n+1);
+    int k = 0;
+    for(int i=0;i<=100;i++){
+        for(int j=0;j<bucket[i];j++){
+            arr[k++] = i;
         }
     }
 }
-
-int main(int argc, char const *argv[]){
-    int arr[20];
-    int i;
-    for (i = 0; i < 20; i++){
-        arr[i] = rand() % 100;
-    }
-    heapSort(arr, 19);
-    for (i = 0; i < 20; i++){
-        printf("%d ", arr[i]);
-    }
-    return 0;
-}
 ```
-这个代码我写出来没花多少时间，但是调试却是花了不少时间，因为我一个地方的细节写错了，其实就是不小心，或者说没有注意到，把index搞成了数组在index的值。
-##线性时间排序
- 一般的排序算法在最坏的情况下需要$O(NlogN)$时间，但是在某些特殊情况下以线性时间排序仍然是可能的。先看一个桶排序的例子：
-
-```c
-#include<stdio.h>
-
-void countingSort(int array[],int size){
-	int countingArray[100];
-	int i = 0;
-	for(i=0;i<100;i++){
-		countingArray[i] = 0;
-	}
-	for(i=0;i<size;i++){
-		countingArray[array[i]]++;
-	}
-	for(i=1;i<100;i++){
-		countingArray[i] += countingArray[i-1]; 
-		
-	}
-	int temp[size];
-	for(i=size-1;i>=0;i--){
-		temp[countingArray[array[i]]-1] = array[i];
-		countingArray[array[i]]--;
-	}
-	for(i=0;i<size;i++){
-		array[i] = temp[i];
-	}
-}
-
-int main(){
-	int array[] = {1,7,5,89,42,32,32};
-	int size = sizeof(array)/sizeof(int);
-	countingSort(array,size);
-	int i;
-	for(i=0;i<size;i++){
-		printf("%d ",array[i]);
-	}
-	return 0;
-}
-```
-在这种算法中，有一个额外的数组，且比较的数必须落在数组的长度以内。它的思想很简单，先将这个数组初始化为0，然后遇到一个数字，索引对应的数字加1。可以看出，这种方法有局限，且需要的额外空间较大。为了节省空间，有一种新的方法，基数排序。由于这个需要变长的数组，就用Java实现，而不使用C语言。
-
-```c
-public class RadixSort {
-	public static void radixSort(String[] strings,int stringLen) {
-		//初始化桶
-		final int BUCKETS = 256;
-		ArrayList<String>[] buckets = new ArrayList[BUCKETS];
-		for(int i=0;i<BUCKETS;i++) {
-			buckets[i] = new ArrayList<>();
-		}
-		//从最后一个字符开始，一共要stringLen轮
-		for(int i=stringLen-1;i>=0;i--) {
-			//将string放入对应的桶中
-			for(int j=0;j<strings.length;j++) {
-				char c = strings[j].charAt(i);
-				buckets[c].add(strings[j]);
-			}
-			int index = 0;
-			//将桶中的字符串拷贝回去，进行下一轮排序
-			for (ArrayList<String> arrayList : buckets) {
-				for (String string : arrayList) {
-					strings[index++] = string;
-				}
-				arrayList.clear();
-			}
-		}
-	}
-	public static void main(String[] args) {
-		String[] strings = {"cab","bac","abc","bca","acb","cba"};
-		radixSort(strings, 3);
-		for (String string : strings) {
-			System.out.println(string);
-		}
-	}
-}
-```
-这种方法和桶排序的思想是一样的，只不过用了时间换空间。
-
-
-
-
-
