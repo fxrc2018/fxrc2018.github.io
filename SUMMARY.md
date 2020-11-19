@@ -3,9 +3,8 @@
 * [Introduction](README.md)
 
 * [编程语言]()
-
-* [C]()
-
+    * [C]()
+        * [类型、运算符与表达式](/programming_language/C/类型、运算符与表达式.md)
 
 * [计算机基础]()
     * [ASCII、Unicode和UTF-8](/basic/ascii_utf_8.md)
@@ -17,3 +16,4 @@
 * [算法]()
     * [排序](/algorithm/sort.md)
     * [动态规划](/algorithm/DP.md)
+    * [哈希表](/algorithm/哈希表.md)
