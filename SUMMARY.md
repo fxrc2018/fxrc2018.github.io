@@ -15,6 +15,7 @@
         * [Lua入门](/programming_language/Lua/introduce_to_lua.md)
         * [Lua元表](/programming_language/Lua/Lua元表.md)
         * [Lua面向对象](/programming_language/Lua/Lua面向对象.md)
+        * [Lua热更新](/programming_language/Lua/Lua热更新.md)
 
 * [计算机基础]()
     * [ASCII、Unicode和UTF-8](/basic/ascii_utf_8.md)
