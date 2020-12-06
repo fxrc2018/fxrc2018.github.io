@@ -13,6 +13,8 @@
 
     * [Lua]()
         * [Lua入门](/programming_language/Lua/introduce_to_lua.md)
+        * [Lua元表](/programming_language/Lua/Lua元表.md)
+        * [Lua面向对象](/programming_language/Lua/Lua面向对象.md)
 
 * [计算机基础]()
     * [ASCII、Unicode和UTF-8](/basic/ascii_utf_8.md)
@@ -29,5 +31,9 @@
 * [游戏开发]()
     * [游戏程序三要素](/game_development/game_loop.md)
     * [Boids算法](/game_development/Boids算法.md)
+
+* [图形学]()
+    * [向量和矩阵](/game_development/向量和矩阵.md)
+
     <!-- * [协同函数](/unity/coroutine.md) -->
     <!-- * [资源加载](/unity/resource_loading.md) -->
