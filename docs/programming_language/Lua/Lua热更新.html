@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Lua元表 · GitBook</title>
+        <title>Lua热更新 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Lua面向对象.html" />
     
-    
-    <link rel="prev" href="introduce_to_lua.html" />
+    <link rel="prev" href="Lua面向对象.html" />
     
 
     </head>
@@ -248,7 +246,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2.2" data-path="Lua元表.html">
+        <li class="chapter " data-level="1.2.2.2" data-path="Lua元表.html">
             
                 <a href="Lua元表.html">
             
@@ -274,7 +272,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.4" data-path="Lua热更新.html">
+        <li class="chapter active" data-level="1.2.2.4" data-path="Lua热更新.html">
             
                 <a href="Lua热更新.html">
             
@@ -546,7 +544,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Lua元表</a>
+        <a href="../.." >Lua热更新</a>
     </h1>
 </div>
 
@@ -561,74 +559,121 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="lua&#x5143;&#x8868;">Lua&#x5143;&#x8868;</h2>
-<h3 id="&#x8868;">&#x8868;</h3>
-<p>&#x8868;&#x662F;Lua&#x8BED;&#x8A00;&#x4E2D;&#x6700;&#x4E3B;&#x8981;&#x548C;&#x5F3A;&#x5927;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;Lua&#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x8868;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x79CD;&#x8F85;&#x52A9;&#x6570;&#x7EC4;&#xFF0C;&#x8FD9;&#x79CD;&#x6570;&#x7EC4;&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x7528;&#x6570;&#x503C;&#x4F5C;&#x4E3A;&#x7D22;&#x5F15;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x5176;&#x4ED6;&#x4EFB;&#x610F;&#x7C7B;&#x578B;&#x7684;&#x503C;&#x4F5C;&#x4E3A;&#x7D22;&#x5F15;&#xFF08;nil&#x9664;&#x5916;&#xFF09;&#x3002;</p>
-<p>&#x8868;&#x662F;&#x4E00;&#x79CD;&#x52A8;&#x6001;&#x5206;&#x914D;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x7A0B;&#x5E8F;&#x53EA;&#x80FD;&#x64CD;&#x4F5C;&#x6307;&#x5411;&#x8868;&#x7684;&#x5F15;&#x7528;&#x3002;&#x9664;&#x6B64;&#x4EE5;&#x5916;&#xFF0C;Lua&#x8BED;&#x8A00;&#x4E0D;&#x4F1A;&#x8FDB;&#x884C;&#x9690;&#x85CF;&#x7684;&#x62F7;&#x8D1D;&#x6216;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x8868;&#x3002;</p>
-<p>&#x8868;&#x6709;&#x5982;&#x4E0B;&#x7684;&#x4E00;&#x4E9B;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x5F0F;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x5217;&#x8868;&#x4E2D;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5143;&#x7D20;&#x8D4B;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x8868;&#x4F1A;&#x521B;&#x5EFA;&#x51FA;&#x8FD9;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x8D4B;&#x503C;&#xFF1B;&#x5982;&#x679C;&#x8BBF;&#x95EE;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;nil&#x3002;</p>
-<pre><code class="lang-lua">a = {}
-a[<span class="hljs-string">&quot;x&quot;</span>] = <span class="hljs-number">2</span>
-a.x = <span class="hljs-number">1</span> <span class="hljs-comment">-- &#x7B49;&#x4EF7;&#x4E8E;a[&quot;x&quot;] = 1</span>
-a = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>} <span class="hljs-comment">-- &#x5217;&#x8868;&#x5F0F;</span>
-a = {x=<span class="hljs-number">0</span>,y=<span class="hljs-number">1</span>,[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>} <span class="hljs-comment">-- &#x8BB0;&#x5F55;&#x5F0F;</span>
-<span class="hljs-comment">-- &#x5217;&#x8868;&#x5F0F;&#x548C;&#x8BB0;&#x5F55;&#x5F0F;&#x6DF7;&#x7528;</span>
-<span class="hljs-comment">-- &#x6CE8;&#x610F;&#xFF0C;&#x6DF7;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8BB0;&#x5F55;&#x5F0F;&#x6700;&#x597D;&#x4E0D;&#x8981;&#x7528;[1]=1&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#xFF0C;&#x56E0;&#x4E3A;&#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x5217;&#x8868;&#x5F0F;&#x7684;&#x503C;&#x8986;&#x76D6;</span>
-a = {x = <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,y = <span class="hljs-number">3</span>}
+                                <h2 id="lua&#x70ED;&#x66F4;&#x65B0;">Lua&#x70ED;&#x66F4;&#x65B0;</h2>
+<h3 id="&#x6267;&#x884C;&#x52A8;&#x6001;&#x751F;&#x6210;&#x7684;&#x4EE3;&#x7801;">&#x6267;&#x884C;&#x52A8;&#x6001;&#x751F;&#x6210;&#x7684;&#x4EE3;&#x7801;</h3>
+<p>Lua&#x662F;&#x4E00;&#x79CD;&#x89E3;&#x91CA;&#x578B;&#x8BED;&#x8A00;&#xFF0C;&#x89E3;&#x91CA;&#x578B;&#x8BED;&#x8A00;&#x7684;&#x4E00;&#x5927;&#x7279;&#x5F81;&#x662F;&#x6709;&#x80FD;&#x529B;&#x6267;&#x884C;&#x52A8;&#x6001;&#x751F;&#x6210;&#x7684;&#x4EE3;&#x7801;&#x3002;Lua&#x70ED;&#x66F4;&#x65B0;&#x5C31;&#x4F9D;&#x8D56;&#x4E8E;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x3002;</p>
+<p>lua&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x51FD;&#x6570;&#x7528;&#x4E8E;&#x4ECE;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x52A0;&#x8F7D;&#x5185;&#x5BB9;&#x3002;&#x5E38;&#x7528;&#x7684;&#x51FD;&#x6570;&#x6709;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x3002;</p>
+<ul>
+<li><code>loadstring(string)</code>&#x4ECE;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x52A0;&#x8F7D;&#x4E00;&#x4E32;&#x4EE3;&#x7801;&#x3002;</li>
+<li><code>dofile(filename)</code>&#x52A0;&#x8F7D;&#x5E76;&#x6267;&#x884C;&#x4E00;&#x4E2A;lua&#x6587;&#x4EF6;&#x3002;</li>
+</ul>
+<pre><code class="lang-lua">val = <span class="hljs-number">10</span>
+str = <span class="hljs-built_in">io</span>.read()
+<span class="hljs-built_in">loadstring</span>(str)() <span class="hljs-comment">-- &#x76F8;&#x5F53;&#x4E8E;&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x4E86;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;</span>
+<span class="hljs-built_in">print</span>(val)
+
+&gt;lua main.lua
+val = <span class="hljs-number">20</span>
+<span class="hljs-number">20</span> <span class="hljs-comment">-- &#x53EF;&#x4EE5;&#x52A8;&#x6001;&#x7684;&#x66F4;&#x6539;val&#x7684;&#x503C;</span>
 </code></pre>
-<p>Lua&#x8868;&#x7684;&#x7D22;&#x5F15;&#x662F;&#x4ECE;1&#x5F00;&#x59CB;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;#&#x8FD0;&#x7B97;&#x7B26;&#x83B7;&#x53D6;&#x5E8F;&#x5217;&#x957F;&#x5EA6;&#x3002;&#x6CE8;&#x610F;&#xFF0C;#&#x53F7;&#x5FC5;&#x987B;&#x4F5C;&#x7528;&#x4E8E;&#x5E8F;&#x5217;&#xFF0C;&#x5E76;&#x4E14;&#x4E2D;&#x95F4;&#x4E0D;&#x80FD;&#x5B58;&#x5728;&#x7A7A;&#x6D1E;&#xFF08;nil&#xFF09;&#x503C;&#xFF0C;&#x5426;&#x5219;&#x83B7;&#x53D6;&#x7684;&#x503C;&#x662F;&#x4E0D;&#x53EF;&#x9760;&#x7684;&#x3002;</p>
-<p>&#x53EF;&#x4EE5;&#x7528;pairs&#x51FD;&#x6570;&#x904D;&#x5386;&#x4E00;&#x4E2A;&#x8868;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;ipairs&#x51FD;&#x6570;&#x904D;&#x5386;&#x4E00;&#x4E2A;&#x5E8F;&#x5217;&#x3002;</p>
-<pre><code class="lang-lua"><span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(t) <span class="hljs-keyword">do</span>
-    <span class="hljs-built_in">print</span>(k,v)
+<p>Lua&#x5C06;&#x5168;&#x90E8;&#x53D8;&#x91CF;&#x90FD;&#x5B58;&#x50A8;&#x5728;&#x4E00;&#x4E2A;&#x8868;&#x4E2D;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x8981;&#x70ED;&#x66F4;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x7684;&#x51FD;&#x6570;&#x6216;&#x5168;&#x5C40;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x66F4;&#x6539;&#x8FD9;&#x4E2A;&#x8868;&#x4E2D;&#x7684;&#x503C;&#x3002;</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- A.lua</span>
+<span class="hljs-built_in">module</span>(...,<span class="hljs-built_in">package</span>.seeall)
+
+val = <span class="hljs-number">10</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span><span class="hljs-params">()</span></span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;f()&quot;</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment">-- hotfix.lua</span>
+<span class="hljs-built_in">require</span> <span class="hljs-string">&quot;A&quot;</span>
+
+A.val = <span class="hljs-number">20</span>
+
+A.f = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;g()&quot;</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment">-- main.lua</span>
+<span class="hljs-built_in">require</span> <span class="hljs-string">&quot;A&quot;</span>
+
+<span class="hljs-built_in">print</span>(A.val)
+<span class="hljs-built_in">print</span>(A.f())
+
+<span class="hljs-built_in">dofile</span>(<span class="hljs-string">&quot;hotfix.lua&quot;</span>)
+
+<span class="hljs-built_in">print</span>(A.val)
+<span class="hljs-built_in">print</span>(A.f())
+</code></pre>
+<p>&#x70ED;&#x66F4;&#x65B0;&#x7684;&#x57FA;&#x672C;&#x539F;&#x7406;&#x5C31;&#x662F;&#x6267;&#x884C;&#x4E00;&#x6BB5;&#x989D;&#x5916;&#x7684;&#x4EE3;&#x7801;&#x6765;&#x4FEE;&#x6539;&#x539F;&#x59CB;&#x7684;&#x503C;&#xFF0C;&#x8FD9;&#x6837;&#x540E;&#x7EED;&#x8BBF;&#x95EE;&#x5230;&#x7684;&#x503C;&#x5C31;&#x662F;&#x4FEE;&#x6539;&#x4E4B;&#x540E;&#x7684;&#x503C;&#x3002;</p>
+<h3 id="&#x8BBF;&#x95EE;&#x975E;&#x5C40;&#x90E8;local&#x53D8;&#x91CF;">&#x8BBF;&#x95EE;&#x975E;&#x5C40;&#x90E8;local&#x53D8;&#x91CF;</h3>
+<p>&#x5982;&#x679C;&#x8981;&#x8BBF;&#x95EE;&#x6216;&#x4FEE;&#x6539;&#x975E;&#x5C40;&#x90E8;local&#x53D8;&#x91CF;&#x7684;&#x503C;&#xFF0C;&#x9700;&#x8981;&#x7528;&#x5230;Lua&#x7684;debug&#x5E93;&#x3002;</p>
+<ul>
+<li><code>debug.getupval(func,up)</code>&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x7B2C;up&#x4E2A;&#x4E0A;&#x503C;&#x3002;</li>
+<li><code>debug.setupval(func,up,val)</code>&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x7B2C;up&#x4E2A;&#x4E0A;&#x503C;&#x3002;</li>
+</ul>
+<pre><code class="lang-lua"><span class="hljs-comment">-- A.lua</span>
+<span class="hljs-built_in">module</span>(...,<span class="hljs-built_in">package</span>.seeall)
+
+<span class="hljs-keyword">local</span> val = <span class="hljs-number">10</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printVal</span><span class="hljs-params">()</span></span>
+    <span class="hljs-built_in">print</span>(val)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment">-- hotfix.lua</span>
+<span class="hljs-built_in">require</span> <span class="hljs-string">&quot;A&quot;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getUpValByName</span><span class="hljs-params">(func,name)</span></span>
+    <span class="hljs-keyword">for</span> i =<span class="hljs-number">1</span>,<span class="hljs-built_in">math</span>.huge <span class="hljs-keyword">do</span>
+        <span class="hljs-keyword">local</span> n,v = <span class="hljs-built_in">debug</span>.getupvalue(func,i)
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> n <span class="hljs-keyword">then</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">nil</span>
+        <span class="hljs-keyword">end</span>
+        <span class="hljs-keyword">if</span> n == name <span class="hljs-keyword">then</span>
+            <span class="hljs-keyword">return</span> v
+        <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setUpValByName</span><span class="hljs-params">(func,name,val)</span></span>
+    <span class="hljs-keyword">for</span> i =<span class="hljs-number">1</span>,<span class="hljs-built_in">math</span>.huge <span class="hljs-keyword">do</span>
+        <span class="hljs-keyword">local</span> n,v = <span class="hljs-built_in">debug</span>.getupvalue(func,i)
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> n <span class="hljs-keyword">then</span>
+            <span class="hljs-keyword">return</span>
+        <span class="hljs-keyword">end</span>
+        <span class="hljs-keyword">if</span> n == name <span class="hljs-keyword">then</span>
+            <span class="hljs-built_in">debug</span>.setupvalue(func,i,val)
+        <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+setUpValByName(A.printVal,<span class="hljs-string">&quot;val&quot;</span>,<span class="hljs-number">20</span>)
+
+<span class="hljs-comment">-- main.lua</span>
+<span class="hljs-built_in">require</span> <span class="hljs-string">&quot;A&quot;</span>
+
+A.printVal()
+<span class="hljs-built_in">dofile</span>(<span class="hljs-string">&quot;hotfix.lua&quot;</span>)
+A.printVal()
+</code></pre>
+<h3 id="&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x4E00;&#x4E2A;&#x6A21;&#x5757;">&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x4E00;&#x4E2A;&#x6A21;&#x5757;</h3>
+<p>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#x8BBF;&#x95EE;&#x4E86;&#x8FC7;&#x591A;&#x7684;&#x975E;&#x5C40;&#x90E8;&#x7684;local&#x53D8;&#x91CF;&#xFF0C;&#x8981;&#x91CD;&#x5199;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;&#xFF0C;&#x56E0;&#x4E3A;&#x627E;&#x70ED;&#x66F4;&#x6587;&#x4EF6;&#x4E2D;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x8FD9;&#x4E9B;&#x975E;&#x5C40;&#x90E8;&#x7684;local&#x53D8;&#x91CF;&#x3002;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x6BD4;&#x8F83;&#x5C0F;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x6765;&#x5B9E;&#x73B0;&#x70ED;&#x66F4;&#x3002;</p>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x52A0;&#x8F7D;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x5148;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5728;package.loaded&#x4E2D;&#x5DF2;&#x5B58;&#x5728;&#xFF0C;&#x82E5;&#x5B58;&#x5728;&#x5219;&#x8FD4;&#x56DE;&#x6539;&#x6A21;&#x5757;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x624D;&#x4F1A;&#x52A0;&#x8F7D;(loadfile)&#xFF0C;&#x9632;&#x6B62;&#x91CD;&#x590D;&#x52A0;&#x8F7D;&#x3002;</p>
+<p>&#x6700;&#x7B80;&#x5355;&#x7C97;&#x66B4;&#x7684;&#x70ED;&#x66F4;&#x65B0;&#x5C31;&#x662F;&#x5C06;package.loaded[modelname]&#x7684;&#x503C;&#x7F6E;&#x4E3A;nil&#xFF0C;&#x5F3A;&#x5236;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#xFF1A;</p>
+<p>&#x8FD9;&#x6837;&#x505A;&#x867D;&#x7136;&#x80FD;&#x5B8C;&#x6210;&#x70ED;&#x66F4;&#xFF0C;&#x4F46;&#x95EE;&#x9898;&#x662F;&#x5DF2;&#x7ECF;&#x5F15;&#x7528;&#x4E86;&#x8BE5;&#x6A21;&#x5757;&#x7684;&#x5730;&#x65B9;&#x4E0D;&#x4F1A;&#x5F97;&#x5230;&#x66F4;&#x65B0;&#xFF0C; &#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06;&#x5F15;&#x7528;&#x8BE5;&#x6A21;&#x5757;&#x7684;&#x5730;&#x65B9;&#x7684;&#x503C;&#x4E5F;&#x505A;&#x5BF9;&#x5E94;&#x7684;&#x66F4;&#x65B0;&#x3002;</p>
+<pre><code class="lang-lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reload_module</span><span class="hljs-params">(module_name)</span></span>
+    <span class="hljs-keyword">local</span> old_module = <span class="hljs-built_in">_G</span>[module_name]
+    <span class="hljs-built_in">package</span>.loaded[module_name] = <span class="hljs-keyword">nil</span>
+    <span class="hljs-built_in">require</span> (module_name)
+    <span class="hljs-keyword">local</span> new_module = <span class="hljs-built_in">_G</span>[module_name]
+    <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(new_module) <span class="hljs-keyword">do</span>
+        old_module[k] = v
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-built_in">package</span>.loaded[module_name] = old_module
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>&#x8868;&#x6807;&#x51C6;&#x5E93;&#x63D0;&#x4F9B;&#x4E86;&#x64CD;&#x4F5C;&#x5217;&#x8868;&#x548C;&#x5E8F;&#x5217;&#x7684;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x51FD;&#x6570;&#x3002;</p>
-<ul>
-<li>table.insert(pos,val) &#x5411;&#x5E8F;&#x5217;&#x7684;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5176;&#x4ED6;&#x5143;&#x7D20;&#x4F9D;&#x6B21;&#x540E;&#x79FB;&#x3002;</li>
-<li>table.remove(pos) &#x5220;&#x9664;&#x5E76;&#x8FD4;&#x56DE;&#x5E8F;&#x5217;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x5176;&#x540E;&#x7684;&#x5143;&#x7D20;&#x5411;&#x524D;&#x79FB;&#x52A8;&#x586B;&#x5145;&#x5220;&#x9664;&#x5143;&#x7D20;&#x540E;&#x9020;&#x6210;&#x7684;&#x7A7A;&#x6D1E;&#x3002;</li>
-</ul>
-<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x9664;&#x4E86;&#x5728;&#x672B;&#x5C3E;&#x63D2;&#x5165;&#x548C;&#x5220;&#x9664;&#xFF0C;&#x5176;&#x4F59;&#x60C5;&#x51B5;&#x7684;&#x6548;&#x7387;&#x90FD;&#x4E0D;&#x9AD8;&#xFF0C;&#x9700;&#x8981;&#x8C28;&#x614E;&#x4F7F;&#x7528;&#x3002;</p>
-<h3 id="&#x5143;&#x8868;&#x548C;&#x5143;&#x65B9;&#x6CD5;">&#x5143;&#x8868;&#x548C;&#x5143;&#x65B9;&#x6CD5;</h3>
-<p>&#x901A;&#x5E38;&#xFF0C;Lua&#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x6BCF;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x503C;&#x90FD;&#x6709;&#x4E00;&#x5957;&#x53EF;&#x9884;&#x89C1;&#x7684;&#x64CD;&#x4F5C;&#x96C6;&#x5408;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x6570;&#x5B57;&#x76F8;&#x52A0;&#xFF0C;&#x53EF;&#x4EE5;&#x8FDE;&#x63A5;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5728;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x952E;&#x503C;&#x5BF9;&#x7B49;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x5C06;&#x4E24;&#x4E2A;&#x8868;&#x76F8;&#x52A0;&#xFF0C;&#x65E0;&#x6CD5;&#x5BF9;&#x51FD;&#x6570;&#x4F5C;&#x6BD4;&#x8F83;&#xFF0C;&#x4E5F;&#x65E0;&#x6CD5;&#x8C03;&#x7528;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x9664;&#x975E;&#x4F7F;&#x7528;&#x5143;&#x8868;&#x3002;</p>
-<p>&#x5143;&#x8868;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x4E00;&#x4E2A;&#x503C;&#x5728;&#x9762;&#x5BF9;&#x4E00;&#x4E2A;&#x672A;&#x77E5;&#x64CD;&#x4F5C;&#x65F6;&#x7684;&#x884C;&#x4E3A;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5047;&#x5982;a&#x548C;b&#x90FD;&#x662F;&#x8868;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5143;&#x8868;&#x5B9A;&#x4E49;Lua&#x8BED;&#x8A00;&#x5982;&#x4F55;&#x8BA1;&#x7B97;&#x8868;&#x8FBE;&#x5F0F;a+b&#x3002;&#x5F53;Lua&#x8BED;&#x8A00;&#x8BD5;&#x56FE;&#x5C06;&#x4E24;&#x4E2A;&#x8868;&#x76F8;&#x52A0;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x5148;&#x68C0;&#x67E5;&#x4E24;&#x8005;&#x4E4B;&#x4E00;&#x662F;&#x5426;&#x6709;&#x5143;&#x8868;&#x4E14;&#x8BE5;&#x5143;&#x8868;&#x4E2D;&#x662F;&#x5426;&#x6709;__add&#x5B57;&#x6BB5;&#x3002;&#x5982;&#x679C;Lua&#x8BED;&#x8A00;&#x627E;&#x5230;&#x8BE5;&#x5B57;&#x6BB5;&#xFF0C;&#x5C31;&#x8C03;&#x7528;&#x8BE5;&#x5B57;&#x6BB5;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#xFF0C;&#x5373;&#x6240;&#x8C13;&#x7684;&#x5143;&#x65B9;&#x6CD5;&#x3002;</p>
-<p>&#x5143;&#x8868;&#x4E0D;&#x652F;&#x6301;&#x7EE7;&#x627F;&#x3002;&#x53EF;&#x4EE5;&#x7528;<code>setmetatable(t,val)</code>&#x4E3A;&#x4E00;&#x4E2A;&#x8868;&#x8BBE;&#x7F6E;&#x5143;&#x8868;&#xFF0C;&#x7528;<code>getmetatable(t)</code>&#x65B9;&#x6CD5;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x8868;&#x7684;&#x5143;&#x8868;&#x3002;&#x4E00;&#x4E2A;&#x8868;&#x8FD8;&#x53EF;&#x4EE5;&#x6210;&#x4E3A;&#x5B83;&#x81EA;&#x5DF1;&#x7684;&#x5143;&#x8868;&#x3002;</p>
-<p>&#x5143;&#x8868;&#x5B9A;&#x4E49;&#x4E86;&#x5982;&#x4E0B;&#x4E00;&#x4E9B;&#x65B9;&#x6CD5;&#xFF1A;</p>
-<ul>
-<li>&#x7B97;&#x672F;&#x76F8;&#x5173;&#x7684;&#x5143;&#x65B9;&#x6CD5;<ul>
-<li>__add</li>
-<li>__sub</li>
-<li>__div</li>
-<li>__idiv</li>
-<li>__unm</li>
-<li>__mod</li>
-<li>__pow</li>
-<li>__contact</li>
-</ul>
-</li>
-<li>&#x5173;&#x7CFB;&#x8FD0;&#x7B97;&#x76F8;&#x5173;&#x7684;&#x5143;&#x65B9;&#x6CD5;<ul>
-<li>__eq</li>
-<li>__lt</li>
-<li>__le</li>
-</ul>
-</li>
-<li>&#x5E93;&#x76F8;&#x5173;&#x7684;&#x5143;&#x65B9;&#x6CD5;<ul>
-<li>__tostring</li>
-</ul>
-</li>
-<li>&#x8868;&#x76F8;&#x5173;&#x7684;&#x5143;&#x65B9;&#x6CD5;<ul>
-<li>__index</li>
-<li>__newindex</li>
-</ul>
-</li>
-</ul>
-<h4 id="&#x8868;&#x76F8;&#x5173;&#x7684;&#x5143;&#x65B9;&#x6CD5;">&#x8868;&#x76F8;&#x5173;&#x7684;&#x5143;&#x65B9;&#x6CD5;</h4>
-<p>&#x8868;&#x76F8;&#x5173;&#x7684;&#x5143;&#x65B9;&#x6CD5;&#x662F;Lua&#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x6539;&#x53D8;&#x8868;&#x5728;&#x4E24;&#x79CD;&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#x7684;&#x884C;&#x4E3A;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5373;&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;&#x8868;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5B57;&#x6BB5;&#x3002;</p>
-<p><strong>__index&#x5143;&#x65B9;&#x6CD5;</strong></p>
-<p>&#x5F53;&#x8BBF;&#x95EE;&#x8868;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5B57;&#x6BB5;&#x65F6;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x67E5;&#x627E;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;__index&#x7684;&#x5143;&#x65B9;&#x6CD5;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x5143;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD4;&#x56DE;nil&#xFF0C;&#x5426;&#x5219;&#xFF0C;&#x7531;&#x8FD9;&#x4E2A;&#x5143;&#x65B9;&#x6CD5;&#x6765;&#x63D0;&#x4F9B;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#x3002;</p>
-<p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5143;&#x65B9;&#x6CD5;&#x7684;__index&#x51FD;&#x6570;&#x4E0D;&#x4E00;&#x5B9A;&#x5FC5;&#x987B;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x8FD8;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x8868;&#x3002;&#x5F53;&#x5143;&#x65B9;&#x6CD5;&#x662F;&#x4E00;&#x4E2A;&#x8868;&#x65F6;&#xFF0C;Lua&#x8BED;&#x8A00;&#x5C31;&#x8BBF;&#x95EE;&#x8FD9;&#x4E2A;&#x8868;&#x3002;</p>
-<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>rawget(t,key)</code>&#x65B9;&#x6CD5;&#x7ED5;&#x8FC7;&#x8FD9;&#x5957;&#x673A;&#x5236;&#xFF0C;&#x53EA;&#x8BBF;&#x95EE;&#x539F;&#x59CB;&#x8868;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x3002;</p>
-<p><strong>__newindex&#x5143;&#x65B9;&#x6CD5;</strong></p>
-<p>&#x5F53;&#x5BF9;&#x4E00;&#x4E2A;&#x8868;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x7D22;&#x5F15;&#x8D4B;&#x503C;&#x65F6;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x5C31;&#x4F1A;&#x67E5;&#x627E;<code>__newindex</code>&#x5143;&#x65B9;&#x6CD5;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x5143;&#x65B9;&#x6CD5;&#x5B58;&#x5728;&#xFF0C;&#x90A3;&#x4E48;&#x89E3;&#x91CA;&#x5668;&#x5C31;&#x8C03;&#x7528;&#x5B83;&#x800C;&#x4E0D;&#x6267;&#x884C;&#x8D4B;&#x503C;&#x3002;&#x50CF;&#x5143;&#x65B9;&#x6CD5;<code>__index</code>&#x4E00;&#x6837;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x5143;&#x65B9;&#x6CD5;&#x662F;&#x4E00;&#x4E2A;&#x8868;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x5C31;&#x5728;&#x6B64;&#x8868;&#x4E2D;&#x6267;&#x884C;&#x8D4B;&#x503C;&#xFF0C;&#x800C;&#x4E0D;&#x5728;&#x539F;&#x59CB;&#x7684;&#x8868;&#x4E2D;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#x3002;&#x548C;__index&#x5143;&#x65B9;&#x6CD5;&#x4E00;&#x6837;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>rawset(t,k,v)</code>&#x51FD;&#x6570;&#x6765;&#x7ED5;&#x8FC7;&#x5143;&#x65B9;&#x6CD5;&#x3002;</p>
-<p>&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#x5143;&#x65B9;&#x6CD5;<code>__index</code>&#x548C;<code>__newindex</code>&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;Lua&#x8BED;&#x8A00;&#x4E2D;&#x4E00;&#x4E9B;&#x5F3A;&#x5927;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x4F8B;&#x5982;&#x53EA;&#x8BFB;&#x7684;&#x8868;&#x3001;&#x5177;&#x6709;&#x9ED8;&#x8BA4;&#x503C;&#x7684;&#x8868;&#x548C;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x4E2D;&#x7684;&#x7EE7;&#x627F;&#x3002;</p>
 
                                 
                                 </section>
@@ -656,14 +701,10 @@ a = {x = <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<
 
             
                 
-                <a href="introduce_to_lua.html" class="navigation navigation-prev " aria-label="Previous page: Lua入门">
+                <a href="Lua面向对象.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Lua面向对象">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="Lua面向对象.html" class="navigation navigation-next " aria-label="Next page: Lua面向对象">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -672,7 +713,7 @@ a = {x = <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lua元表","level":"1.2.2.2","depth":3,"next":{"title":"Lua面向对象","level":"1.2.2.3","depth":3,"path":"programming_language/Lua/Lua面向对象.md","ref":"programming_language/Lua/Lua面向对象.md","articles":[]},"previous":{"title":"Lua入门","level":"1.2.2.1","depth":3,"path":"programming_language/Lua/introduce_to_lua.md","ref":"programming_language/Lua/introduce_to_lua.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"programming_language/Lua/Lua元表.md","mtime":"2020-12-06T11:39:06.667Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-10T15:35:02.706Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lua热更新","level":"1.2.2.4","depth":3,"next":{"title":"计算机基础","level":"1.3","depth":1,"ref":"","articles":[{"title":"ASCII、Unicode和UTF-8","level":"1.3.1","depth":2,"path":"basic/ascii_utf_8.md","ref":"basic/ascii_utf_8.md","articles":[]}]},"previous":{"title":"Lua面向对象","level":"1.2.2.3","depth":3,"path":"programming_language/Lua/Lua面向对象.md","ref":"programming_language/Lua/Lua面向对象.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"programming_language/Lua/Lua热更新.md","mtime":"2020-12-10T15:34:56.486Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-10T15:35:02.706Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
