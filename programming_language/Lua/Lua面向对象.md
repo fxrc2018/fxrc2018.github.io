@@ -1,74 +1,18 @@
-## Lua基础
+## Lua面向对象
 
-本文使用的Lua版本5.1.4。
+### 类
 
-### 基本语法
+Lua并没有提供class关键字，Lua只能模拟类。Lua模拟类参考了基于原型的语言的一些做法，在基于原型的语言中，对象不属于类。相反，每个对象可以有一个原型。原型也是一种普通的对象，当对象遇到一个未知操作时会首先在原型中查找。要在这种语言中表示一个类，我们只需要创建一个专门被用作其他对象的原型对象即可。类和原型都是一种组织多个对象间共享行为的方式。
 
-#### 类型与值
+在Lua语言中，要让对象B成为对象A的一个原型，只需要：
 
-Lua语言是一种动态类型语言，在这种语言中没有类型定义，每个值都带有其自身的类型信息。
-
-Lua语言中一共有8种基本类型：
-
-- nil
-空，只有一个nil值的类型，它的主要作用就是与其他所有值进行区分。
-- boolean
-布尔值，只有两个值，true和false。在Lua中，只有false和nil表示假，其他情况都为真，数字0也为真。
-- number
-实数，不论浮点数还是整型数都是number类型。
-- string
-字符串。
-- userdata
-用户数据。
-- function
-函数。
-- thread
-线程。
-- table
-表。
-
-可以使用type函数获得一个值对应的类型名称。
-
-#### 表达式
-
-- 算术运算符
-算术运算符有+（加）、-（减）、*（乘）、/（除）、^（指数）、%（取模）、-（负号）。
-- 关系运算符
-关系运算符有<（小于）、>（大于）、<=（小于等于）、>=（大于等于）、~=（不等于）、==（等于）。
-- 逻辑操作符
-逻辑操作符有and（与）、or（或）和not（非）。
-    - 对于and，当第一个操作数为假时，返回第一个操作数，否则返回第二个操作数。
-    - 对于or，当一个操作数为真时，返回第一个操作数，否则返回第二个操作数。
-- 字符串连接符
-字符串连接操作符“..”用来连接两个字符串，当后一个为其他类型时会转化为字符串。
-- table构造式
-构造式用来创建和初始化table的表达式，是Lua中特有的一种表达式。
 ```lua
-t = {} --空表
-t = {
-    1, --未设置key的项，key会自动冲1开始编号 t[1] = 1
-    x = 1, --t[x] = 1
-    y = 2, --t[]
-    2 --t[2] = 2
-}
+setmetatable(A,{__index = B})
 ```
 
-#### 语句
+在此之后，A就会在B中查找所有它没有的操作。如果把B看做对象A的类，则只不过是术语的一个变化。
 
-- 赋值语句
-Lua中的赋值，直接使用赋值操作符号。当有多个参数赋值时，可以同时给多个参数赋值。
-```lua
-a = 10
-a, b = 10, 20
-a, b = b, a --交换两个变量的值
-```
-
-#### 函数
-
-
-### 面向对象编程
-
-#### 元表
+### 继承
 
 Lua可以有两种方式可以实现继承——设置元表和复制。
 
@@ -139,91 +83,45 @@ print(a2.val)
 
 #### 多重继承
 
-### 环境和模块
-
-### 热更新
-
-#### 重载一个模块
-
-当我们加载一个模块的时候，会先判断是否在package.loaded中已存在，若存在则返回改模块，不存在才会加载(loadfile)，防止重复加载。
-
-最简单粗暴的热更新就是将package.loaded[modelname]的值置为nil，强制重新加载：
-
-这样做虽然能完成热更，但问题是已经引用了该模块的地方不会得到更新， 因此我们需要将引用该模块的地方的值也做对应的更新。
+要实现多重继承，其实就是一个对象中有多个原型，当遇到一个未知的操作时，会在多个原型中进行查找。
 
 ```lua
-function reload_module(module_name)
-    local old_module = _G[module_name]
-    package.loaded[module_name] = nil
-    require (module_name)
-    local new_module = _G[module_name]
-    for k, v in pairs(new_module) do
-        old_module[k] = v
+local function search(k, plist)
+    for i = 1, #plist do
+        local v = plist[i][k] -- 尝试i个超类
+        if v then
+            return v
+        end
     end
-    package.loaded[module_name] = old_module
 end
+
+function createClass(...)
+    local c = {} -- 新类
+    local parents = {...} -- 父类列表
+
+    -- 在父类列表中查找类缺失的方法
+    setmetatable(c,{__index = function (t, k)
+        return search(k, parents)
+    end})
+
+    -- 将c作为其实例的元表
+    c.__index = c
+
+    -- 为新类定义一个新的构造函数
+    function c:new(o)
+        o = o or {}
+        setmetatable(o,c)
+        return o
+    end
+
+    return c
+end
+
+A = {a = 10}
+B = {b = 20}
+AB = createClass(A,B)
+ab = AB:new()
+print(ab.a) -- 对a的访问经过了两次查找 c c.__index
+print(ab.b)
 ```
-
-#### 使用loadstring动态更新一个函数
-
-### 高级特性
-
-#### 协程
-
-Lua语言中协程相关的所有函数都被放在表coroutine中。函数create用于创建新协程，该函数只有一个参数，即协程要执行的代码的函数。函数create返回一个“thread”类型的值，即新协程。
-
-一个协程有以下四种状态，即挂起、运行、正常和死亡。函数status来检查协程的状态。刚创建的协程的状态为挂起。函数resume用于启动或再次启动一个协程的执行，并将其状态由挂起改为运行。函数yeild可以让一个运行中的协程挂起自己，直到协程被唤醒，然后继续执行直到遇到下一个yeild或执行结束。函数resume有返回值，第一个返回为true表示没有错误，之后的返回值对应函数yeild的参数。
-
-```lua
-co = coroutine.create( function()
-    for i = 1, 3 do 
-        coroutine.yield(i)
-    end
-end
-)
-
-print(coroutine.status(co)) --协程的状态挂起
-for i = 1,5 do
-    local flag,res = coroutine.resume(co)
-    if flag then
-        print(res) --i=4时执行到最后，没有res
-    else
-        --在一个已死亡的协程上调用resume会返回false，并返回一个提示字符串
-        print(coroutine.status(co))
-        print(res) 
-    end
-end
-```
-
-可以用协程来实现生产者-消费者模式。
-
-```lua
-function producer()
-    while true do 
-        local x = io.read()
-        send(x)
-    end
-end
-
-pco = coroutine.create( producer )
-
-function consumer()
-    while true do 
-        local x = receive()
-        io.write(x, "\n")
-    end
-end
-
-function receive()
-    local status, value = coroutine.resume(pco)
-    return value
-end
-
-function send(x)
-    coroutine.yield( x )
-end
-
-consumer()
-```
-
 
