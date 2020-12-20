@@ -15,6 +15,7 @@
         * [Lua元表](/programming_language/Lua/Lua元表.md)
         * [Lua面向对象](/programming_language/Lua/Lua面向对象.md)
         * [Lua热更新](/programming_language/Lua/Lua热更新.md)
+        * [环境和模块](/programming_language/Lua/环境和模块.md)
 
 * [计算机基础]()
     * [ASCII、Unicode和UTF-8](/basic/ascii_utf_8.md)
@@ -34,6 +35,7 @@
 
 * [图形学]()
     * [向量和矩阵](/game_development/向量和矩阵.md)
-
+    * [tinyrender]()
+        *[画线](/game_development/tinyrender/画线.md)
     <!-- * [协同函数](/unity/coroutine.md) -->
     <!-- * [资源加载](/unity/resource_loading.md) -->
