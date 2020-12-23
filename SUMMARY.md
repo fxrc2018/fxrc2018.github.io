@@ -35,6 +35,6 @@
     * [Boids算法](/game_development/Boids算法.md)
 
 * [图形学]()
-    * [点、线和三角形](/game_development/点、线和三角形.md)
-    * [深度缓冲](/game_development/深度缓冲.md)
-    * [变换和投影](/game_development/变换和投影.md)
+    * [点、线和三角形](/game_development/CG/点、线和三角形.md)
+    * [深度缓冲](/game_development/CG/深度缓冲.md)
+    * [变换和投影](/game_development/CG/变换和投影.md)

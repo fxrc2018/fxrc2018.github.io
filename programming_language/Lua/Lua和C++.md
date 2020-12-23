@@ -22,7 +22,8 @@ int main(int argc, char const *argv[])
     lua_State *L = luaL_newstate();
     luaL_openlibs(L);
 
-    error = luaL_loadstring(L,"dofile(\"D:/Project/VSCode/LuaCpp/main.lua\")") || lua_pcall(L,0,0,0);
+    error = luaL_loadstring(L,"dofile(\"D:/Project/VSCode/LuaCpp/main.lua\")") 
+        || lua_pcall(L,0,0,0);
     if(error){
         cout<<lua_tostring(L,-1)<<endl;
     }
@@ -31,6 +32,7 @@ int main(int argc, char const *argv[])
     system("pause");
     return 0;
 }
+
 ```
 
 `main.lua`的代码如下。
