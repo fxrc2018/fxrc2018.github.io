@@ -21,6 +21,9 @@
 * [计算机基础]()
     * [ASCII、Unicode和UTF-8](/basic/ascii_utf_8.md)
 
+* [CSAPP笔记]()
+    * [链接](/CSAPP/链接.md)
+
 * [算法]()
     * [链表](/algorithm/链表.md)
     * [动态数组](/algorithm/动态数组.md)
