@@ -163,3 +163,146 @@ print("mulib.cppAdd",mylib.cppAdd(1,2))
 这里有两点需要注意，首先是C++中导出的函数一定要使用`extern "C"`，不然会C++会应用函数重载的机制，更改函数名，导致链接失效。其次是通过Lua和C++通过名称进行绑定，一定要检查名字是否正确。
 
 ### 导出C++类到Lua
+
+仔细想想，类方法和普通方法的主要区别在于类方法多了一个对象，所以，将这个参数显式表示出来，就可以将类方法转化为普通方法。这样的调用看上去有点怪，但想想Lua中的类，使用`:`调用会将第前面的对象当做第一个参数传入。
+
+C数据结构，在Lua中用userdata表示，我们可以为userdata设置元表，然后使用`:`来调用元表中的方法。
+
+到这里，导出C++类的核心思想就说完了，下面看看具体的代码。
+
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+extern "C"{
+    #include <lua.h>
+    #include <lualib.h>
+    #include <lauxlib.h>
+}
+
+class Person{
+public:
+    void add(string name, int age){
+        arr.push_back(make_pair(name,age));
+    }
+
+    void sortByAge(){
+        sort(arr.begin(),arr.end(),
+            [](const pair<string,int> &p1, const pair<string,int> &p2)->bool{
+                if(p1.second < p2.second){
+                    return true;
+                }else if(p1.second > p2.second){
+                    return false;
+                }else{
+                    return p1.first < p2.first;
+                }
+            }
+        );
+    }
+
+    pair<string,int> geti(int idx){
+        if(idx > arr.size()){
+            return make_pair("",0);
+        }
+        return arr[idx];
+    }
+
+    int getSize(){
+        return arr.size();
+    }
+
+private:
+    vector<pair<string,int>> arr;
+};
+
+extern "C"{
+
+static int newperson(lua_State *L){
+    Person *person;
+    void* mem = lua_newuserdata(L,sizeof(Person));
+    person = new (mem)Person(); //调用初始化函数
+    luaL_getmetatable(L,"mylib.person"); //设置元表
+    lua_setmetatable(L,-2);
+    return 1; //userdata已经在栈中了
+}
+
+static int person_add(lua_State *L){
+    Person *person = (Person *)lua_touserdata(L,1);
+    const char *name = luaL_checkstring(L,2);
+    int age = luaL_checkinteger(L,3);
+    person->add(string(name),age);
+    return 0;
+}
+
+static int person_sortByAge(lua_State *L){
+    Person *person = (Person *)lua_touserdata(L,1);
+    person->sortByAge();
+    return 0;
+}
+
+static int person_getSize(lua_State *L){
+    Person *person = (Person *)lua_touserdata(L,1);
+    int size = person->getSize();
+    lua_pushinteger(L,size);
+    return 1;
+}
+
+static int person_geti(lua_State *L){
+    Person *person = (Person *)lua_touserdata(L,1);
+    int idx = luaL_checkinteger(L,2);
+    pair<string,int> p = person->geti(idx);
+    lua_pushstring(L,p.first.c_str());
+    lua_pushinteger(L,p.second);
+    return 2;
+}
+
+static const struct luaL_Reg mylib_f[] ={
+    {"newperson", newperson},
+    {NULL,NULL}
+};
+
+static const struct luaL_Reg mylib_m[] ={
+    {"add", person_add},
+    {"geti",person_geti},
+    {"size",person_getSize},
+    {"sortByAge",person_sortByAge},
+    {NULL,NULL}
+};
+
+
+int luaopen_mylib(lua_State *L){
+    luaL_newmetatable(L,"mylib.person"); //存储在注册表区域，该区域只有C能够访问
+    lua_pushvalue(L,-1); //复制元表
+    lua_setfield(L,-2,"__index"); //mt.__index = mt
+    luaL_register(L,NULL,mylib_m); //设置元方法
+    luaL_register(L,"mylib",mylib_f);
+    return 1; //表示将这个表返回给lua
+}
+}
+```
+
+这里的`Person`类比较简单，使用了STL库来实现。可以看出，为了导出这个类，要将类中的每个方法都写一遍，代码重复度比较高，在实际的开发，通常使用一些工具来自动生成这个类。在Lua中可以用下面的代码调用。
+
+```lua
+require "mylib"
+p = mylib.newperson()
+m = getmetatable(p)
+if not m then
+    print("error:metatable is nil")
+else
+    p:add("a",3)
+    p:add("b",2)
+    p:add("c",1)
+    p:add("da",1)
+    p:add("db",1)
+    p:sortByAge()
+    local len = p:size()
+    for i = 0,len-1 do
+        local name,age = p:geti(i)
+        print(name,age)
+    end
+end
+```

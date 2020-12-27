@@ -750,6 +750,141 @@ lua_setglobal(L,<span class="hljs-string">&quot;cppAdd&quot;</span>);
 </code></pre>
 <p>&#x8FD9;&#x91CC;&#x6709;&#x4E24;&#x70B9;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x9996;&#x5148;&#x662F;C++&#x4E2D;&#x5BFC;&#x51FA;&#x7684;&#x51FD;&#x6570;&#x4E00;&#x5B9A;&#x8981;&#x4F7F;&#x7528;<code>extern &quot;C&quot;</code>&#xFF0C;&#x4E0D;&#x7136;&#x4F1A;C++&#x4F1A;&#x5E94;&#x7528;&#x51FD;&#x6570;&#x91CD;&#x8F7D;&#x7684;&#x673A;&#x5236;&#xFF0C;&#x66F4;&#x6539;&#x51FD;&#x6570;&#x540D;&#xFF0C;&#x5BFC;&#x81F4;&#x94FE;&#x63A5;&#x5931;&#x6548;&#x3002;&#x5176;&#x6B21;&#x662F;&#x901A;&#x8FC7;Lua&#x548C;C++&#x901A;&#x8FC7;&#x540D;&#x79F0;&#x8FDB;&#x884C;&#x7ED1;&#x5B9A;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x68C0;&#x67E5;&#x540D;&#x5B57;&#x662F;&#x5426;&#x6B63;&#x786E;&#x3002;</p>
 <h3 id="&#x5BFC;&#x51FA;c&#x7C7B;&#x5230;lua">&#x5BFC;&#x51FA;C++&#x7C7B;&#x5230;Lua</h3>
+<p>&#x4ED4;&#x7EC6;&#x60F3;&#x60F3;&#xFF0C;&#x7C7B;&#x65B9;&#x6CD5;&#x548C;&#x666E;&#x901A;&#x65B9;&#x6CD5;&#x7684;&#x4E3B;&#x8981;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x7C7B;&#x65B9;&#x6CD5;&#x591A;&#x4E86;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x5C06;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x663E;&#x5F0F;&#x8868;&#x793A;&#x51FA;&#x6765;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5C06;&#x7C7B;&#x65B9;&#x6CD5;&#x8F6C;&#x5316;&#x4E3A;&#x666E;&#x901A;&#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x6837;&#x7684;&#x8C03;&#x7528;&#x770B;&#x4E0A;&#x53BB;&#x6709;&#x70B9;&#x602A;&#xFF0C;&#x4F46;&#x60F3;&#x60F3;Lua&#x4E2D;&#x7684;&#x7C7B;&#xFF0C;&#x4F7F;&#x7528;<code>:</code>&#x8C03;&#x7528;&#x4F1A;&#x5C06;&#x7B2C;&#x524D;&#x9762;&#x7684;&#x5BF9;&#x8C61;&#x5F53;&#x505A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x3002;</p>
+<p>C&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5728;Lua&#x4E2D;&#x7528;userdata&#x8868;&#x793A;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E3A;userdata&#x8BBE;&#x7F6E;&#x5143;&#x8868;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;<code>:</code>&#x6765;&#x8C03;&#x7528;&#x5143;&#x8868;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x5230;&#x8FD9;&#x91CC;&#xFF0C;&#x5BFC;&#x51FA;C++&#x7C7B;&#x7684;&#x6838;&#x5FC3;&#x601D;&#x60F3;&#x5C31;&#x8BF4;&#x5B8C;&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x770B;&#x770B;&#x5177;&#x4F53;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C&quot;</span>{
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;lua.h&gt;</span></span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;lualib.h&gt;</span></span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;lauxlib.h&gt;</span></span>
+}
+
+<span class="hljs-keyword">class</span> Person{
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-built_in">string</span> name, <span class="hljs-keyword">int</span> age)</span></span>{
+        arr.push_back(make_pair(name,age));
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sortByAge</span><span class="hljs-params">()</span></span>{
+        sort(arr.begin(),arr.end(),
+            [](<span class="hljs-keyword">const</span> pair&lt;<span class="hljs-built_in">string</span>,<span class="hljs-keyword">int</span>&gt; &amp;p1, <span class="hljs-keyword">const</span> pair&lt;<span class="hljs-built_in">string</span>,<span class="hljs-keyword">int</span>&gt; &amp;p2)-&gt;<span class="hljs-keyword">bool</span>{
+                <span class="hljs-keyword">if</span>(p1.second &lt; p2.second){
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+                }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(p1.second &gt; p2.second){
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                }<span class="hljs-keyword">else</span>{
+                    <span class="hljs-keyword">return</span> p1.first &lt; p2.first;
+                }
+            }
+        );
+    }
+
+    pair&lt;<span class="hljs-built_in">string</span>,<span class="hljs-keyword">int</span>&gt; geti(<span class="hljs-keyword">int</span> idx){
+        <span class="hljs-keyword">if</span>(idx &gt; arr.size()){
+            <span class="hljs-keyword">return</span> make_pair(<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-number">0</span>);
+        }
+        <span class="hljs-keyword">return</span> arr[idx];
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getSize</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> arr.size();
+    }
+
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-built_in">string</span>,<span class="hljs-keyword">int</span>&gt;&gt; arr;
+};
+
+<span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C&quot;</span>{
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">newperson</span><span class="hljs-params">(lua_State *L)</span></span>{
+    Person *person;
+    <span class="hljs-keyword">void</span>* mem = lua_newuserdata(L,<span class="hljs-keyword">sizeof</span>(Person));
+    person = <span class="hljs-keyword">new</span> (mem)Person(); <span class="hljs-comment">//&#x8C03;&#x7528;&#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;</span>
+    luaL_getmetatable(L,<span class="hljs-string">&quot;mylib.person&quot;</span>); <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x5143;&#x8868;</span>
+    lua_setmetatable(L,<span class="hljs-number">-2</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; <span class="hljs-comment">//userdata&#x5DF2;&#x7ECF;&#x5728;&#x6808;&#x4E2D;&#x4E86;</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">person_add</span><span class="hljs-params">(lua_State *L)</span></span>{
+    Person *person = (Person *)lua_touserdata(L,<span class="hljs-number">1</span>);
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *name = luaL_checkstring(L,<span class="hljs-number">2</span>);
+    <span class="hljs-keyword">int</span> age = luaL_checkinteger(L,<span class="hljs-number">3</span>);
+    person-&gt;add(<span class="hljs-built_in">string</span>(name),age);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">person_sortByAge</span><span class="hljs-params">(lua_State *L)</span></span>{
+    Person *person = (Person *)lua_touserdata(L,<span class="hljs-number">1</span>);
+    person-&gt;sortByAge();
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">person_getSize</span><span class="hljs-params">(lua_State *L)</span></span>{
+    Person *person = (Person *)lua_touserdata(L,<span class="hljs-number">1</span>);
+    <span class="hljs-keyword">int</span> size = person-&gt;getSize();
+    lua_pushinteger(L,size);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">person_geti</span><span class="hljs-params">(lua_State *L)</span></span>{
+    Person *person = (Person *)lua_touserdata(L,<span class="hljs-number">1</span>);
+    <span class="hljs-keyword">int</span> idx = luaL_checkinteger(L,<span class="hljs-number">2</span>);
+    pair&lt;<span class="hljs-built_in">string</span>,<span class="hljs-keyword">int</span>&gt; p = person-&gt;geti(idx);
+    lua_pushstring(L,p.first.c_str());
+    lua_pushinteger(L,p.second);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;
+}
+
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> luaL_Reg mylib_f[] ={
+    {<span class="hljs-string">&quot;newperson&quot;</span>, newperson},
+    {<span class="hljs-literal">NULL</span>,<span class="hljs-literal">NULL</span>}
+};
+
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> luaL_Reg mylib_m[] ={
+    {<span class="hljs-string">&quot;add&quot;</span>, person_add},
+    {<span class="hljs-string">&quot;geti&quot;</span>,person_geti},
+    {<span class="hljs-string">&quot;size&quot;</span>,person_getSize},
+    {<span class="hljs-string">&quot;sortByAge&quot;</span>,person_sortByAge},
+    {<span class="hljs-literal">NULL</span>,<span class="hljs-literal">NULL</span>}
+};
+
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">luaopen_mylib</span><span class="hljs-params">(lua_State *L)</span></span>{
+    luaL_newmetatable(L,<span class="hljs-string">&quot;mylib.person&quot;</span>); <span class="hljs-comment">//&#x5B58;&#x50A8;&#x5728;&#x6CE8;&#x518C;&#x8868;&#x533A;&#x57DF;&#xFF0C;&#x8BE5;&#x533A;&#x57DF;&#x53EA;&#x6709;C&#x80FD;&#x591F;&#x8BBF;&#x95EE;</span>
+    lua_pushvalue(L,<span class="hljs-number">-1</span>); <span class="hljs-comment">//&#x590D;&#x5236;&#x5143;&#x8868;</span>
+    lua_setfield(L,<span class="hljs-number">-2</span>,<span class="hljs-string">&quot;__index&quot;</span>); <span class="hljs-comment">//mt.__index = mt</span>
+    luaL_register(L,<span class="hljs-literal">NULL</span>,mylib_m); <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x5143;&#x65B9;&#x6CD5;</span>
+    luaL_register(L,<span class="hljs-string">&quot;mylib&quot;</span>,mylib_f);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; <span class="hljs-comment">//&#x8868;&#x793A;&#x5C06;&#x8FD9;&#x4E2A;&#x8868;&#x8FD4;&#x56DE;&#x7ED9;lua</span>
+}
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x7684;<code>Person</code>&#x7C7B;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x4F7F;&#x7528;&#x4E86;STL&#x5E93;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x4E3A;&#x4E86;&#x5BFC;&#x51FA;&#x8FD9;&#x4E2A;&#x7C7B;&#xFF0C;&#x8981;&#x5C06;&#x7C7B;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x65B9;&#x6CD5;&#x90FD;&#x5199;&#x4E00;&#x904D;&#xFF0C;&#x4EE3;&#x7801;&#x91CD;&#x590D;&#x5EA6;&#x6BD4;&#x8F83;&#x9AD8;&#xFF0C;&#x5728;&#x5B9E;&#x9645;&#x7684;&#x5F00;&#x53D1;&#xFF0C;&#x901A;&#x5E38;&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x5DE5;&#x5177;&#x6765;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x8FD9;&#x4E2A;&#x7C7B;&#x3002;&#x5728;Lua&#x4E2D;&#x53EF;&#x4EE5;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x8C03;&#x7528;&#x3002;</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">require</span> <span class="hljs-string">&quot;mylib&quot;</span>
+p = mylib.newperson()
+m = <span class="hljs-built_in">getmetatable</span>(p)
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> m <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;error:metatable is nil&quot;</span>)
+<span class="hljs-keyword">else</span>
+    p:add(<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-number">3</span>)
+    p:add(<span class="hljs-string">&quot;b&quot;</span>,<span class="hljs-number">2</span>)
+    p:add(<span class="hljs-string">&quot;c&quot;</span>,<span class="hljs-number">1</span>)
+    p:add(<span class="hljs-string">&quot;da&quot;</span>,<span class="hljs-number">1</span>)
+    p:add(<span class="hljs-string">&quot;db&quot;</span>,<span class="hljs-number">1</span>)
+    p:sortByAge()
+    <span class="hljs-keyword">local</span> len = p:size()
+    <span class="hljs-keyword">for</span> i = <span class="hljs-number">0</span>,len<span class="hljs-number">-1</span> <span class="hljs-keyword">do</span>
+        <span class="hljs-keyword">local</span> name,age = p:geti(i)
+        <span class="hljs-built_in">print</span>(name,age)
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
 
                                 
                                 </section>
@@ -789,7 +924,7 @@ lua_setglobal(L,<span class="hljs-string">&quot;cppAdd&quot;</span>);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lua和C++","level":"1.2.2.5","depth":3,"next":{"title":"计算机基础","level":"1.3","depth":1,"ref":"","articles":[{"title":"ASCII、Unicode和UTF-8","level":"1.3.1","depth":2,"path":"basic/ascii_utf_8.md","ref":"basic/ascii_utf_8.md","articles":[]}]},"previous":{"title":"环境和模块","level":"1.2.2.4","depth":3,"path":"programming_language/Lua/环境和模块.md","ref":"programming_language/Lua/环境和模块.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"programming_language/Lua/Lua和C++.md","mtime":"2020-12-24T14:41:29.962Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-24T14:42:49.572Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lua和C++","level":"1.2.2.5","depth":3,"next":{"title":"计算机基础","level":"1.3","depth":1,"ref":"","articles":[{"title":"ASCII、Unicode和UTF-8","level":"1.3.1","depth":2,"path":"basic/ascii_utf_8.md","ref":"basic/ascii_utf_8.md","articles":[]}]},"previous":{"title":"环境和模块","level":"1.2.2.4","depth":3,"path":"programming_language/Lua/环境和模块.md","ref":"programming_language/Lua/环境和模块.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"programming_language/Lua/Lua和C++.md","mtime":"2020-12-27T05:00:10.640Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-27T05:16:00.257Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
