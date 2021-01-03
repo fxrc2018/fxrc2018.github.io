@@ -39,6 +39,7 @@
     * [Boids算法](/game_development/Boids算法.md)
 
 * [图形学]()
+    * [向量和矩阵](/game_development/CG/向量和矩阵.md)
     * [点、线和三角形](/game_development/CG/点、线和三角形.md)
     * [深度缓冲](/game_development/CG/深度缓冲.md)
-    * [变换和投影](/game_development/CG/变换和投影.md)
+    * [顶点变换](/game_development/CG/顶点变换.md)
