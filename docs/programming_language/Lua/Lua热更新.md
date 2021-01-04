@@ -124,11 +124,14 @@ A.printVal()
 function reload_module(module_name)
     local old_module = _G[module_name]
     package.loaded[module_name] = nil
+    -- 暂时不考虑a.b的形式，如果不设置为nil，再次加载会在同一个表
+    _G[module_name] = nil 
     require (module_name)
     local new_module = _G[module_name]
     for k, v in pairs(new_module) do
         old_module[k] = v
     end
     package.loaded[module_name] = old_module
-end
+    _G[module_name] = old_module
+end 
 ```
