@@ -33,6 +33,7 @@
     * [排序](/algorithm/sort.md)
     * [动态规划](/algorithm/DP.md)
     * [哈希表](/algorithm/哈希表.md)
+    * [并查集](/algorithm/并查集.md)
 
 * [游戏开发]()
     * [游戏程序三要素](/game_development/game_loop.md)
