@@ -25,7 +25,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -674,70 +674,70 @@
                                 <h2 id="&#x53EF;&#x53D8;&#x957F;&#x53C2;&#x6570;&#x4E0E;&#x591A;&#x8FD4;&#x56DE;&#x503C;">&#x53EF;&#x53D8;&#x957F;&#x53C2;&#x6570;&#x4E0E;&#x591A;&#x8FD4;&#x56DE;&#x503C;</h2>
 <h3 id="&#x53D8;&#x957F;&#x53C2;&#x6570;">&#x53D8;&#x957F;&#x53C2;&#x6570;</h3>
 <p>&#x5982;&#x679C;&#x4E0D;&#x4E86;&#x89E3;&#x5BF9;&#x5E95;&#x5C42;&#x7406;&#x89E3;&#xFF0C;&#x5BF9;&#x4E8E;printf&#x548C;scanf&#x7684;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x4F1A;&#x6BD4;&#x8F83;&#x60CA;&#x8BB6;&#x3002;&#x5173;&#x952E;&#x7684;&#x95EE;&#x9898;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5982;&#x4F55;&#x5F97;&#x5230;&#x540E;&#x9762;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x91CC;&#x4E3A;&#x4E86;&#x7B80;&#x5355;&#x8D77;&#x89C1;&#xFF0C;&#x6211;&#x4EEC;&#x5047;&#x8BBE;&#x6240;&#x6709;&#x7684;&#x53C2;&#x6570;&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x6808;&#x6765;&#x4F20;&#x9012;&#x7684;&#xFF0C;&#x8FD9;&#x6837;&#xFF0C;&#x5927;&#x81F4;&#x7684;&#x601D;&#x8DEF;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF0C;&#x901A;&#x8FC7;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x4E86;&#x53C2;&#x6570;&#x7684;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#xFF0C;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x8BB0;&#x5F55;&#xFF0C;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x6839;&#x636E;&#x683C;&#x5F0F;&#x8F6C;&#x6362;&#x7B26;&#x7684;&#x8BF4;&#x660E;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x4E86;&#x4E0B;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x5927;&#x5C0F;&#x548C;&#x683C;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6307;&#x9488;&#x7684;&#x504F;&#x79FB;&#x548C;&#x89E3;&#x5F15;&#x7528;&#x5F97;&#x5230;&#x8FD9;&#x4E2A;&#x503C;&#x3002;&#x5982;&#x679C;&#x662F;&#x901A;&#x8FC7;&#x5BC4;&#x5B58;&#x5668;&#x4F20;&#x503C;&#xFF0C;&#x4F30;&#x8BA1;&#x8981;&#x590D;&#x6742;&#x4E00;&#x70B9;&#xFF0C;&#x4F46;&#x662F;&#x601D;&#x60F3;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;&#x5728;&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x901A;&#x7528;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4E0B;&#x9762;&#x4EE5;&#x4E00;&#x4E2A;minprintf&#x51FD;&#x6570;&#x6765;&#x8BF4;&#x660E;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#xFF1A;</p>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdarg.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">minprintf</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *fmt,...)</span></span>{
-    va_list ap;<span class="hljs-comment">/* &#x4F9D;&#x6B21;&#x6307;&#x5411;&#x5404;&#x4E2A;&#x53C2;&#x6570; */</span>
-    <span class="hljs-keyword">int</span> ival;
-    <span class="hljs-keyword">double</span> dval;
-    <span class="hljs-keyword">char</span> *sval;
-    va_start(ap,fmt);<span class="hljs-comment">/* &#x5F97;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x4F4D;&#x7F6E; */</span>
-    <span class="hljs-keyword">while</span>(*fmt){
-        <span class="hljs-keyword">if</span>(*fmt != <span class="hljs-string">&apos;%&apos;</span>){
-            <span class="hljs-built_in">putchar</span>(*fmt);
-            fmt++;
-            <span class="hljs-keyword">continue</span>;
-        }
-        <span class="hljs-keyword">switch</span>(*++fmt){
-            <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;d&apos;</span>:
-                <span class="hljs-comment">/* &#x6839;&#x636E;&#x7C7B;&#x578B;&#x548C;&#x6307;&#x9488;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x53D6;&#x5F97;&#x4E0B;&#x4E00;&#x4E2A;&#x53C2;&#x6570; */</span>
-                ival = va_arg(ap,<span class="hljs-keyword">int</span>);
-                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>,ival);
-                <span class="hljs-keyword">break</span>;
-            <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;f&apos;</span>:
-                dval = va_arg(ap,<span class="hljs-keyword">double</span>);
-                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%f&quot;</span>,dval);
-                <span class="hljs-keyword">break</span>;
-            <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;s&apos;</span>:
-                sval = va_arg(ap,<span class="hljs-keyword">char</span> *);
-                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s&quot;</span>,sval);
-                <span class="hljs-keyword">break</span>;
-            <span class="hljs-keyword">default</span>:
-                <span class="hljs-built_in">putchar</span>(*fmt);
-                <span class="hljs-keyword">break</span>;
-        }
-        fmt++;
-    }
-    va_end(ap);
-}
+<pre class="language-"><code class="lang-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdarg.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdlib.h&gt;</span></span>
+<span class="token keyword">void</span> <span class="token function">minprintf</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>fmt<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    va_list ap<span class="token punctuation">;</span><span class="token comment">/* &#x4F9D;&#x6B21;&#x6307;&#x5411;&#x5404;&#x4E2A;&#x53C2;&#x6570; */</span>
+    <span class="token keyword">int</span> ival<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> dval<span class="token punctuation">;</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>sval<span class="token punctuation">;</span>
+    <span class="token function">va_start</span><span class="token punctuation">(</span>ap<span class="token punctuation">,</span>fmt<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">/* &#x5F97;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x4F4D;&#x7F6E; */</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">*</span>fmt<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">*</span>fmt <span class="token operator">!=</span> <span class="token string">&apos;%&apos;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token function">putchar</span><span class="token punctuation">(</span><span class="token operator">*</span>fmt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            fmt<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">switch</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token operator">++</span>fmt<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token string">&apos;d&apos;</span><span class="token operator">:</span>
+                <span class="token comment">/* &#x6839;&#x636E;&#x7C7B;&#x578B;&#x548C;&#x6307;&#x9488;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x53D6;&#x5F97;&#x4E0B;&#x4E00;&#x4E2A;&#x53C2;&#x6570; */</span>
+                ival <span class="token operator">=</span> <span class="token function">va_arg</span><span class="token punctuation">(</span>ap<span class="token punctuation">,</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;%d&quot;</span><span class="token punctuation">,</span>ival<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">&apos;f&apos;</span><span class="token operator">:</span>
+                dval <span class="token operator">=</span> <span class="token function">va_arg</span><span class="token punctuation">(</span>ap<span class="token punctuation">,</span><span class="token keyword">double</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;%f&quot;</span><span class="token punctuation">,</span>dval<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">&apos;s&apos;</span><span class="token operator">:</span>
+                sval <span class="token operator">=</span> <span class="token function">va_arg</span><span class="token punctuation">(</span>ap<span class="token punctuation">,</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;%s&quot;</span><span class="token punctuation">,</span>sval<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">default</span><span class="token operator">:</span>
+                <span class="token function">putchar</span><span class="token punctuation">(</span><span class="token operator">*</span>fmt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        fmt<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">va_end</span><span class="token punctuation">(</span>ap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> <span class="hljs-keyword">const</span> *argv[])</span>
-</span>{
-    <span class="hljs-keyword">int</span> ival = <span class="hljs-number">10</span>;
-    <span class="hljs-keyword">double</span> dval = <span class="hljs-number">12.34</span>;
-    <span class="hljs-keyword">char</span> *sval = <span class="hljs-string">&quot;hello world&quot;</span>;
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;ival = %d,dval = %f,sval = %s\n&quot;</span>,ival,dval,sval);
-    minprintf(<span class="hljs-string">&quot;ival = %d,dval = %f,sval = %s\n&quot;</span>,ival,dval,sval);
-    system(<span class="hljs-string">&quot;pause&quot;</span>);
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> ival <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">double</span> dval <span class="token operator">=</span> <span class="token number">12.34</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>sval <span class="token operator">=</span> <span class="token string">&quot;hello world&quot;</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;ival = %d,dval = %f,sval = %s\n&quot;</span><span class="token punctuation">,</span>ival<span class="token punctuation">,</span>dval<span class="token punctuation">,</span>sval<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">minprintf</span><span class="token punctuation">(</span><span class="token string">&quot;ival = %d,dval = %f,sval = %s\n&quot;</span><span class="token punctuation">,</span>ival<span class="token punctuation">,</span>dval<span class="token punctuation">,</span>sval<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">&quot;pause&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>&#x4ECE;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;C&#x8BED;&#x8A00;&#x7684;&#x53EF;&#x53D8;&#x957F;&#x53C2;&#x6570;&#x4F7F;&#x7528;&#x8303;&#x56F4;&#x6BD4;&#x8F83;&#x53D7;&#x9650;&#xFF0C;&#x9996;&#x5148;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x53C2;&#x6570;&#x538B;&#x6808;&#xFF0C;&#x7136;&#x540E;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7528;&#x4E8E;&#x89E3;&#x6790;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
 <h3 id="&#x591A;&#x8FD4;&#x56DE;&#x503C;">&#x591A;&#x8FD4;&#x56DE;&#x503C;</h3>
 <p>&#x8981;&#x5728;C&#x8BED;&#x8A00;&#x7684;&#x51FD;&#x6570;&#x4E2D;&#x8FD4;&#x56DE;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x901A;&#x8FC7;&#x7ED3;&#x6784;&#x4F53;&#xFF0C;&#x5C06;&#x591A;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;&#x6253;&#x5305;&#x6210;&#x4E00;&#x4E2A;&#xFF1B;&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x6307;&#x9488;&#xFF0C;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x4F20;&#x51FA;&#x53C2;&#x6570;&#x3002;</p>
 <h3 id="&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x7684;&#x5B9E;&#x73B0;">&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x7684;&#x5B9E;&#x73B0;</h3>
 <p>&#x5176;&#x5B9E;&#x53EF;&#x53D8;&#x957F;&#x53C2;&#x6570;&#x548C;&#x591A;&#x8FD4;&#x56DE;&#x503C;&#x5728;C&#x8BED;&#x8A00;&#x4E2D;&#x7528;&#x5F97;&#x5E76;&#x4E0D;&#x591A;&#xFF0C;&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF0C;&#x5982;Python&#xFF0C;&#x80FD;&#x591F;&#x66F4;&#x52A0;&#x7075;&#x6D3B;&#x5730;&#x63D0;&#x4F9B;&#x53EF;&#x53D8;&#x53C2;&#x6570;&#x548C;&#x591A;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x7279;&#x6027;&#x3002;&#x5176;&#x5B9E;&#x8FD9;&#x5176;&#x4E2D;&#x5E76;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x5F88;&#x9AD8;&#x8D85;&#x7684;&#x6280;&#x5DE7;&#xFF0C;&#x5C31;&#x662F;&#x7F16;&#x8BD1;&#x5668;&#x6216;&#x89E3;&#x91CA;&#x5668;&#x672C;&#x8EAB;&#x505A;&#x4E86;&#x81EA;&#x52A8;&#x6253;&#x5305;&#x548C;&#x81EA;&#x52A8;&#x89E3;&#x5305;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x4EE5;Python&#x4E3A;&#x4F8B;&#xFF0C;&#x5F53;&#x58F0;&#x660E;&#x6709;&#x53EF;&#x53D8;&#x957F;&#x53C2;&#x6570;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x5C06;&#x989D;&#x5916;&#x7684;&#x53C2;&#x6570;&#x653E;&#x5230;&#x4E00;&#x4E2A;&#x5143;&#x7EC4;&#x4E2D;&#xFF0C;&#x800C;&#x8FD4;&#x56DE;&#x591A;&#x4E2A;&#x503C;&#x65F6;&#xFF0C;Python&#x4E5F;&#x4F1A;&#x5C06;&#x8FD9;&#x591A;&#x4E2A;&#x503C;&#x653E;&#x5230;&#x4E00;&#x4E2A;&#x5143;&#x7EC4;&#x4E2D;&#x3002;&#x5E76;&#x4E14;&#x5462;&#xFF0C;Python&#x652F;&#x6301;kwargs&#xFF0C;&#x5176;&#x5B9E;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x81EA;&#x52A8;&#x6253;&#x5305;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
-<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">args_test</span><span class="hljs-params">(a,b,*args,**kwargs)</span>:</span>
-    <span class="hljs-keyword">for</span> arg <span class="hljs-keyword">in</span> args:
-        print(arg)
-    <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> kwargs.items():
-        print(k,v)
-    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>, <span class="hljs-number">2</span>
+<pre class="language-"><code class="lang-python"><span class="token keyword">def</span> <span class="token function">args_test</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span><span class="token operator">*</span>args<span class="token punctuation">,</span><span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> arg <span class="token keyword">in</span> args<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> k<span class="token punctuation">,</span>v <span class="token keyword">in</span> kwargs<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>v<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span>
 
-<span class="hljs-comment"># &#x76F8;&#x5F53;&#x4E8E;a,b = (1,2)</span>
-a,b = args_test(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-string">&quot;world&quot;</span>, c = <span class="hljs-number">1</span>, d = <span class="hljs-number">2</span>)
-print(a,b)
+<span class="token comment"># &#x76F8;&#x5F53;&#x4E8E;a,b = (1,2)</span>
+a<span class="token punctuation">,</span>b <span class="token operator">=</span> args_test<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">&quot;hello&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;world&quot;</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
 </code></pre>
 
                                 
@@ -782,7 +782,7 @@ print(a,b)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"可变长参数与多返回值","level":"1.2.1.5","depth":3,"next":{"title":"输入与输出","level":"1.2.1.6","depth":3,"path":"programming_language/C/输入与输出.md","ref":"programming_language/C/输入与输出.md","articles":[]},"previous":{"title":"函数与程序结构","level":"1.2.1.4","depth":3,"path":"programming_language/C/函数与程序结构.md","ref":"programming_language/C/函数与程序结构.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"programming_language/C/可变长参数与多返回值.md","mtime":"2020-11-22T09:39:21.681Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-17T12:56:11.532Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"可变长参数与多返回值","level":"1.2.1.5","depth":3,"next":{"title":"输入与输出","level":"1.2.1.6","depth":3,"path":"programming_language/C/输入与输出.md","ref":"programming_language/C/输入与输出.md","articles":[]},"previous":{"title":"函数与程序结构","level":"1.2.1.4","depth":3,"path":"programming_language/C/函数与程序结构.md","ref":"programming_language/C/函数与程序结构.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"programming_language/C/可变长参数与多返回值.md","mtime":"2020-11-22T09:39:21.681Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-18T14:05:00.980Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

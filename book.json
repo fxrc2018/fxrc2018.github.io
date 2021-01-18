@@ -1,6 +1,8 @@
 {
     "plugins": [
         "expandable-chapters",
-        "katex"
+        "katex",
+        "-highlight",
+        "prism"
     ]
 }
