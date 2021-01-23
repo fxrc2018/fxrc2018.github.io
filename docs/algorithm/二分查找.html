@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Cocos节点树 · GitBook</title>
+        <title>二分查找 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="sort.html" />
+    <link rel="next" href="链表.html" />
     
-    
-    <link rel="prev" href="栈和队列.html" />
     
 
     </head>
@@ -388,7 +386,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="二分查找.html">
+        <li class="chapter active" data-level="1.5.1" data-path="二分查找.html">
             
                 <a href="二分查找.html">
             
@@ -453,7 +451,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.6" data-path="Cocos节点树.html">
+        <li class="chapter " data-level="1.5.6" data-path="Cocos节点树.html">
             
                 <a href="Cocos节点树.html">
             
@@ -669,7 +667,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Cocos节点树</a>
+        <a href=".." >二分查找</a>
     </h1>
 </div>
 
@@ -684,85 +682,58 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="cocos&#x8282;&#x70B9;&#x6811;">Cocos&#x8282;&#x70B9;&#x6811;</h2>
-<p>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5728;&#x7B97;&#x6CD5;&#x91CC;&#x9762;&#x8BF4;Cocos&#x7684;&#x8282;&#x70B9;&#x6811;&#x5462;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x89C9;&#x5F97;Cocos&#x7684;&#x8282;&#x70B9;&#x6811;&#x8BBE;&#x8BA1;&#x5F97;&#x4E0D;&#x9519;&#xFF0C;&#x4F7F;&#x7528;&#x4E86;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x601D;&#x60F3;&#xFF0C;&#x4F46;&#x5199;&#x51FA;&#x6765;&#x7684;&#x4EE3;&#x7801;&#x5374;&#x548C;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x4EE3;&#x7801;&#x770B;&#x4E0A;&#x53BB;&#x5F88;&#x4E0D;&#x540C;&#x3002;</p>
+                                <h2 id="&#x4E8C;&#x5206;&#x67E5;&#x627E;">&#x4E8C;&#x5206;&#x67E5;&#x627E;</h2>
 <pre class="language-"><code class="lang-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-<span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    string name<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> localZOrder<span class="token punctuation">;</span>
-    vector<span class="token operator">&lt;</span>Node<span class="token operator">*</span><span class="token operator">&gt;</span> children<span class="token punctuation">;</span>
-    Node<span class="token operator">*</span> parent<span class="token punctuation">;</span>
-
-    <span class="token function">Node</span><span class="token punctuation">(</span>string name<span class="token punctuation">,</span> <span class="token keyword">int</span> localZOrder<span class="token punctuation">)</span><span class="token operator">:</span>
-        <span class="token function">name</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">localZOrder</span><span class="token punctuation">(</span>localZOrder<span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">children</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">parent</span><span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
-
-    <span class="token keyword">void</span> <span class="token function">sortChildren</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token function">sort</span><span class="token punctuation">(</span>children<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> children<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">const</span> Node<span class="token operator">*</span> n1 <span class="token punctuation">,</span> <span class="token keyword">const</span> Node<span class="token operator">*</span> n2<span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token keyword">bool</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> n1<span class="token operator">-&gt;</span>localZOrder <span class="token operator">&lt;</span> n2<span class="token operator">-&gt;</span>localZOrder<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">void</span> <span class="token function">addChild</span><span class="token punctuation">(</span>Node<span class="token operator">*</span> node<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        children<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        node<span class="token operator">-&gt;</span>parent <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">void</span> <span class="token function">_inOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">int</span> i<span class="token punctuation">;</span>
-        <span class="token comment">//&#x548C;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x76F8;&#x4F3C;&#xFF0C;&#x8FD9;&#x91CC;&#x9690;&#x542B;&#x7684;&#x6761;&#x4EF6;&#x662F;&#xFF0C;localZOrder&#x5C0F;&#x4E8E;0&#x5728;&#x5DE6;&#x5B50;&#x6811;&#xFF0C;&#x5927;&#x4E8E;0&#x5728;&#x53F3;&#x5B50;&#x6811;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>children<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>children<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-&gt;</span>localZOrder <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            children<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-&gt;</span><span class="token function">_inOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        cout<span class="token operator">&lt;&lt;</span>name<span class="token operator">&lt;&lt;</span><span class="token string">&quot; &quot;</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token punctuation">;</span>i<span class="token operator">&lt;</span>children<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            children<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-&gt;</span><span class="token function">_inOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x6570;&#x662F;&#x5426;&#x5728;&#x9012;&#x589E;&#x6570;&#x7EC4;&#x4E2D;&#x5B58;&#x5728;</span>
+<span class="token keyword">bool</span> <span class="token function">bs</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> r <span class="token operator">=</span> a<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>l <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> r<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">&lt;</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            l <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">&gt;</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            r <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-    <span class="token keyword">void</span> <span class="token function">inOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token function">sortChildren</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">_inOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        cout<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span> <span class="token comment">//&#x6362;&#x884C;</span>
+<span class="token comment">// &#x5728;&#x5355;&#x8C03;&#x9012;&#x589E;&#x6570;&#x7EC4;&#x4E2D;&#x67E5;&#x627E;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;x&#x7684;&#x6570;&#x4E2D;&#x6700;&#x5C0F;&#x7684;&#x4E00;&#x4E2A;</span>
+<span class="token keyword">int</span> <span class="token function">bs1</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> r <span class="token operator">=</span> a<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>l <span class="token operator">&lt;</span> r <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> r<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">&gt;=</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            r <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            l <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> a<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-    <span class="token keyword">void</span> <span class="token function">setLocalZOrder</span><span class="token punctuation">(</span><span class="token keyword">int</span> newZOrder<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        localZOrder <span class="token operator">=</span> newZOrder<span class="token punctuation">;</span>
+<span class="token comment">// &#x5728;&#x5355;&#x8C03;&#x9012;&#x589E;&#x6570;&#x7EC4;&#x4E2D;&#x67E5;&#x627E;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;x&#x7684;&#x6570;&#x4E2D;&#x6700;&#x5927;&#x7684;&#x4E00;&#x4E2A;</span>
+<span class="token keyword">int</span> <span class="token function">bs2</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> r <span class="token operator">=</span> a<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>l <span class="token operator">&lt;</span> r <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> r <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            l <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            r <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    Node <span class="token operator">*</span>root <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">Node</span><span class="token punctuation">(</span><span class="token string">&quot;A&quot;</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> p <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        root<span class="token operator">-&gt;</span><span class="token function">addChild</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token function">Node</span><span class="token punctuation">(</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">&apos;A&apos;</span> <span class="token operator">+</span> p<span class="token punctuation">)</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        p<span class="token operator">++</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        root<span class="token operator">-&gt;</span>children<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-&gt;</span><span class="token function">addChild</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token function">Node</span><span class="token punctuation">(</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">&apos;A&apos;</span> <span class="token operator">+</span> p<span class="token punctuation">)</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        p<span class="token operator">++</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    root<span class="token operator">-&gt;</span><span class="token function">inOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    root<span class="token operator">-&gt;</span>children<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-&gt;</span><span class="token function">setLocalZOrder</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    root<span class="token operator">-&gt;</span><span class="token function">inOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">&quot;pause&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> a<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>&#x6211;&#x4E2A;&#x4EBA;&#x611F;&#x89C9;Cocos&#x7684;&#x8282;&#x70B9;&#x6811;&#x5199;&#x5F97;&#x786E;&#x5B9E;&#x4E0D;&#x9519;&#xFF0C;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5199;&#x5F97;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x652F;&#x6301;&#x8FD9;&#x79CD;&#x52A8;&#x6001;&#x7684;&#x8C03;&#x6574;&#x5404;&#x4E2A;&#x5C42;&#x7EA7;&#x7684;<code>localZOrder</code>&#xFF0C;&#x5E76;&#x4E14;&#x80FD;&#x591F;&#x5904;&#x7406;&#x597D;&#x672C;&#x5C42;&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x5BF9;&#x5927;&#x5C0F;&#x5173;&#x7CFB;&#x3002;&#x6211;&#x89C9;&#x5F97;&#x8FD9;&#x4E2A;&#x4EE3;&#x7801;&#x503C;&#x5F97;&#x5B66;&#x4E60;&#xFF0C;&#x6240;&#x4EE5;&#x5199;&#x4E86;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x7248;&#x672C;&#x5728;&#x8FD9;&#x91CC;&#x3002;</p>
 
                                 
                                 </section>
@@ -790,12 +761,8 @@
 
             
                 
-                <a href="栈和队列.html" class="navigation navigation-prev " aria-label="Previous page: 栈和队列">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
-                
-                <a href="sort.html" class="navigation navigation-next " aria-label="Next page: 排序">
+                <a href="链表.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 链表">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -806,7 +773,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Cocos节点树","level":"1.5.6","depth":2,"next":{"title":"排序","level":"1.5.7","depth":2,"path":"algorithm/sort.md","ref":"algorithm/sort.md","articles":[]},"previous":{"title":"栈和队列","level":"1.5.5","depth":2,"path":"algorithm/栈和队列.md","ref":"algorithm/栈和队列.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algorithm/Cocos节点树.md","mtime":"2020-12-30T14:19:25.978Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-23T07:55:46.180Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"二分查找","level":"1.5.1","depth":2,"next":{"title":"链表","level":"1.5.2","depth":2,"path":"algorithm/链表.md","ref":"algorithm/链表.md","articles":[]},"previous":{"title":"算法","level":"1.5","depth":1,"ref":"","articles":[{"title":"二分查找","level":"1.5.1","depth":2,"path":"algorithm/二分查找.md","ref":"algorithm/二分查找.md","articles":[]},{"title":"链表","level":"1.5.2","depth":2,"path":"algorithm/链表.md","ref":"algorithm/链表.md","articles":[]},{"title":"vector的简单实现","level":"1.5.3","depth":2,"path":"algorithm/vector的简单实现.md","ref":"algorithm/vector的简单实现.md","articles":[]},{"title":"list的简单实现","level":"1.5.4","depth":2,"path":"algorithm/list的简单实现.md","ref":"algorithm/list的简单实现.md","articles":[]},{"title":"栈和队列","level":"1.5.5","depth":2,"path":"algorithm/栈和队列.md","ref":"algorithm/栈和队列.md","articles":[]},{"title":"Cocos节点树","level":"1.5.6","depth":2,"path":"algorithm/Cocos节点树.md","ref":"algorithm/Cocos节点树.md","articles":[]},{"title":"排序","level":"1.5.7","depth":2,"path":"algorithm/sort.md","ref":"algorithm/sort.md","articles":[]},{"title":"动态规划","level":"1.5.8","depth":2,"path":"algorithm/DP.md","ref":"algorithm/DP.md","articles":[]},{"title":"哈希表","level":"1.5.9","depth":2,"path":"algorithm/哈希表.md","ref":"algorithm/哈希表.md","articles":[]},{"title":"并查集","level":"1.5.10","depth":2,"path":"algorithm/并查集.md","ref":"algorithm/并查集.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algorithm/二分查找.md","mtime":"2021-01-23T07:48:32.062Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-23T07:55:46.180Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

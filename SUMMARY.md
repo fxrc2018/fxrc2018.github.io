@@ -25,9 +25,10 @@
     * [链接](/CSAPP/链接.md)
 
 * [算法]()
+    * [二分查找](/algorithm/二分查找.md)
     * [链表](/algorithm/链表.md)
     * [vector的简单实现](/algorithm/vector的简单实现.md)
-    * [双端队列](/algorithm/双端队列.md)
+    * [list的简单实现](/algorithm/list的简单实现.md)
     * [栈和队列](/algorithm/栈和队列.md)
     * [Cocos节点树](/algorithm/Cocos节点树.md)
     * [排序](/algorithm/sort.md)
