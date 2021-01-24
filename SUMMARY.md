@@ -22,6 +22,7 @@
     * [ASCII、Unicode和UTF-8](/basic/ascii_utf_8.md)
 
 * [CSAPP笔记]()
+    * [信息的表示和处理](/CSAPP/信息的表示和处理.md)
     * [链接](/CSAPP/链接.md)
 
 * [算法]()
