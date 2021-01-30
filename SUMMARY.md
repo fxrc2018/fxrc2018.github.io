@@ -36,6 +36,7 @@
     * [动态规划](/algorithm/DP.md)
     * [哈希表](/algorithm/哈希表.md)
     * [并查集](/algorithm/并查集.md)
+    * [大整数运算](/algorithm/大整数运算.md)
     * [KMP算法和正则表达式匹配算法](/algorithm/KMP算法和正则表达式匹配算法.md)
     * [Quake3快速平方根倒数算法](/algorithm/Quake3快速平方根倒数算法.md)
 
