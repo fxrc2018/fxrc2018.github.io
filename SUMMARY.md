@@ -32,6 +32,7 @@
     * [list的简单实现](/algorithm/list的简单实现.md)
     * [栈和队列](/algorithm/栈和队列.md)
     * [Cocos节点树](/algorithm/Cocos节点树.md)
+    * [堆](/algorithm/堆.md)
     * [排序](/algorithm/sort.md)
     * [动态规划](/algorithm/DP.md)
     * [哈希表](/algorithm/哈希表.md)
