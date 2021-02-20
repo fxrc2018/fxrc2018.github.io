@@ -479,7 +479,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.7" data-path="sort.html">
+        <li class="chapter " data-level="1.5.7" data-path="堆.html">
+            
+                <a href="堆.html">
+            
+                    
+                    堆
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="sort.html">
             
                 <a href="sort.html">
             
@@ -492,7 +505,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.8" data-path="DP.html">
+        <li class="chapter " data-level="1.5.9" data-path="DP.html">
             
                 <a href="DP.html">
             
@@ -505,7 +518,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.9" data-path="哈希表.html">
+        <li class="chapter active" data-level="1.5.10" data-path="哈希表.html">
             
                 <a href="哈希表.html">
             
@@ -518,7 +531,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.10" data-path="最短路.html">
+        <li class="chapter " data-level="1.5.11" data-path="最短路.html">
             
                 <a href="最短路.html">
             
@@ -531,7 +544,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.11" data-path="并查集.html">
+        <li class="chapter " data-level="1.5.12" data-path="并查集.html">
             
                 <a href="并查集.html">
             
@@ -544,7 +557,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.12" data-path="大整数运算.html">
+        <li class="chapter " data-level="1.5.13" data-path="大整数运算.html">
             
                 <a href="大整数运算.html">
             
@@ -557,7 +570,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.13" data-path="KMP算法和正则表达式匹配算法.html">
+        <li class="chapter " data-level="1.5.14" data-path="KMP算法和正则表达式匹配算法.html">
             
                 <a href="KMP算法和正则表达式匹配算法.html">
             
@@ -570,7 +583,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.14" data-path="Quake3快速平方根倒数算法.html">
+        <li class="chapter " data-level="1.5.15" data-path="Quake3快速平方根倒数算法.html">
             
                 <a href="Quake3快速平方根倒数算法.html">
             
@@ -866,6 +879,39 @@
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
+<h3 id="&#x5B57;&#x7B26;&#x4E32;&#x54C8;&#x5E0C;">&#x5B57;&#x7B26;&#x4E32;&#x54C8;&#x5E0C;</h3>
+<pre class="language-"><code class="lang-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">char</span> str<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">long</span> <span class="token keyword">long</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">unsigned</span> <span class="token keyword">long</span> <span class="token keyword">long</span> p<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">unsigned</span> <span class="token keyword">long</span> <span class="token keyword">long</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> h<span class="token punctuation">[</span>r<span class="token punctuation">]</span> <span class="token operator">-</span> h<span class="token punctuation">[</span>l <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> p<span class="token punctuation">[</span>r<span class="token operator">-</span>l<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">&quot;%d%d%s&quot;</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">,</span><span class="token operator">&amp;</span>m<span class="token punctuation">,</span>str<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    p<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        h<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> h<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">131</span> <span class="token operator">+</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> p<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">131</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> l1<span class="token punctuation">,</span>r1<span class="token punctuation">,</span>l2<span class="token punctuation">,</span>r2<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">&quot;%d%d%d%d&quot;</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>l1<span class="token punctuation">,</span><span class="token operator">&amp;</span>r1<span class="token punctuation">,</span><span class="token operator">&amp;</span>l2<span class="token punctuation">,</span><span class="token operator">&amp;</span>r2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">find</span><span class="token punctuation">(</span>l1<span class="token punctuation">,</span>r1<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token function">find</span><span class="token punctuation">(</span>l2<span class="token punctuation">,</span>r2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;Yes\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;No\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 
                                 
                                 </section>
@@ -909,7 +955,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"哈希表","level":"1.5.9","depth":2,"next":{"title":"最短路","level":"1.5.10","depth":2,"path":"algorithm/最短路.md","ref":"algorithm/最短路.md","articles":[]},"previous":{"title":"动态规划","level":"1.5.8","depth":2,"path":"algorithm/DP.md","ref":"algorithm/DP.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algorithm/哈希表.md","mtime":"2020-11-19T15:50:14.743Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-06T15:24:09.332Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"哈希表","level":"1.5.10","depth":2,"next":{"title":"最短路","level":"1.5.11","depth":2,"path":"algorithm/最短路.md","ref":"algorithm/最短路.md","articles":[]},"previous":{"title":"动态规划","level":"1.5.9","depth":2,"path":"algorithm/DP.md","ref":"algorithm/DP.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algorithm/哈希表.md","mtime":"2021-02-20T14:39:34.390Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-20T15:02:31.470Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
