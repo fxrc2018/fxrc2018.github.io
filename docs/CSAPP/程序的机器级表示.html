@@ -1,0 +1,1193 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>程序的机器级表示 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="链接.html" />
+    
+    
+    <link rel="prev" href="信息的表示和处理.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    编程语言
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" >
+            
+                <span>
+            
+                    
+                    C
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../programming_language/C/类型、运算符与表达式.html">
+            
+                <a href="../programming_language/C/类型、运算符与表达式.html">
+            
+                    
+                    类型、运算符与表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../programming_language/C/控制流.html">
+            
+                <a href="../programming_language/C/控制流.html">
+            
+                    
+                    控制流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../programming_language/C/指针和数组.html">
+            
+                <a href="../programming_language/C/指针和数组.html">
+            
+                    
+                    指针和数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="../programming_language/C/函数与程序结构.html">
+            
+                <a href="../programming_language/C/函数与程序结构.html">
+            
+                    
+                    函数与程序结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="../programming_language/C/可变长参数与多返回值.html">
+            
+                <a href="../programming_language/C/可变长参数与多返回值.html">
+            
+                    
+                    可变长参数与多返回值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6" data-path="../programming_language/C/输入与输出.html">
+            
+                <a href="../programming_language/C/输入与输出.html">
+            
+                    
+                    输入与输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" >
+            
+                <span>
+            
+                    
+                    Lua
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../programming_language/Lua/Lua元表.html">
+            
+                <a href="../programming_language/Lua/Lua元表.html">
+            
+                    
+                    Lua元表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../programming_language/Lua/Lua面向对象.html">
+            
+                <a href="../programming_language/Lua/Lua面向对象.html">
+            
+                    
+                    Lua面向对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../programming_language/Lua/Lua热更新.html">
+            
+                <a href="../programming_language/Lua/Lua热更新.html">
+            
+                    
+                    Lua热更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../programming_language/Lua/环境和模块.html">
+            
+                <a href="../programming_language/Lua/环境和模块.html">
+            
+                    
+                    环境和模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../programming_language/Lua/Lua和C++.html">
+            
+                <a href="../programming_language/Lua/Lua和C++.html">
+            
+                    
+                    Lua和C++
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    计算机基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../basic/ascii_utf_8.html">
+            
+                <a href="../basic/ascii_utf_8.html">
+            
+                    
+                    ASCII、Unicode和UTF-8
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    CSAPP笔记
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="信息的表示和处理.html">
+            
+                <a href="信息的表示和处理.html">
+            
+                    
+                    信息的表示和处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.2" data-path="程序的机器级表示.html">
+            
+                <a href="程序的机器级表示.html">
+            
+                    
+                    程序的机器级表示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="链接.html">
+            
+                <a href="链接.html">
+            
+                    
+                    链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="虚拟内存.html">
+            
+                <a href="虚拟内存.html">
+            
+                    
+                    虚拟内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="系统级IO.html">
+            
+                <a href="系统级IO.html">
+            
+                    
+                    系统级IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="网络编程.html">
+            
+                <a href="网络编程.html">
+            
+                    
+                    网络编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="并发编程.html">
+            
+                <a href="并发编程.html">
+            
+                    
+                    并发编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    算法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../algorithm/二分查找.html">
+            
+                <a href="../algorithm/二分查找.html">
+            
+                    
+                    二分查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../algorithm/链表.html">
+            
+                <a href="../algorithm/链表.html">
+            
+                    
+                    链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../algorithm/vector的简单实现.html">
+            
+                <a href="../algorithm/vector的简单实现.html">
+            
+                    
+                    vector的简单实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../algorithm/list的简单实现.html">
+            
+                <a href="../algorithm/list的简单实现.html">
+            
+                    
+                    list的简单实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../algorithm/栈和队列.html">
+            
+                <a href="../algorithm/栈和队列.html">
+            
+                    
+                    栈和队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../algorithm/Cocos节点树.html">
+            
+                <a href="../algorithm/Cocos节点树.html">
+            
+                    
+                    Cocos节点树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../algorithm/堆.html">
+            
+                <a href="../algorithm/堆.html">
+            
+                    
+                    堆
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../algorithm/sort.html">
+            
+                <a href="../algorithm/sort.html">
+            
+                    
+                    排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../algorithm/DP.html">
+            
+                <a href="../algorithm/DP.html">
+            
+                    
+                    动态规划
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../algorithm/哈希表.html">
+            
+                <a href="../algorithm/哈希表.html">
+            
+                    
+                    哈希表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../algorithm/最短路.html">
+            
+                <a href="../algorithm/最短路.html">
+            
+                    
+                    最短路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../algorithm/最小生成树.html">
+            
+                <a href="../algorithm/最小生成树.html">
+            
+                    
+                    最小生成树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="../algorithm/并查集.html">
+            
+                <a href="../algorithm/并查集.html">
+            
+                    
+                    并查集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="../algorithm/大整数运算.html">
+            
+                <a href="../algorithm/大整数运算.html">
+            
+                    
+                    大整数运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="../algorithm/KMP算法和正则表达式匹配算法.html">
+            
+                <a href="../algorithm/KMP算法和正则表达式匹配算法.html">
+            
+                    
+                    KMP算法和正则表达式匹配算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="../algorithm/Quake3快速平方根倒数算法.html">
+            
+                <a href="../algorithm/Quake3快速平方根倒数算法.html">
+            
+                    
+                    Quake3快速平方根倒数算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    游戏开发
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../game_development/game_loop.html">
+            
+                <a href="../game_development/game_loop.html">
+            
+                    
+                    游戏程序三要素
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../game_development/Boids算法.html">
+            
+                <a href="../game_development/Boids算法.html">
+            
+                    
+                    Boids算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    图形学
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../game_development/CG/向量和矩阵.html">
+            
+                <a href="../game_development/CG/向量和矩阵.html">
+            
+                    
+                    向量和矩阵
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../game_development/CG/点、线和三角形.html">
+            
+                <a href="../game_development/CG/点、线和三角形.html">
+            
+                    
+                    点、线和三角形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../game_development/CG/深度缓冲.html">
+            
+                <a href="../game_development/CG/深度缓冲.html">
+            
+                    
+                    深度缓冲
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../game_development/CG/顶点变换.html">
+            
+                <a href="../game_development/CG/顶点变换.html">
+            
+                    
+                    顶点变换
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >程序的机器级表示</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x7A0B;&#x5E8F;&#x7684;&#x673A;&#x5668;&#x7EA7;&#x8868;&#x793A;">&#x7A0B;&#x5E8F;&#x7684;&#x673A;&#x5668;&#x7EA7;&#x8868;&#x793A;</h2>
+<p>&#x8BA1;&#x7B97;&#x673A;&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;&#x4E86;&#x591A;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x62BD;&#x8C61;&#xFF0C;&#x5229;&#x7528;&#x7B80;&#x5355;&#x7684;&#x62BD;&#x8C61;&#x6A21;&#x578B;&#x6765;&#x9690;&#x85CF;&#x5B9E;&#x73B0;&#x7684;&#x7EC6;&#x8282;&#x3002;&#x5BF9;&#x4E8E;&#x673A;&#x5668;&#x7EA7;&#x7F16;&#x7A0B;&#x6765;&#x8BF4;&#xFF0C;&#x5176;&#x4E2D;&#x4E24;&#x79CD;&#x62BD;&#x8C61;&#x5C24;&#x4E3A;&#x91CD;&#x8981;&#x3002;&#x7B2C;&#x4E00;&#x79CD;&#x7531;&#x6307;&#x4EE4;&#x96C6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x6216;&#x6307;&#x4EE4;&#x96C6;&#x67B6;&#x6784;&#x6765;&#x5B9A;&#x4E49;&#x673A;&#x5668;&#x7EA7;&#x7A0B;&#x5E8F;&#x7684;&#x683C;&#x5F0F;&#x548C;&#x884C;&#x4E3A;&#xFF0C;&#x5B83;&#x5B9A;&#x4E49;&#x7684;&#x5904;&#x7406;&#x5668;&#x7684;&#x72B6;&#x6001;&#x3001;&#x6307;&#x4EE4;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x4EE5;&#x53CA;&#x6BCF;&#x6761;&#x6307;&#x4EE4;&#x5BF9;&#x72B6;&#x6001;&#x7684;&#x5F71;&#x54CD;&#x3002;&#x7B2C;&#x4E8C;&#x79CD;&#x62BD;&#x8C61;&#x662F;&#xFF0C;&#x673A;&#x5668;&#x7EA7;&#x7A0B;&#x5E8F;&#x4F7F;&#x7528;&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;&#x662F;&#x865A;&#x62DF;&#x5730;&#x5740;&#xFF0C;&#x63D0;&#x4F9B;&#x7684;&#x5185;&#x5B58;&#x6A21;&#x578B;&#x770B;&#x4E0A;&#x53BB;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x5927;&#x7684;&#x5B57;&#x8282;&#x6570;&#x7EC4;&#x3002;</p>
+<p>&#x4E66;&#x4E2D;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x673A;&#x5668;&#x4EE3;&#x7801;&#x662F;x86-64&#x7684;&#xFF0C;&#x5B83;&#x548C;&#x539F;&#x59CB;&#x7684;C&#x4EE3;&#x7801;&#x5DEE;&#x522B;&#x975E;&#x5E38;&#x5927;&#x3002;&#x4E00;&#x4E9B;&#x901A;&#x5E38;&#x5BF9;C&#x8BED;&#x8A00;&#x7A0B;&#x5E8F;&#x5458;&#x9690;&#x85CF;&#x7684;&#x5904;&#x7406;&#x5668;&#x7684;&#x72B6;&#x6001;&#x90FD;&#x662F;&#x53EF;&#x89C1;&#x7684;&#x3002;</p>
+<ul>
+<li>&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#xFF08;&#x901A;&#x5E38;&#x79F0;&#x4E3A;&#x201C;PC&#x201D;&#xFF0C;&#x5728;x86-64&#x4E2D;&#x901A;%rip&#x8868;&#x793A;&#xFF09;&#x7ED9;&#x51FA;&#x5C06;&#x8981;&#x6267;&#x884C;&#x7684;&#x4E0B;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x5730;&#x5740;&#x3002;</li>
+<li>&#x6574;&#x6570;&#x5BC4;&#x5B58;&#x5668;&#x6587;&#x4EF6;&#x5305;&#x542B;16&#x4E2A;&#x547D;&#x540D;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x5206;&#x522B;&#x50A8;&#x5B58;64&#x4F4D;&#x7684;&#x503C;&#x3002;&#x8FD9;&#x4E9B;&#x5BC4;&#x5B58;&#x5668;&#x53EF;&#x4EE5;&#x5B58;&#x50A8;&#x5730;&#x5740;&#x6216;&#x6574;&#x6570;&#x6570;&#x636E;&#x3002;&#x6709;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#x88AB;&#x7528;&#x6765;&#x8BB0;&#x5F55;&#x67D0;&#x4E9B;&#x91CD;&#x8981;&#x7684;&#x7A0B;&#x5E8F;&#x72B6;&#x6001;&#xFF08;&#x5982;pc&#xFF0C;&#x6808;&#x6307;&#x9488;&#xFF09;&#xFF0C;&#x800C;&#x5176;&#x4ED6;&#x5BC4;&#x5B58;&#x5668;&#x7528;&#x6765;&#x4FDD;&#x5B58;&#x4E34;&#x65F6;&#x6570;&#x636E;&#xFF08;&#x5982;&#x8FC7;&#x7A0B;&#x7684;&#x53C2;&#x6570;&#x548C;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x4EE5;&#x53CA;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#xFF09;&#x3002;</li>
+<li>&#x6761;&#x4EF6;&#x7801;&#x5BC4;&#x5B58;&#x5668;&#x4FDD;&#x5B58;&#x7740;&#x6700;&#x8FD1;&#x6267;&#x884C;&#x7684;&#x7B97;&#x672F;&#x6216;&#x903B;&#x8F91;&#x6307;&#x4EE4;&#x7684;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x3002;&#x5B83;&#x4EEC;&#x7528;&#x6765;&#x5B9E;&#x73B0;&#x63A7;&#x5236;&#x6216;&#x6570;&#x636E;&#x6D41;&#x4E2D;&#x7684;&#x6761;&#x4EF6;&#x53D8;&#x5316;&#xFF0C;&#x6BD4;&#x5982;&#x8BF4;&#x7528;&#x6765;&#x5B9E;&#x73B0;if&#x548C;while&#x8BED;&#x53E5;&#x3002;</li>
+<li>&#x4E00;&#x7EC4;&#x5411;&#x91CF;&#x5BC4;&#x5B58;&#x5668;&#x53EF;&#x4EE5;&#x5B58;&#x653E;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6574;&#x6570;&#x6216;&#x6D6E;&#x70B9;&#x6570;&#x503C;&#x3002;</li>
+</ul>
+<h3 id="&#x6570;&#x636E;&#x683C;&#x5F0F;">&#x6570;&#x636E;&#x683C;&#x5F0F;</h3>
+<p>&#x5728;64&#x4F4D;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x5355;&#x6B21;&#x8BBF;&#x95EE;&#x5185;&#x5B58;&#x7684;&#x6700;&#x5927;&#x6570;&#x636E;&#x91CF;&#x4E3A;8&#x5B57;&#x8282;&#xFF0C;&#x6240;&#x4EE5;&#x6574;&#x6570;&#x5BC4;&#x5B58;&#x5668;&#x662F;8&#x5B57;&#x8282;&#x7684;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x4E5F;&#x6709;&#x8BBF;&#x95EE;1&#x5B57;&#x8282;&#xFF0C;2&#x5B57;&#x8282;&#xFF0C;4&#x5B57;&#x8282;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x5728;&#x5BC4;&#x5B58;&#x5668;&#x4E2D;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x5B83;&#x4EEC;&#x8BBF;&#x95EE;&#x7684;&#x6570;&#x636E;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x3002;&#x5982;%rax&#xFF0C;%eax&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x4F46;&#x662F;%rax&#x8BBF;&#x95EE;&#x7684;8&#x5B57;&#x8282;&#xFF0C;&#x800C;%eax&#x8BBF;&#x95EE;&#x7684;&#x662F;4&#x5B57;&#x8282;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x5728;&#x6C47;&#x7F16;&#x6307;&#x4EE4;&#x7684;&#x540E;&#x9762;&#x8FD8;&#x6709;&#x53EF;&#x80FD;&#x6709;&#x5B57;&#x7B26;&#x540E;&#x7F00;&#xFF0C;&#x7528;&#x4E8E;&#x8868;&#x793A;&#x64CD;&#x4F5C;&#x6570;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x6570;&#x636E;&#x4F20;&#x9001;&#x6307;&#x4EE4;&#x6709;&#x56DB;&#x4E2A;&#x53D8;&#x79CD;&#xFF1A;movb(&#x4F20;&#x9001;&#x5B57;&#x8282;)&#x3001;movw&#xFF08;&#x4F20;&#x9001;&#x5B57;&#xFF09;&#x3001;movl&#xFF08;&#x4F20;&#x9001;&#x53CC;&#x5B57;&#xFF09;&#x3001;movq&#xFF08;&#x4F20;&#x9001;&#x56DB;&#x5B57;&#xFF09;&#x3002;</p>
+<h3 id="&#x64CD;&#x4F5C;&#x6570;&#x6307;&#x793A;&#x7B26;">&#x64CD;&#x4F5C;&#x6570;&#x6307;&#x793A;&#x7B26;</h3>
+<p>&#x5927;&#x591A;&#x6570;&#x6307;&#x4EE4;&#x6709;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x64CD;&#x4F5C;&#x6570;&#xFF0C;&#x6307;&#x793A;&#x51FA;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x4E2D;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x6E90;&#x6570;&#x636E;&#x503C;&#xFF0C;&#x4EE5;&#x53CA;&#x653E;&#x7F6E;&#x7ED3;&#x679C;&#x7684;&#x76EE;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x6570;&#x636E;&#x6E90;&#x6709;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x7C7B;&#x578B;&#x3002;&#x7B2C;&#x4E00;&#x79CD;&#x7C7B;&#x578B;&#x662F;&#x7ACB;&#x5373;&#x6570;&#xFF0C;&#x7528;&#x6765;&#x8868;&#x793A;&#x5E38;&#x6570;&#x503C;&#xFF1B;&#x7B2C;&#x4E8C;&#x79CD;&#x7C7B;&#x578B;&#x662F;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x4ED6;&#x8868;&#x793A;&#x67D0;&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x5185;&#x5BB9;&#xFF1B;&#x7B2C;&#x4E09;&#x79CD;&#x662F;&#x5185;&#x5B58;&#x5F15;&#x7528;&#xFF0C;&#x5B83;&#x4F1A;&#x6839;&#x636E;&#x8BA1;&#x7B97;&#x51FA;&#x6765;&#x7684;&#x5730;&#x5740;&#x65B9;&#x4F4D;&#x67D0;&#x4E2A;&#x5185;&#x5B58;&#x4F4D;&#x7F6E;&#x3002;&#x5728;&#x6C47;&#x7F16;&#x4E2D;&#x7684;&#x8868;&#x793A;&#x5982;&#x4E0B;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">&#x7C7B;&#x578B;</th>
+<th style="text-align:center">&#x683C;&#x5F0F;</th>
+<th style="text-align:center">&#x64CD;&#x4F5C;&#x6570;&#x503C;</th>
+<th style="text-align:center">&#x4F8B;&#x5B50;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&#x7ACB;&#x5373;&#x6570;</td>
+<td style="text-align:center">$Imm</td>
+<td style="text-align:center">Imm</td>
+<td style="text-align:center">$0x104</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x5BC4;&#x5B58;&#x5668;</td>
+<td style="text-align:center">$r_a$</td>
+<td style="text-align:center">$R[r_a]$</td>
+<td style="text-align:center">%rax</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x5B58;&#x50A8;&#x5668;</td>
+<td style="text-align:center">$Imm(r_b,r_i,s)$</td>
+<td style="text-align:center">$M[Imm+R[r_b]+R[r_i]\cdot s]$</td>
+<td style="text-align:center">0xFC(%rax,%rdx,4)</td>
+</tr>
+</tbody>
+</table>
+<p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5728;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x5F15;&#x7528;&#x4E2D;&#x7684;&#x51E0;&#x4E2A;&#x53D8;&#x91CF;&#x662F;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x7684;&#xFF0C;&#x4F46;&#x662F;s&#x4E0D;&#x80FD;&#x5355;&#x72EC;&#x51FA;&#x73B0;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x90FD;&#x662F;&#x53EF;&#x4EE5;&#x7684;&#x3002;&#x5982;0xFD&#x8868;&#x793A;&#x5185;&#x5B58;0xFD&#x7684;&#x5B58;&#x50A8;&#x7684;&#x503C;&#xFF0C;$( \%rax,\%rdx)$&#x8868;&#x793A;&#x5185;&#x5B58;&#x4E3A;$\%rax+\%rdx$&#x7684;&#x503C;&#x3002;</p>
+<h3 id="&#x6570;&#x636E;&#x4F20;&#x9001;&#x6307;&#x4EE4;">&#x6570;&#x636E;&#x4F20;&#x9001;&#x6307;&#x4EE4;</h3>
+<p>&#x4F20;&#x9001;&#x6307;&#x4EE4;&#x7684;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-shell">MOV S,D
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#xFF0C;S&#x4EE3;&#x8868;&#x6E90;&#xFF0C;D&#x4EE3;&#x8868;&#x76EE;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x6307;&#x4EE4;&#x662F;&#x5927;&#x5199;&#x7684;&#xFF0C;&#x5C31;&#x4EE3;&#x8868;&#x662F;&#x6709;&#x53D8;&#x79CD;&#x7684;&#x6307;&#x4EE4;&#xFF0C;&#x8FD9;&#x4E9B;&#x6307;&#x4EE4;&#x7684;&#x540E;&#x9762;&#x53EF;&#x4EE5;&#x8DDF;&#x4E0D;&#x540C;&#x7684;&#x540E;&#x7F00;&#xFF0C;&#x4EE3;&#x8868;&#x64CD;&#x4F5C;&#x6570;&#x7684;&#x5927;&#x5C0F;&#x3002;mov&#x6307;&#x4EE4;&#xFF0C;&#x5C31;&#x662F;&#x6570;&#x636E;&#x4ECE;S&#x590D;&#x5236;&#x5230;D&#x3002;&#x5229;&#x7528;mov&#x6307;&#x4EE4;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;swap&#x51FD;&#x6570;&#xFF0C;swap&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">long</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token keyword">long</span> <span class="token operator">*</span>x<span class="token punctuation">,</span><span class="token keyword">long</span> <span class="token operator">*</span>y<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">long</span> temp <span class="token operator">=</span> <span class="token operator">*</span>x<span class="token punctuation">;</span>
+    <span class="token operator">*</span>x <span class="token operator">=</span> <span class="token operator">*</span>y<span class="token punctuation">;</span>
+    <span class="token operator">*</span>y <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#xFF1A;</p>
+<pre class="language-"><code class="lang-shell">gcc -S -Og test.c -o test.s
+</code></pre>
+<p>&#x5F97;&#x5230;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token function">movq</span>    <span class="token punctuation">(</span><span class="token operator">%</span>rdi<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">%</span>rax
+<span class="token function">movq</span>    <span class="token punctuation">(</span><span class="token operator">%</span>rsi<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">%</span>rdx
+movq    <span class="token operator">%</span>rdx<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">%</span>rdi<span class="token punctuation">)</span>
+movq    <span class="token operator">%</span>rax<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">%</span>rsi<span class="token punctuation">)</span>
+ret
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x4E0D;&#x540C;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#x7F16;&#x8BD1;&#x51FA;&#x6765;&#x7684;&#x6548;&#x679C;&#x6709;&#x4E00;&#x70B9;&#x4E0D;&#x4E00;&#x6837;&#x3002;</p>
+<p>&#x538B;&#x6808;&#x548C;&#x5F39;&#x6808;&#x7684;&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x8BF4;&#x662F;mov&#x6307;&#x4EE4;&#x7684;&#x53D8;&#x79CD;&#xFF0C;&#x56E0;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x6570;&#x662F;&#x6808;&#x3002;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x6808;&#x662F;&#x5411;&#x4E0B;&#x751F;&#x957F;&#x7684;&#x3002;&#x538B;&#x5165;&#x548C;&#x5F39;&#x51FA;&#x6808;&#x6570;&#x636E;&#x7684;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp">pushq S <span class="token comment">/* &#x6808;&#x6307;&#x9488;&#x5411;&#x4E0B;&#x79FB;&#x52A8;&#xFF08;-8&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8D4B;&#x503C; */</span>
+popq D  <span class="token comment">/* &#x5148;&#x5BF9;&#x5143;&#x7D20;&#x8D4B;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x6808;&#x6307;&#x9488;&#x5411;&#x4E0A;&#x79FB;&#x52A8;&#xFF08;+8&#xFF09; */</span>
+</code></pre>
+<h3 id="&#x7B97;&#x672F;&#x548C;&#x903B;&#x8F91;&#x64CD;&#x4F5C;">&#x7B97;&#x672F;&#x548C;&#x903B;&#x8F91;&#x64CD;&#x4F5C;</h3>
+<pre class="language-"><code class="lang-cpp">leaq S<span class="token punctuation">,</span>D <span class="token comment">/* &#x52A0;&#x8F7D;&#x6709;&#x6548;&#x5730;&#x5740;D=&amp;S */</span>
+INC D <span class="token comment">/* D++ */</span>
+DEC D <span class="token comment">/* D-- */</span>
+NEG D <span class="token comment">/* D = -D */</span>
+NOT D <span class="token comment">/* D = ~D */</span>
+ADD S<span class="token punctuation">,</span>D <span class="token comment">/* D = D + S */</span>
+SUB S<span class="token punctuation">,</span>D <span class="token comment">/* D = D - S */</span>
+IMUL S<span class="token punctuation">,</span>D <span class="token comment">/* D = D * S */</span>
+XOR S<span class="token punctuation">,</span>D <span class="token comment">/* D = D ^ S */</span>
+OR S<span class="token punctuation">,</span>D <span class="token comment">/* D = D | S */</span>
+AND S<span class="token punctuation">,</span>D <span class="token comment">/* D = D &amp; S */</span>
+SAL k<span class="token punctuation">,</span>D <span class="token comment">/* D = D &lt;&lt; k */</span>
+AHL k<span class="token punctuation">,</span>D <span class="token comment">/* D = D &lt;&lt; k(&#x7B49;&#x540C;&#x4E8E;SAL) */</span>
+SAR k<span class="token punctuation">,</span>D <span class="token comment">/* D = D &gt;&gt; k(&#x7B97;&#x672F;&#x53F3;&#x79FB;) */</span>
+SHR k<span class="token punctuation">,</span>D <span class="token comment">/* D = D &gt;&gt; k (&#x903B;&#x8F91;&#x53F3;&#x79FB;)*/</span>
+</code></pre>
+<p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;leap&#x6307;&#x4EE4;&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x5B83;&#x7684;&#x6307;&#x4EE4;&#x5F62;&#x5F0F;&#x662F;&#x4ECE;&#x5185;&#x5BB9;&#x8BFB;&#x6570;&#x636E;&#x5230;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x4F46;&#x5B9E;&#x9645;&#x4E0A;&#x5B83;&#x6839;&#x672C;&#x5C31;&#x6CA1;&#x6709;&#x5F15;&#x7528;&#x5185;&#x5B58;&#x3002;&#x6709;&#x65F6;&#x5019;&#x7528;&#x4E8E;&#x6C42;&#x503C;&#x3002;&#x5982;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">long</span> <span class="token function">scale</span><span class="token punctuation">(</span><span class="token keyword">long</span> x<span class="token punctuation">,</span> <span class="token keyword">long</span> y<span class="token punctuation">,</span> <span class="token keyword">long</span> z<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">long</span> t <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">4</span> <span class="token operator">*</span> y <span class="token operator">+</span> <span class="token number">12</span> <span class="token operator">*</span> z<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> t<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token comment">/* x in %rdi, y in %rsi, z in %rdx */</span>
+<span class="token function">leap</span>  <span class="token punctuation">(</span><span class="token operator">%</span>rdi<span class="token punctuation">,</span><span class="token operator">%</span>rsi<span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">%</span>rax <span class="token comment">/* x + 4 * y */</span>
+<span class="token function">leap</span>  <span class="token punctuation">(</span><span class="token operator">%</span>rdx<span class="token punctuation">,</span><span class="token operator">%</span>rdx<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">%</span>rdx <span class="token comment">/* z + 2*z = 3*z */</span>
+<span class="token function">leap</span>  <span class="token punctuation">(</span><span class="token operator">%</span>rax<span class="token punctuation">,</span><span class="token operator">%</span>rdx<span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">%</span>rax <span class="token comment">/* (x+4*y) + 4*(3*z) = x + 4*y + 12 * z */</span>
+</code></pre>
+<h3 id="&#x6761;&#x4EF6;&#x7801;">&#x6761;&#x4EF6;&#x7801;</h3>
+<p>&#x9664;&#x4E86;&#x6574;&#x6570;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;CPU&#x8FD8;&#x7EF4;&#x62A4;&#x7740;&#x4E00;&#x7EC4;&#x5355;&#x4E2A;&#x4F4D;&#x7684;&#x6761;&#x4EF6;&#x7801;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x5B83;&#x4EEC;&#x63CF;&#x8FF0;&#x4E86;&#x6700;&#x8FD1;&#x7B97;&#x672F;&#x6216;&#x903B;&#x8F91;&#x64CD;&#x4F5C;&#x7684;&#x5C5E;&#x6027;&#x3002;&#x53EF;&#x4EE5;&#x68C0;&#x6D4B;&#x8FD9;&#x4E9B;&#x5BC4;&#x5B58;&#x5668;&#x6765;&#x6267;&#x884C;&#x6761;&#x4EF6;&#x5206;&#x652F;&#x6307;&#x4EE4;&#x3002;&#x6700;&#x5E38;&#x7528;&#x7684;&#x6761;&#x4EF6;&#x7801;&#x6709;&#xFF1A;</p>
+<ul>
+<li>CF&#xFF1A;&#x8FDB;&#x4F4D;&#x6807;&#x5FD7;&#x3002;</li>
+<li>ZF&#xFF1A;&#x96F6;&#x6807;&#x5FD7;&#xFF08;&#x7ED3;&#x679C;&#x4E3A;0&#xFF09;&#x3002;</li>
+<li>SF&#xFF1A;&#x7B26;&#x53F7;&#x6807;&#x5FD7;&#xFF08;&#x7ED3;&#x679C;&#x4E3A;&#x8D1F;&#x6570;&#xFF09;&#x3002;</li>
+<li>OF&#xFF1A;&#x6EA2;&#x51FA;&#x6807;&#x5FD7;&#x3002;</li>
+</ul>
+<p>&#x7B97;&#x672F;&#x548C;&#x903B;&#x8F91;&#x64CD;&#x4F5C;&#x4F1A;&#x6539;&#x53D8;&#x6761;&#x4EF6;&#x7801;&#xFF0C;&#x8FD8;&#x6709;&#x4E24;&#x7C7B;&#x6307;&#x4EE4;&#xFF0C;&#x5B83;&#x4EEC;&#x53EA;&#x8BBE;&#x7F6E;&#x6761;&#x4EF6;&#x7801;&#x800C;&#x4E0D;&#x6539;&#x53D8;&#x5176;&#x4ED6;&#x4EFB;&#x4F55;&#x5BC4;&#x5B58;&#x5668;&#x3002;</p>
+<pre class="language-"><code class="lang-cpp">CMP S1<span class="token punctuation">,</span> S2 <span class="token comment">/* &#x6BD4;&#x8F83;&#xFF0C;&#x57FA;&#x4E8E;S2 - S1 */</span>
+TEST S1<span class="token punctuation">,</span> S2 <span class="token comment">/* &#x6D4B;&#x8BD5;&#xFF0C;&#x57FA;&#x4E8E;S1 &amp; S2 */</span>
+</code></pre>
+<h3 id="jump&#x6307;&#x4EE4;">jump&#x6307;&#x4EE4;</h3>
+<p>jump&#x6307;&#x4EE4;&#x662F;&#x65E0;&#x6761;&#x4EF6;&#x8DF3;&#x8F6C;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x662F;&#x76F4;&#x63A5;&#x8DF3;&#x8F6C;&#xFF0C;&#x5373;&#x8DF3;&#x8F6C;&#x76EE;&#x6807;&#x662F;&#x4F5C;&#x4E3A;&#x6307;&#x4EE4;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x7F16;&#x7801;&#x7684;&#xFF1B;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x95F4;&#x63A5;&#x8DF3;&#x8F6C;&#xFF0C;&#x5373;&#x8DF3;&#x8F6C;&#x76EE;&#x6807;&#x662F;&#x4ECE;&#x5BC4;&#x5B58;&#x5668;&#x6216;&#x5185;&#x5B58;&#x4F4D;&#x7F6E;&#x4E2D;&#x8BFB;&#x51FA;&#x7684;&#x3002;jump&#x6307;&#x4EE4;&#x6709;&#x5982;&#x4E0B;&#x7684;&#x4E00;&#x4E9B;&#x5206;&#x652F;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp">jmp Label <span class="token comment">/* &#x65E0;&#x6761;&#x4EF6;&#x76F4;&#x63A5;&#x8DF3;&#x8F6C; */</span>
+jmp <span class="token operator">*</span>Operand <span class="token comment">/* &#x65E0;&#x6761;&#x4EF6;&#x95F4;&#x63A5;&#x8DF3;&#x8F6C; */</span>
+je Label <span class="token comment">/* &#x76F8;&#x7B49; */</span>
+jne Label <span class="token comment">/* &#x4E0D;&#x76F8;&#x7B49; */</span>
+js Label <span class="token comment">/* &#x8D1F;&#x6570; */</span>
+jns Label <span class="token comment">/* &#x975E;&#x8D1F;&#x6570; */</span>
+jg Label <span class="token comment">/* &#x5927;&#x4E8E;,&#x6709;&#x7B26;&#x53F7; */</span>
+jge Label <span class="token comment">/* &#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#xFF0C;&#x6709;&#x7B26;&#x53F7; */</span>
+jl Label <span class="token comment">/* &#x5C0F;&#x4E8E;,&#x6709;&#x7B26;&#x53F7; */</span>
+jle Label <span class="token comment">/* &#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;&#xFF0C;&#x6709;&#x7B26;&#x53F7; */</span>
+ja Label <span class="token comment">/* &#x5927;&#x4E8E;&#xFF0C;&#x65E0;&#x7B26;&#x53F7; */</span> 
+jae Label <span class="token comment">/* &#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#xFF0C;&#x65E0;&#x7B26;&#x53F7; */</span>
+jb Label <span class="token comment">/* &#x5C0F;&#x4E8E;&#xFF0C;&#x65E0;&#x7B26;&#x53F7; */</span>
+jbe Label <span class="token comment">/* &#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;&#xFF0C;&#x65E0;&#x7B26;&#x53F7; */</span>
+</code></pre>
+<p>jump&#x8BED;&#x53E5;&#x6709;&#x70B9;&#x7C7B;&#x4F3C;&#x4E8E;C&#x8BED;&#x8A00;&#x4E2D;&#x7684;goto&#x8BED;&#x53E5;&#xFF0C;&#x800C;&#x6761;&#x4EF6;&#x8BED;&#x53E5;&#x548C;&#x5FAA;&#x73AF;&#x8BED;&#x53E5;&#x90FD;&#x53EF;&#x4EE5;&#x8F6C;&#x6362;&#x4E3A;&#x6761;&#x4EF6;&#x5224;&#x5B9A;&#x548C;goto&#x8BED;&#x53E5;&#xFF0C;&#x4E0B;&#x9762;&#x5177;&#x4F53;&#x8BF4;&#x660E;&#x8FD9;&#x79CD;&#x8F6C;&#x6362;&#x3002;</p>
+<p>if-else&#x8BED;&#x53E5;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">if</span><span class="token punctuation">(</span>test<span class="token operator">-</span>expr<span class="token punctuation">)</span>
+  then<span class="token operator">-</span>statement
+<span class="token keyword">else</span>
+  <span class="token keyword">else</span><span class="token operator">-</span>statement
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x8F6C;&#x5316;&#x4E3A;&#x4E0B;&#x9762;&#x7684;goto&#x8BED;&#x53E5;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp">  t <span class="token operator">=</span> test<span class="token operator">-</span>expr<span class="token punctuation">;</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>t<span class="token punctuation">)</span>
+    <span class="token keyword">goto</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  then<span class="token operator">-</span>statement
+  <span class="token keyword">goto</span> done<span class="token punctuation">;</span>
+<span class="token boolean">false</span><span class="token operator">:</span>
+  <span class="token keyword">else</span><span class="token operator">-</span>statement
+done<span class="token operator">:</span>
+</code></pre>
+<p>C&#x8BED;&#x8A00;&#x63D0;&#x4F9B;&#x4E86;&#x8BB8;&#x591A;&#x5FAA;&#x73AF;&#x7ED3;&#x6784;&#xFF0C;&#x5373;do-while&#x3001;while&#x548C;for&#x3002;&#x6C47;&#x7F16;&#x4E2D;&#x6CA1;&#x6709;&#x76F8;&#x5E94;&#x7684;&#x6307;&#x4EE4;&#x5B58;&#x5728;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6761;&#x4EF6;&#x6D4B;&#x8BD5;&#x548C;&#x8DF3;&#x8F6C;&#x7EC4;&#x5408;&#x8D77;&#x6765;&#x5B9E;&#x73B0;&#x5FAA;&#x73AF;&#x7684;&#x6548;&#x679C;&#x3002;</p>
+<p>do-while&#x8BED;&#x53E5;&#x7684;&#x901A;&#x7528;&#x5F62;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">do</span>
+  body<span class="token operator">-</span>statement
+  <span class="token keyword">while</span><span class="token punctuation">(</span>test<span class="token operator">-</span>expr<span class="token punctuation">)</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x8F6C;&#x5316;&#x4E3A;&#x4E0B;&#x9762;&#x7684;&#x8BED;&#x53E5;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp">loop<span class="token operator">:</span>
+  body<span class="token operator">-</span>statement
+  t <span class="token operator">=</span> test<span class="token operator">-</span>expr<span class="token punctuation">;</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+  <span class="token keyword">goto</span> loop<span class="token punctuation">;</span>
+</code></pre>
+<p>while&#x8BED;&#x53E5;&#x7684;&#x901A;&#x7528;&#x5F62;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">while</span><span class="token punctuation">(</span>test<span class="token operator">-</span>expr<span class="token punctuation">)</span>
+  body<span class="token operator">-</span>statement
+</code></pre>
+<p>&#x5BF9;&#x4E8E;while&#x8BED;&#x53E5;&#x7684;&#x8F6C;&#x6362;&#xFF0C;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x7B2C;&#x4E00;&#x79CD;&#x662F;jump to middle&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp">  <span class="token keyword">goto</span> test<span class="token punctuation">;</span>
+loop<span class="token operator">:</span>
+  body<span class="token operator">-</span>statement
+test<span class="token operator">:</span>
+  t <span class="token operator">=</span> test<span class="token operator">-</span>expr<span class="token punctuation">;</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+    <span class="token keyword">goto</span> loop<span class="token punctuation">;</span>
+</code></pre>
+<p>&#x7B2C;&#x4E8C;&#x79CD;&#x662F;guarded-do:</p>
+<pre class="language-"><code class="lang-cpp">t <span class="token operator">=</span> test<span class="token operator">-</span>expr<span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>t<span class="token punctuation">)</span>
+  <span class="token keyword">goto</span> done<span class="token punctuation">;</span>
+loop<span class="token operator">:</span>
+  body<span class="token operator">-</span>statement
+  t <span class="token operator">=</span> test<span class="token operator">-</span>expr<span class="token punctuation">;</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+    <span class="token keyword">goto</span> loop<span class="token punctuation">;</span>
+done<span class="token operator">:</span>
+</code></pre>
+<p>for&#x5FAA;&#x73AF;&#x7684;&#x901A;&#x7528;&#x5F62;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span>init<span class="token operator">-</span>expr<span class="token punctuation">;</span>test<span class="token operator">-</span>expr<span class="token punctuation">;</span>update<span class="token operator">-</span>expr<span class="token punctuation">)</span>
+  body<span class="token operator">-</span>statement
+</code></pre>
+<p>for&#x5FAA;&#x73AF;&#x53EF;&#x4EE5;&#x6539;&#x5199;&#x4E3A;while&#x5FAA;&#x73AF;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp">init<span class="token operator">-</span>expr<span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>test<span class="token operator">-</span>expr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  body<span class="token operator">-</span>statement
+  update<span class="token operator">-</span>expr<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x6539;&#x4E3A;goto&#x7684;&#x5F62;&#x5F0F;&#x5C31;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x4E86;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x5199;&#x4E86;&#x3002;</p>
+<p>switch&#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x7D22;&#x5F15;&#x503C;&#x8FDB;&#x884C;&#x591A;&#x91CD;&#x5206;&#x652F;&#x3002;&#x5B83;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x8DF3;&#x8F6C;&#x8868;&#x8FD9;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x6765;&#x63D0;&#x9AD8;&#x6548;&#x7387;&#xFF0C;&#x8DF3;&#x8F6C;&#x8868;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x8868;&#x9879;$i$&#x662F;&#x4E00;&#x4E2A;&#x4EE3;&#x7801;&#x6BB5;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x8FD9;&#x4E2A;&#x4EE3;&#x7801;&#x6BB5;&#x5B9E;&#x73B0;&#x5F53;&#x5F00;&#x5173;&#x7D22;&#x5F15;&#x503C;&#x7B49;&#x4E8E;$i$&#x65F6;&#x7A0B;&#x5E8F;&#x5E94;&#x8BE5;&#x91C7;&#x53D6;&#x7684;&#x52A8;&#x4F5C;&#x3002;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x7528;&#x5F00;&#x5173;&#x7D22;&#x5F15;&#x503C;&#x6765;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x8DF3;&#x8F6C;&#x8868;&#x5185;&#x7684;&#x6570;&#x7EC4;&#x5F15;&#x7528;&#xFF0C;&#x786E;&#x5B9A;&#x8DF3;&#x8F6C;&#x6307;&#x4EE4;&#x7684;&#x76EE;&#x6807;&#x3002;&#x4E2A;&#x4EBA;&#x611F;&#x89C9;&#x8FD9;&#x4E2A;&#x5BF9;&#x4E8E;&#x6570;&#x636E;&#x662F;&#x8FDE;&#x7EED;&#x6BD4;&#x8F83;&#x597D;&#x5904;&#x7406;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x6570;&#x636E;&#x5206;&#x5F97;&#x5F88;&#x5F00;&#xFF0C;&#x6BD4;&#x5982;1&#x548C;1000&#xFF0C;&#x597D;&#x50CF;&#x5904;&#x7406;&#x8D77;&#x6765;&#x5C31;&#x4E0D;&#x597D;&#x5904;&#x7406;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x5BF9;&#x4E8E;&#x8FDE;&#x7EED;&#x7684;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp">jmp  <span class="token operator">*</span><span class="token punctuation">.</span><span class="token function">L4</span><span class="token punctuation">(</span><span class="token punctuation">,</span><span class="token operator">%</span>rsi<span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x663E;&#x7136;&#xFF0C;L4&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;0-n&#x7684;&#x60C5;&#x51B5;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x8FD9;&#x6837;&#x8DF3;&#x8F6C;&#x65F6;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x3002;&#x4E2A;&#x4EBA;&#x8BA4;&#x4E3A;&#x8FD9;&#x4E2A;&#x4E0D;&#x592A;&#x91CD;&#x8981;&#xFF0C;&#x5927;&#x6982;&#x77E5;&#x9053;&#x601D;&#x60F3;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
+<h3 id="&#x8FC7;&#x7A0B;">&#x8FC7;&#x7A0B;</h3>
+<p>&#x8FC7;&#x7A0B;&#x662F;&#x8F6F;&#x4EF6;&#x4E2D;&#x4E00;&#x79CD;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x62BD;&#x8C61;&#x3002;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x5C01;&#x88C5;&#x4EE3;&#x7801;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x7528;&#x4E00;&#x7EC4;&#x6307;&#x5B9A;&#x7684;&#x53C2;&#x6570;&#x548C;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x5B9E;&#x73B0;&#x4E86;&#x67D0;&#x79CD;&#x529F;&#x80FD;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x7A0B;&#x5E8F;&#x4E2D;&#x4E0D;&#x540C;&#x7684;&#x5730;&#x65B9;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x3002;
+&#x8981;&#x63D0;&#x4F9B;&#x5BF9;&#x8FC7;&#x7A0B;&#x7684;&#x673A;&#x5668;&#x7EA7;&#x652F;&#x6301;&#xFF0C;&#x5FC5;&#x987B;&#x8981;&#x5904;&#x7406;&#x8BB8;&#x591A;&#x4E0D;&#x540C;&#x7684;&#x5C5E;&#x6027;&#x3002;&#x5047;&#x8BBE;&#x8FC7;&#x7A0B;P&#x8C03;&#x7528;&#x4E86;&#x8FC7;&#x7A0B;Q&#xFF0C;Q&#x6267;&#x884C;&#x540E;&#x8FD4;&#x56DE;&#x5230;P&#x3002;&#x8FD9;&#x4E9B;&#x52A8;&#x4F5C;&#x5305;&#x62EC;&#x4E0B;&#x9762;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x673A;&#x5236;&#xFF1A;</p>
+<ul>
+<li>&#x4F20;&#x9012;&#x63A7;&#x5236;&#x3002;&#x5728;&#x8FDB;&#x5165;&#x8FC7;&#x7A0B;Q&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x5FC5;&#x987B;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;Q&#x7684;&#x4EE3;&#x7801;&#x7684;&#x8D77;&#x59CB;&#x5730;&#x5740;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x8FD4;&#x56DE;&#x65F6;&#xFF0C;&#x8981;&#x628A;&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x8BBE;&#x7F6E;&#x4E3A;P&#x4E2D;&#x8C03;&#x7528;Q&#x540E;&#x9762;&#x90A3;&#x6761;&#x6307;&#x4EE4;&#x7684;&#x5730;&#x5740;&#x3002;</li>
+<li>&#x4F20;&#x9012;&#x6570;&#x636E;&#x3002;P&#x5FC5;&#x987B;&#x80FD;&#x591F;&#x5411;Q&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;Q&#x5FC5;&#x987B;&#x80FD;&#x591F;&#x5411;P&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C;&#x3002;</li>
+<li>&#x5206;&#x914D;&#x548C;&#x91CA;&#x653E;&#x5185;&#x5B58;&#x3002;&#x5728;&#x5F00;&#x59CB;&#x65F6;&#xFF0C;Q&#x53EF;&#x80FD;&#x9700;&#x8981;&#x4E3A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x5206;&#x914D;&#x7A7A;&#x95F4;&#xFF0C;&#x800C;&#x5728;&#x8FD4;&#x56DE;&#x524D;&#xFF0C;&#x53C8;&#x5FC5;&#x987B;&#x91CA;&#x653E;&#x8FD9;&#x4E9B;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x3002;</li>
+</ul>
+<p>&#x4F20;&#x9012;&#x63A7;&#x5236;&#x662F;&#x901A;&#x8FC7;&#x4E24;&#x6761;&#x6C47;&#x7F16;&#x6307;&#x4EE4;call&#x548C;ret&#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token comment">/* &#x5047;&#x8BBE;P&#x8C03;&#x7528;Q */</span>
+call Label <span class="token comment">/* &#x628A;P&#x4E2D;call&#x6307;&#x4EE4;&#x540E;&#x9762;&#x90A3;&#x6761;&#x6307;&#x4EE4;&#x7684;&#x5730;&#x5740;&#x538B;&#x6808;&#xFF0C;&#x7136;&#x540E;&#x5C06;PC&#x7684;&#x503C;&#x7F6E;&#x4E3A;Q&#x7684;&#x8D77;&#x59CB;&#x5730;&#x5740; */</span>
+call <span class="token operator">*</span>Operand <span class="token comment">/* &#x95F4;&#x63A5;&#x8DF3;&#x8F6C;&#xFF0C;&#x548C;&#x4E0A;&#x9762;&#x7684;&#x4E00;&#x6837; */</span>
+ret <span class="token comment">/* &#x4ECE;&#x6808;&#x4E2D;&#x5F39;&#x51FA;&#x5730;&#x5740;&#xFF0C;&#x7136;&#x540E;&#x628A;PC&#x8BBE;&#x7F6E;&#x4E3A;&#x8FD9;&#x4E2A;&#x5730;&#x5740; */</span>
+</code></pre>
+<p>&#x4F20;&#x9012;&#x6570;&#x636E;&#x662F;&#x901A;&#x8FC7;&#x5BC4;&#x5B58;&#x5668;&#x548C;&#x6808;&#x6765;&#x4F20;&#x9012;&#x7684;&#x3002;&#x5F53;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;6&#x65F6;&#xFF0C;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#x662F;&#x901A;&#x8FC7;&#x5BC4;&#x5B58;&#x5668;&#x4F20;&#x9012;&#x7684;&#xFF0C;&#x4ECE;&#x524D;&#x5F80;&#x540E;&#x4F9D;&#x6B21;&#x662F;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token operator">%</span><span class="token function">rdi</span><span class="token punctuation">(</span><span class="token operator">%</span>edi<span class="token punctuation">,</span><span class="token operator">%</span>di<span class="token punctuation">,</span><span class="token operator">%</span>dil<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">%</span><span class="token function">rsi</span><span class="token punctuation">(</span><span class="token operator">%</span>esi<span class="token punctuation">,</span><span class="token operator">%</span>si<span class="token punctuation">,</span><span class="token operator">%</span>sil<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">%</span><span class="token function">rdx</span><span class="token punctuation">(</span><span class="token operator">%</span>edx<span class="token punctuation">,</span><span class="token operator">%</span>dx<span class="token punctuation">,</span><span class="token operator">%</span>dl<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">%</span><span class="token function">rcx</span><span class="token punctuation">(</span><span class="token operator">%</span>ecx<span class="token punctuation">,</span><span class="token operator">%</span>cx<span class="token punctuation">,</span><span class="token operator">%</span>cl<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">%</span><span class="token function">r8</span><span class="token punctuation">(</span><span class="token operator">%</span>r8d<span class="token punctuation">,</span><span class="token operator">%</span>r8w<span class="token punctuation">,</span><span class="token operator">%</span>r8b<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">%</span><span class="token function">r9</span><span class="token punctuation">(</span><span class="token operator">%</span>r9d<span class="token punctuation">,</span><span class="token operator">%</span>r9w<span class="token punctuation">,</span><span class="token operator">%</span>r9b<span class="token punctuation">)</span>
+</code></pre>
+<p>&#x524D;&#x9762;&#x662F;&#x8BBF;&#x95EE;64&#x4F4D;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#x540D;&#xFF0C;&#x540E;&#x9762;&#x662F;32,16&#x548C;8&#x4F4D;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#x540D;&#x3002;&#x5982;&#x679C;&#x8D85;&#x8FC7;&#x4E86;6&#x4E2A;&#xFF0C;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x6808;&#x6765;&#x4F20;&#x9012;&#x53C2;&#x6570;&#xFF0C;&#x6808;&#x7684;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#x56FE;&#x3002;</p>
+<p align="center">
+  <img width="624" height="957" src="../assets/csapp/stack.png">
+</p>
+
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5982;&#x679C;&#x8D85;&#x8FC7;&#x4E86;6&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#x4FDD;&#x5B58;&#x5728;&#x6808;&#x4E0A;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x5728;&#x8FD4;&#x56DE;&#x503C;&#x5730;&#x5740;&#x7684;&#x4E0A;&#x9762;&#x3002;</p>
+<p>&#x5206;&#x914D;&#x548C;&#x91CA;&#x653E;&#x5185;&#x5B58;&#x662F;&#x901A;&#x8FC7;&#x6808;&#x6765;&#x5B8C;&#x6210;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x6307;&#x7684;&#x662F;&#x662F;&#x4E3A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x5206;&#x914D;&#x5185;&#x5B58;&#x3002;&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x56FE;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x662F;&#x600E;&#x4E48;&#x5206;&#x914D;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x7684;&#xFF0C;&#x5C31;&#x662F;&#x8BA9;&#x6808;&#x5411;&#x4E0B;&#x751F;&#x957F;&#x3002;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5BC4;&#x5B58;&#x5668;%rbx&#xFF0C;%rbp&#x548C;%r12~%r15&#x88AB;&#x5212;&#x5206;&#x4E3A;&#x88AB;&#x8C03;&#x7528;&#x8005;&#x4FDD;&#x5B58;&#x5BC4;&#x5B58;&#x5668;&#x3002;&#x5F53;&#x8FC7;&#x7A0B;P&#x8C03;&#x7528;&#x8FC7;&#x7A0B;Q&#x65F6;&#xFF0C;Q&#x5FC5;&#x987B;&#x4FDD;&#x5B58;&#x8FD9;&#x4E9B;&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;&#xFF0C;&#x4FDD;&#x8BC1;&#x5B83;&#x4EEC;&#x7684;&#x503C;&#x5728;Q&#x8FD4;&#x56DE;&#x5230;P&#x65F6;&#x4E0E;Q&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5148;&#x628A;&#x8FD9;&#x4E9B;&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;&#x4FDD;&#x5B58;&#x5728;&#x6808;&#x4E0A;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53C8;&#x5C06;&#x8FD9;&#x4E9B;&#x503C;&#x8D4B;&#x7ED9;&#x5BC4;&#x5B58;&#x5668;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#x901A;&#x5E38;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4EE5;&#x4E0B;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp">pushq  <span class="token operator">%</span>rbp
+pushq  <span class="token operator">%</span>rbx <span class="token comment">/* &#x4FDD;&#x5B58;&#x5BC4;&#x5B58;&#x5668; */</span>
+subq  $<span class="token number">8</span><span class="token punctuation">,</span> <span class="token operator">%</span>rsp <span class="token comment">/* &#x4E3A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x5206;&#x914D;&#x5185;&#x5B58; */</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token comment">/* &#x51FD;&#x6570;&#x7684;&#x903B;&#x8F91; */</span>
+addq  $<span class="token number">8</span><span class="token punctuation">,</span> <span class="token operator">%</span>rsp
+popq  <span class="token operator">%</span>rbx
+popq  <span class="token operator">%</span>rbp
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x8FD9;&#x79CD;&#x5B9E;&#x73B0;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x548C;&#x8FD4;&#x56DE;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x9002;&#x5E94;&#x666E;&#x901A;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x9002;&#x7528;&#x4E8E;&#x9012;&#x5F52;&#x8C03;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x6BCF;&#x6B21;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x90FD;&#x6709;&#x5B83;&#x81EA;&#x5DF1;&#x7684;&#x79C1;&#x6709;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#xFF0C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#x548C;&#x8C03;&#x7528;&#x81EA;&#x5DF1;&#x672C;&#x8EAB;&#xFF0C;&#x5728;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#x5C42;&#x9762;&#x662F;&#x6CA1;&#x6709;&#x533A;&#x522B;&#x7684;&#x3002;</p>
+<h3 id="&#x6570;&#x7EC4;&#x548C;&#x7ED3;&#x6784;&#x7684;&#x8BBF;&#x95EE;">&#x6570;&#x7EC4;&#x548C;&#x7ED3;&#x6784;&#x7684;&#x8BBF;&#x95EE;</h3>
+<p>&#x4E00;&#x7EF4;&#x6570;&#x7EC4;&#xFF0C;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x662F;&#x4E00;&#x5757;&#x8FDE;&#x7EED;&#x7684;&#x533A;&#x57DF;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E00;&#x7EF4;&#x6570;&#x7EC4;&#x7684;&#x8BBF;&#x95EE;&#xFF0C;&#x662F;&#x6570;&#x7EC4;&#x5F00;&#x5934;&#x7684;&#x6307;&#x9488;&#x548C;&#x504F;&#x79FB;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token operator">*</span>p <span class="token operator">=</span> arr<span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;arr[1] = %d\n&quot;</span><span class="token punctuation">,</span><span class="token operator">*</span><span class="token punctuation">(</span>p<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x5BF9;&#x4E8E;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x6765;&#x8BF4;&#xFF0C;&#x867D;&#x7136;&#x662F;&#x4E8C;&#x7EF4;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5B58;&#x50A8;&#x7684;&#x7ED3;&#x6784;&#x4ECD;&#x7136;&#x662F;&#x4E00;&#x7EF4;&#x7684;&#xFF0C;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x7684;&#x8BBF;&#x95EE;&#x4E5F;&#x662F;&#x901A;&#x8FC7;&#x8BB0;&#x5F55;&#x6570;&#x7EC4;&#x5934;&#x548C;&#x504F;&#x79FB;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x8FD9;&#x91CC;&#x7684;&#x504F;&#x79FB;&#x6709;&#x4E24;&#x4E2A;&#xFF0C;&#x884C;&#x548C;&#x5217;&#xFF0C;&#x5E76;&#x4E14;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x7684;&#x5185;&#x90E8;&#x662F;&#x6309;&#x7167;&#x884C;&#x4F18;&#x5148;&#x7684;&#x987A;&#x5E8F;&#x6392;&#x5217;&#x7684;&#x3002;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">/* &#x76F8;&#x5F53;&#x4E8E;int arr[12] = {1,2,...,12} */</span>
+<span class="token keyword">int</span> <span class="token operator">*</span>p <span class="token operator">=</span> arr<span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;arr[2][3] = %d\n&quot;</span><span class="token punctuation">,</span><span class="token operator">*</span><span class="token punctuation">(</span>p<span class="token operator">+</span> <span class="token number">4</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x5BF9;&#x4E8E;&#x7ED3;&#x6784;&#x7684;&#x5B58;&#x50A8;&#xFF0C;&#x548C;&#x6570;&#x7EC4;&#x7684;&#x5B58;&#x50A8;&#x4E5F;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x7ED3;&#x6784;&#x4E2D;&#x95F4;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x5BF9;&#x9F50;&#x7684;&#x73B0;&#x8C61;&#xFF0C;&#x56E0;&#x4E3A;&#x7ED3;&#x6784;&#x91CC;&#x9762;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x4E00;&#x822C;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x3002;&#x5BF9;&#x4E8E;&#x7ED3;&#x6784;&#x4E2D;&#x6210;&#x5458;&#x7684;&#x8BBF;&#x95EE;&#xFF0C;&#x4E5F;&#x662F;&#x901A;&#x8FC7;&#x7ED3;&#x6784;&#x5934;&#x548C;&#x504F;&#x79FB;&#x5B9E;&#x73B0;&#xFF0C;&#x504F;&#x79FB;&#x7684;&#x4FE1;&#x606F;&#x662F;&#x7531;&#x7F16;&#x8BD1;&#x5668;&#x7EF4;&#x62A4;&#x7684;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5BF9;&#x8C61;&#x7684;&#x6210;&#x5458;&#x540D;&#xFF0C;&#x77E5;&#x9053;&#x5B83;&#x5728;&#x7ED3;&#x6784;&#x4E2D;&#x504F;&#x79FB;&#x3002;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">struct</span><span class="token punctuation">{</span>
+    <span class="token keyword">char</span> c<span class="token punctuation">;</span> <span class="token comment">/* &#x504F;&#x79FB;0 */</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span> <span class="token comment">/* &#x504F;&#x79FB;4 */</span>
+    <span class="token keyword">long</span> l<span class="token punctuation">;</span> <span class="token comment">/* &#x504F;&#x79FB;8 */</span>
+<span class="token punctuation">}</span>s<span class="token punctuation">;</span>
+s<span class="token punctuation">.</span>c <span class="token operator">=</span> <span class="token string">&apos;A&apos;</span><span class="token punctuation">;</span>
+s<span class="token punctuation">.</span>i <span class="token operator">=</span> <span class="token number">23</span><span class="token punctuation">;</span>
+s<span class="token punctuation">.</span>l <span class="token operator">=</span> <span class="token number">12345678</span><span class="token punctuation">;</span>
+<span class="token keyword">char</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token operator">&amp;</span>s<span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;s.c = %c,s.i = %d,s.l = %ld\n&quot;</span><span class="token punctuation">,</span><span class="token operator">*</span>p<span class="token punctuation">,</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span>p <span class="token operator">+</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">*</span><span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token keyword">long</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span>p <span class="token operator">+</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5BF9;&#x4E8E;&#x7ED3;&#x6784;&#x4F53;&#x6210;&#x5458;&#x7684;&#x8BBF;&#x95EE;&#xFF0C;&#x662F;&#x901A;&#x8FC7;&#x504F;&#x79FB;&#xFF0C;&#x7136;&#x540E;&#x6309;&#x7167;&#x7C7B;&#x578B;&#x53D6;&#x51FA;&#x6570;&#x636E;&#x5C31;&#x53EF;&#x4EE5;&#x3002;&#x8FD9;&#x4E24;&#x4E2A;&#x6211;&#x90FD;&#x6CA1;&#x6709;&#x770B;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#xFF0C;&#x4E2A;&#x4EBA;&#x611F;&#x89C9;&#x8FD9;&#x4E9B;&#x4E1C;&#x897F;&#x4E86;&#x89E3;&#x539F;&#x7406;&#x662F;&#x6700;&#x91CD;&#x8981;&#x7684;&#x3002;</p>
+<h3 id="&#x7F13;&#x51B2;&#x533A;&#x6EA2;&#x51FA;">&#x7F13;&#x51B2;&#x533A;&#x6EA2;&#x51FA;</h3>
+<p>C&#x5BF9;&#x4E8E;&#x6570;&#x7EC4;&#x5F15;&#x7528;&#x4E0D;&#x8FDB;&#x884C;&#x4EFB;&#x4F55;&#x8FB9;&#x754C;&#x68C0;&#x67E5;&#xFF0C;&#x800C;&#x4E14;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x548C;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x90FD;&#x5B58;&#x653E;&#x5728;&#x6808;&#x4E2D;&#x3002;&#x8FD9;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x7ED3;&#x5408;&#x5230;&#x4E00;&#x8D77;&#x80FD;&#x5BFC;&#x81F4;&#x4E25;&#x91CD;&#x7684;&#x7A0B;&#x5E8F;&#x9519;&#x8BEF;&#xFF0C;&#x5BF9;&#x8D8A;&#x754C;&#x7684;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x7684;&#x5199;&#x64CD;&#x4F5C;&#x4F1A;&#x7834;&#x574F;&#x5B58;&#x50A8;&#x5728;&#x6808;&#x4E2D;&#x7684;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x3002;&#x8FD9;&#x6709;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x7F13;&#x51B2;&#x533A;&#x6EA2;&#x51FA;&#x653B;&#x51FB;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x4FEE;&#x6539;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x5730;&#x5740;&#xFF0C;&#x5BFC;&#x81F4;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x653B;&#x51FB;&#x7A0B;&#x5E8F;&#x3002;&#x5BF9;&#x7F13;&#x51B2;&#x533A;&#x6EA2;&#x51FA;&#x653B;&#x51FB;&#x7684;&#x9632;&#x5FA1;&#x624B;&#x6BB5;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#xFF1A;</p>
+<ol>
+<li>&#x6808;&#x968F;&#x673A;&#x5316;&#x3002;</li>
+<li>&#x6808;&#x7834;&#x574F;&#x68C0;&#x6D4B;&#x3002;</li>
+<li>&#x9650;&#x5236;&#x53EF;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x533A;&#x57DF;&#x3002;</li>
+</ol>
+<p>&#x8FD9;&#x91CC;&#x5199;&#x5F97;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x56E0;&#x4E3A;&#x6709;&#x4E00;&#x4E2A;&#x5B9E;&#x9A8C;&#x548C;&#x8FD9;&#x4E2A;&#x5BC6;&#x5207;&#x76F8;&#x5173;&#xFF0C;&#x5B9E;&#x9A8C;&#x90E8;&#x5206;&#x518D;&#x8BF4;&#x8BE6;&#x7EC6;&#x4E00;&#x70B9;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="信息的表示和处理.html" class="navigation navigation-prev " aria-label="Previous page: 信息的表示和处理">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="链接.html" class="navigation navigation-next " aria-label="Next page: 链接">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"程序的机器级表示","level":"1.4.2","depth":2,"next":{"title":"链接","level":"1.4.3","depth":2,"path":"CSAPP/链接.md","ref":"CSAPP/链接.md","articles":[]},"previous":{"title":"信息的表示和处理","level":"1.4.1","depth":2,"path":"CSAPP/信息的表示和处理.md","ref":"CSAPP/信息的表示和处理.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"CSAPP/程序的机器级表示.md","mtime":"2021-02-21T13:37:19.128Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-21T13:41:41.590Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
