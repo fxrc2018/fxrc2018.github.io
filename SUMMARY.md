@@ -23,7 +23,9 @@
 
 * [CSAPP笔记]()
     * [信息的表示和处理](/CSAPP/信息的表示和处理.md)
+    * [Data Lab](/CSAPP/Data-Lab.md)
     * [程序的机器级表示](/CSAPP/程序的机器级表示.md)
+    * [Bomb Lab](/CSAPP/Bomb-Lab.md)
     * [链接](/CSAPP/链接.md)
     * [虚拟内存](/CSAPP/虚拟内存.md)
     * [系统级IO](/CSAPP/系统级IO.md)
