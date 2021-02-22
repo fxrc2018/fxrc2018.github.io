@@ -1,3 +1,5 @@
+## Web服务器
+
 Web客户端和服务器之间的交互用的是一个基于文本的应用级协议，叫做HTTP（Hypertext Transfer Protocol，超文本传输协议）。HTTP是一个简单的协议。一个Web客户端（即浏览器）打开一个到服务器的因特网连接，并且请求某些内容。服务器响应所请求的内容，然后关闭连接。浏览器读取这些内容，并把它显示在屏幕上。
 
 Web服务器以两种不同的方式向客户端提供内容：
@@ -9,9 +11,11 @@ Web服务器以两种不同的方式向客户端提供内容：
 
 对于动态内容来说，还有一个问题，就是如何传递参数，这里仅仅介绍GET请求的解决方法。GET请求中使用 "?" 字符分隔文件名和参数，而每一个参数都用一个 "&" 字符分隔开。参数中不允许出现空格，若必须用，使用字符串“%20”来表示。
 
-##使用Telnet发起GET请求
+### 使用Telnet发起GET请求
+
 因为HTTP是基于在因特网连接上传送文本行的，我们可以使用Linux的Telnet程序来和因特网上的任何Web服务器执行事物。下面是一个例子。
-```
+
+```cpp
 root# telnet www.baidu.com 80 //connect
 Trying 220.181.112.244...
 Connected to www.a.shifen.com.
@@ -31,9 +35,13 @@ Last-Modified: Thu, 10 Jan 2019 04:12:20 GMT
 P3p: CP=" OTI DSP COR IVA OUR IND COM "
 Pragma: no-cache
 Server: BWS/1.1
-Set-Cookie: BAIDUID=972C37C9F406DB232AB3FD6C5D864364:FG=1; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com
-Set-Cookie: BIDUPSID=972C37C9F406DB232AB3FD6C5D864364; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com
-Set-Cookie: PSTM=1550146393; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com
+Set-Cookie: BAIDUID=972C37C9F406DB232AB3FD6C5D864364:FG=1; 
+expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com
+Set-Cookie: BIDUPSID=972C37C9F406DB232AB3FD6C5D864364; expires=Thu, 
+31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; 
+domain=.baidu.com
+Set-Cookie: PSTM=1550146393; expires=Thu, 31-Dec-37 23:55:55 GMT;
+max-age=2147483647; path=/; domain=.baidu.com
 Vary: Accept-Encoding
 X-Ua-Compatible: IE=Edge,chrome=1
 
@@ -44,7 +52,7 @@ Connection closed by foreign host. //close
 root# 
 ```
 
-##Tiny Web服务器
+### Tiny Web服务器
 我实现的Tiny Web服务器是在书中的版本上再次简化的，第一是去掉封装，没有使用书中使用的封装函数。第二个是简化了返回信息。这里的Tiny Web服务器可以返回静态和动态的内容，动态内容都是在一个特殊目录下的。要实现这样一个服务器，大致的流程为：
 
 * 在一个端口上监听连接。简单起见，这里不使用并发。
@@ -52,7 +60,8 @@ root#
 * 如果是静态内容，先得到文件格式，然后把文件复制到客户端，然后返回。如果是动态内容，解析参数，然后使用fork执行程序，传递参数，等待子进程执行完毕，然后返回。
 
 下面是具体的实现：
-```
+
+```cpp
 #include<stdio.h>
 #include<string.h>
 #include<sys/socket.h>
@@ -244,13 +253,15 @@ void doit(int fd){
     }
 
     if(isStatic == 1){
-        if(!(S_ISREG(sbuf.st_mode)) || !(S_IRUSR & sbuf.st_mode)){ /* normal file and the read permission */
+        if(!(S_ISREG(sbuf.st_mode)) || !(S_IRUSR & sbuf.st_mode)){ 
+            /* normal file and the read permission */
             clientError(fd,filename,"403","Forbidden","Tiny couldn't read the file");
             return;
         }
         serveStatic(fd,filename,sbuf.st_size);
     }else{
-        if(!(S_ISREG(sbuf.st_mode)) || !(S_IXUSR & sbuf.st_mode)){ /* normal file and the execute permission */
+        if(!(S_ISREG(sbuf.st_mode)) || !(S_IXUSR & sbuf.st_mode)){ 
+            /* normal file and the execute permission */
             clientError(fd,filename,"403","Forbidden","Tiny couldn't run the CGI program");
             return;
         }
@@ -258,8 +269,10 @@ void doit(int fd){
     }
 }
 ```
+
 add.c的实现：
-```
+
+```cpp
 #include<stdio.h>
 #include<stdlib.h>
 #include<unistd.h>
@@ -291,8 +304,11 @@ int main(int argc, char const *argv[]){
     return 0;
 }
 ```
+
 可以使用浏览器进行测试。如下图所示：
 
-![image.png](https://upload-images.jianshu.io/upload_images/10373084-a1525241b83b6f77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+<p align="center">
+  <img width="100%" height="100%" src="/assets/csapp/web.png">
+</p>
 
 这个程序没有超时机制，可能会出现一直等待的情况，另外对于错误也没有做处理，不过作为一个例子，这个程序已经做得足够好了。这个程序使我对于Web服务器的工作原理有一个基本的认识，当程序真正工作的时候，还是感觉挺激动的。
