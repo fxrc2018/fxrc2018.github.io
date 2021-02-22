@@ -1,12 +1,17 @@
+## Malloc Lab
+
 这个实验要求我们实现一个小型的内存分配器，需要实现以下几个函数。
-```
+
+```cpp
 int mm_init(void);
 void *mm_malloc(size_t size);
 void mm_free(void *ptr);
 void *mm_realloc(void *ptr, size_t size);
 ```
+
 其实，书上已经实现了这几个函数，我们先去跑一跑。这里需要注意一点，trace文件在官方的文件中没有，需要自己去下载。另外，为了方便，我修改了config.h文件，把trace的默认文件路径改为了当前文件路径。
-```
+
+```cpp
  ./mdriver -v  
 Results for mm malloc:
 trace  valid  util     ops      secs  Kops
