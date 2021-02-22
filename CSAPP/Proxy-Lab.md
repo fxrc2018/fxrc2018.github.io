@@ -1,3 +1,5 @@
+## Proxy Lab
+
 这个实验是实现一个代理服务器，这里的实现和前面的tiny server的流程是差不多的，不同的是，这里需要加入多线程和缓存。缓存其实在Cache Lab中已经实现过了，这里只是和上面的实现几乎是一样的。值得注意的是，这里的代码虽然可以通过测试样例，但是实际上是因为实验的测试例子只会测试简单的功能，对于鲁棒性的测试基本没有，所以，这个代码值得改进的地方有很多，特别是出错的处理。
 
 我先说说值得注意的地方，然后就直接贴代码。这里的流程大致是这样的：
@@ -12,7 +14,7 @@
 
 加入多线程比较容易，每一个请求开一个线程去处理。加入缓存要难一些，需要先设计一个缓存，然后解析请求的时候，如果发现有缓存，就直接返回缓存。而每一次接收了真实服务器的消息，需要缓存起来。下面是具体的代码：
 
-```
+```cpp
 #include"csapp.h"
 #include<limits.h>
 
@@ -22,7 +24,9 @@
 #define MAX_CACHE_NUMBER (MAX_CACHE_SIZE/MAX_OBJECT_SIZE)
 
 /* You won't lose style points for including this long line in your code */
-static const char *user_agent_hdr = "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:10.0.3) Gecko/20120305 Firefox/10.0.3\r\n";
+static const char *user_agent_hdr = 
+    "User-Agent: Mozilla/5.0 
+    (X11; Linux x86_64; rv:10.0.3) Gecko/20120305 Firefox/10.0.3\r\n";
 
 struct cache *pCache;
 pthread_mutex_t lock;
@@ -84,7 +88,8 @@ int main(int argc, char *argv[])
 
 void doit(int fd){
     int serverfd;
-    char buf[MAXLINE],method[MAXLINE],url[MAXLINE],version[MAXLINE],hostname[MAXLINE],uri[MAXLINE];
+    char buf[MAXLINE],
+        method[MAXLINE],url[MAXLINE],version[MAXLINE],hostname[MAXLINE],uri[MAXLINE];
     char port[MAXLINE];
     char request[MAXLINE];
 

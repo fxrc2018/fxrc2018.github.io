@@ -1,4 +1,6 @@
-```
+## Shell Lab
+
+```cpp
 void eval(char *cmdline) 
 {
     char *argv[MAXARGS];
@@ -50,7 +52,7 @@ void eval(char *cmdline)
 }
 ```
 
-```
+```cpp
 int builtin_cmd(char **argv) 
 {
     if( !strcmp(argv[0],"quit") ){
@@ -75,7 +77,7 @@ int builtin_cmd(char **argv)
 }
 ```
 
-```
+```cpp
 void do_bgfg(char **argv) 
 {
     if(argv[1] == NULL){
@@ -134,7 +136,7 @@ void do_bgfg(char **argv)
 }
 ```
 
-```
+```cpp
 void waitfg(pid_t pid)
 {
     /* reap child always in signal handler,here just wait for global varien change */
@@ -145,7 +147,7 @@ void waitfg(pid_t pid)
 }
 ```
 
-```
+```cpp
 void sigchld_handler(int sig) 
 {
     pid_t pid;
@@ -168,7 +170,7 @@ void sigchld_handler(int sig)
 }
 ```
 
-```
+```cpp
 void sigtstp_handler(int sig) 
 {
     //printf("catch SIGTSTP");
@@ -186,7 +188,7 @@ void sigtstp_handler(int sig)
 }
 ```
 
-```
+```cpp
 void sigint_handler(int sig) 
 {
     /* maintain errno unchanged */
