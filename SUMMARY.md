@@ -45,6 +45,7 @@
     * [线程](/CSAPP/线程.md)
 
 * [算法]()
+    * [位运算的一些技巧](/algorithm/位运算的一些技巧.md)
     * [二分查找](/algorithm/二分查找.md)
     * [链表](/algorithm/链表.md)
     * [vector的简单实现](/algorithm/vector的简单实现.md)
