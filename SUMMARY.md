@@ -68,6 +68,11 @@
     * [Quake3快速平方根倒数算法](/algorithm/Quake3快速平方根倒数算法.md)
     * [多项式与快速傅里叶变换](/algorithm/多项式与快速傅里叶变换.md)
     * [NP完全性和近似算法](/algorithm/NP完全性和近似算法.md)
+    * [表达式求值（递归下降法）](/algorithm/表达式求值（递归下降法）.md)
+    * [CRC编码](/algorithm/CRC编码.md)
+    * [表达式求值（逆波兰表达式方法）](/algorithm/表达式求值（逆波兰表达式方法）.md)
+    * [表达式求值（逆波兰表达式方法）](/algorithm/表达式求值（逆波兰表达式方法）.md)
+    
 
 * [游戏开发]()
     * [游戏程序三要素](/game_development/game_loop.md)

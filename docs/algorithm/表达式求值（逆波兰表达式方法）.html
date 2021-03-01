@@ -1,0 +1,1447 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>表达式求值（逆波兰表达式方法） · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="表达式求值（逆波兰表达式方法）.html" />
+    
+    
+    <link rel="prev" href="CRC编码.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    编程语言
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" >
+            
+                <span>
+            
+                    
+                    C
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../programming_language/C/类型、运算符与表达式.html">
+            
+                <a href="../programming_language/C/类型、运算符与表达式.html">
+            
+                    
+                    类型、运算符与表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../programming_language/C/控制流.html">
+            
+                <a href="../programming_language/C/控制流.html">
+            
+                    
+                    控制流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../programming_language/C/指针和数组.html">
+            
+                <a href="../programming_language/C/指针和数组.html">
+            
+                    
+                    指针和数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="../programming_language/C/函数与程序结构.html">
+            
+                <a href="../programming_language/C/函数与程序结构.html">
+            
+                    
+                    函数与程序结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="../programming_language/C/可变长参数与多返回值.html">
+            
+                <a href="../programming_language/C/可变长参数与多返回值.html">
+            
+                    
+                    可变长参数与多返回值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6" data-path="../programming_language/C/输入与输出.html">
+            
+                <a href="../programming_language/C/输入与输出.html">
+            
+                    
+                    输入与输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" >
+            
+                <span>
+            
+                    
+                    Lua
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../programming_language/Lua/Lua元表.html">
+            
+                <a href="../programming_language/Lua/Lua元表.html">
+            
+                    
+                    Lua元表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../programming_language/Lua/Lua面向对象.html">
+            
+                <a href="../programming_language/Lua/Lua面向对象.html">
+            
+                    
+                    Lua面向对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../programming_language/Lua/Lua热更新.html">
+            
+                <a href="../programming_language/Lua/Lua热更新.html">
+            
+                    
+                    Lua热更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../programming_language/Lua/环境和模块.html">
+            
+                <a href="../programming_language/Lua/环境和模块.html">
+            
+                    
+                    环境和模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../programming_language/Lua/Lua和C++.html">
+            
+                <a href="../programming_language/Lua/Lua和C++.html">
+            
+                    
+                    Lua和C++
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    计算机基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../basic/ascii_utf_8.html">
+            
+                <a href="../basic/ascii_utf_8.html">
+            
+                    
+                    ASCII、Unicode和UTF-8
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    CSAPP笔记
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../CSAPP/信息的表示和处理.html">
+            
+                <a href="../CSAPP/信息的表示和处理.html">
+            
+                    
+                    信息的表示和处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../CSAPP/Data-Lab.html">
+            
+                <a href="../CSAPP/Data-Lab.html">
+            
+                    
+                    Data Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../CSAPP/程序的机器级表示.html">
+            
+                <a href="../CSAPP/程序的机器级表示.html">
+            
+                    
+                    程序的机器级表示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../CSAPP/Bomb-Lab.html">
+            
+                <a href="../CSAPP/Bomb-Lab.html">
+            
+                    
+                    Bomb Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../CSAPP/Attack-Lab.html">
+            
+                <a href="../CSAPP/Attack-Lab.html">
+            
+                    
+                    Attak Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../CSAPP/优化程序性能.html">
+            
+                <a href="../CSAPP/优化程序性能.html">
+            
+                    
+                    优化程序性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../CSAPP/存储器层次结构.html">
+            
+                <a href="../CSAPP/存储器层次结构.html">
+            
+                    
+                    存储器层次结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../CSAPP/Cache-Lab.html">
+            
+                <a href="../CSAPP/Cache-Lab.html">
+            
+                    
+                    Cache Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../CSAPP/动态内存分配.html">
+            
+                <a href="../CSAPP/动态内存分配.html">
+            
+                    
+                    动态内存分配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../CSAPP/Malloc-Lab.html">
+            
+                <a href="../CSAPP/Malloc-Lab.html">
+            
+                    
+                    Malloc Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../CSAPP/链接.html">
+            
+                <a href="../CSAPP/链接.html">
+            
+                    
+                    链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../CSAPP/异常控制流.html">
+            
+                <a href="../CSAPP/异常控制流.html">
+            
+                    
+                    异常控制流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="../CSAPP/Shell-Lab.html">
+            
+                <a href="../CSAPP/Shell-Lab.html">
+            
+                    
+                    Shell Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="../CSAPP/虚拟内存.html">
+            
+                <a href="../CSAPP/虚拟内存.html">
+            
+                    
+                    虚拟内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="../CSAPP/系统级IO.html">
+            
+                <a href="../CSAPP/系统级IO.html">
+            
+                    
+                    系统级IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="../CSAPP/网络编程.html">
+            
+                <a href="../CSAPP/网络编程.html">
+            
+                    
+                    网络编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="../CSAPP/Web服务器.html">
+            
+                <a href="../CSAPP/Web服务器.html">
+            
+                    
+                    Web服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="../CSAPP/Proxy-Lab.html">
+            
+                <a href="../CSAPP/Proxy-Lab.html">
+            
+                    
+                    Proxy Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="../CSAPP/并发编程.html">
+            
+                <a href="../CSAPP/并发编程.html">
+            
+                    
+                    并发编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="../CSAPP/System-V进程间通信.html">
+            
+                <a href="../CSAPP/System-V进程间通信.html">
+            
+                    
+                    System-V进程间通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.21" data-path="../CSAPP/线程.html">
+            
+                <a href="../CSAPP/线程.html">
+            
+                    
+                    线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    算法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="位运算的一些技巧.html">
+            
+                <a href="位运算的一些技巧.html">
+            
+                    
+                    位运算的一些技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="二分查找.html">
+            
+                <a href="二分查找.html">
+            
+                    
+                    二分查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="链表.html">
+            
+                <a href="链表.html">
+            
+                    
+                    链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="vector的简单实现.html">
+            
+                <a href="vector的简单实现.html">
+            
+                    
+                    vector的简单实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="list的简单实现.html">
+            
+                <a href="list的简单实现.html">
+            
+                    
+                    list的简单实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="栈和队列.html">
+            
+                <a href="栈和队列.html">
+            
+                    
+                    栈和队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="二叉查找树.html">
+            
+                <a href="二叉查找树.html">
+            
+                    
+                    二叉查找树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="Cocos节点树.html">
+            
+                <a href="Cocos节点树.html">
+            
+                    
+                    Cocos节点树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="红黑树.html">
+            
+                <a href="红黑树.html">
+            
+                    
+                    红黑树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="堆.html">
+            
+                <a href="堆.html">
+            
+                    
+                    堆
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="sort.html">
+            
+                <a href="sort.html">
+            
+                    
+                    排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="DP.html">
+            
+                <a href="DP.html">
+            
+                    
+                    动态规划
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="哈希表.html">
+            
+                <a href="哈希表.html">
+            
+                    
+                    哈希表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="最短路.html">
+            
+                <a href="最短路.html">
+            
+                    
+                    最短路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="最小生成树.html">
+            
+                <a href="最小生成树.html">
+            
+                    
+                    最小生成树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="并查集.html">
+            
+                <a href="并查集.html">
+            
+                    
+                    并查集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.17" data-path="跳跃表.html">
+            
+                <a href="跳跃表.html">
+            
+                    
+                    跳跃表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.18" data-path="哈夫曼编码.html">
+            
+                <a href="哈夫曼编码.html">
+            
+                    
+                    哈夫曼编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.19" data-path="大整数运算.html">
+            
+                <a href="大整数运算.html">
+            
+                    
+                    大整数运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.20" data-path="KMP算法和正则表达式匹配算法.html">
+            
+                <a href="KMP算法和正则表达式匹配算法.html">
+            
+                    
+                    KMP算法和正则表达式匹配算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.21" data-path="Quake3快速平方根倒数算法.html">
+            
+                <a href="Quake3快速平方根倒数算法.html">
+            
+                    
+                    Quake3快速平方根倒数算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.22" data-path="多项式与快速傅里叶变换.html">
+            
+                <a href="多项式与快速傅里叶变换.html">
+            
+                    
+                    多项式与快速傅里叶变换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.23" data-path="NP完全性和近似算法.html">
+            
+                <a href="NP完全性和近似算法.html">
+            
+                    
+                    NP完全性和近似算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.24" data-path="表达式求值（递归下降法）.html">
+            
+                <a href="表达式求值（递归下降法）.html">
+            
+                    
+                    表达式求值（递归下降法）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.25" data-path="CRC编码.html">
+            
+                <a href="CRC编码.html">
+            
+                    
+                    CRC编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.26" data-path="表达式求值（逆波兰表达式方法）.html">
+            
+                <a href="表达式求值（逆波兰表达式方法）.html">
+            
+                    
+                    表达式求值（逆波兰表达式方法）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.27" data-path="表达式求值（逆波兰表达式方法）.html">
+            
+                <a href="表达式求值（逆波兰表达式方法）.html">
+            
+                    
+                    表达式求值（逆波兰表达式方法）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    游戏开发
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../game_development/game_loop.html">
+            
+                <a href="../game_development/game_loop.html">
+            
+                    
+                    游戏程序三要素
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../game_development/Boids算法.html">
+            
+                <a href="../game_development/Boids算法.html">
+            
+                    
+                    Boids算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    图形学
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../game_development/CG/向量和矩阵.html">
+            
+                <a href="../game_development/CG/向量和矩阵.html">
+            
+                    
+                    向量和矩阵
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../game_development/CG/点、线和三角形.html">
+            
+                <a href="../game_development/CG/点、线和三角形.html">
+            
+                    
+                    点、线和三角形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../game_development/CG/深度缓冲.html">
+            
+                <a href="../game_development/CG/深度缓冲.html">
+            
+                    
+                    深度缓冲
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../game_development/CG/顶点变换.html">
+            
+                <a href="../game_development/CG/顶点变换.html">
+            
+                    
+                    顶点变换
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >表达式求值（逆波兰表达式方法）</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x8868;&#x8FBE;&#x5F0F;&#x6C42;&#x503C;&#xFF08;&#x9006;&#x6CE2;&#x5170;&#x8868;&#x8FBE;&#x5F0F;&#x65B9;&#x6CD5;&#xFF09;">&#x8868;&#x8FBE;&#x5F0F;&#x6C42;&#x503C;&#xFF08;&#x9006;&#x6CE2;&#x5170;&#x8868;&#x8FBE;&#x5F0F;&#x65B9;&#x6CD5;&#xFF09;</h2>
+<p>&#x540E;&#x7F00;&#x8868;&#x8FBE;&#x5F0F;&#xFF1A;&#x6307;&#x7684;&#x662F;&#x4E0D;&#x5305;&#x542B;&#x62EC;&#x53F7;&#xFF0C;&#x8FD0;&#x7B97;&#x7B26;&#x653E;&#x5728;&#x4E24;&#x4E2A;&#x8FD0;&#x7B97;&#x5BF9;&#x8C61;&#x7684;&#x540E;&#x9762;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x8BA1;&#x7B97;&#x6309;&#x8FD0;&#x7B97;&#x7B26;&#x51FA;&#x73B0;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x4E25;&#x683C;&#x4ECE;&#x5DE6;&#x5411;&#x53F3;&#x8FDB;&#x884C;&#xFF08;&#x4E0D;&#x518D;&#x8003;&#x8651;&#x8FD0;&#x7B97;&#x7B26;&#x7684;&#x4F18;&#x5148;&#x89C4;&#x5219;&#xFF09;&#x3002;&#x5982;&#x679C;&#x8981;&#x7B97;&#x540E;&#x7F00;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x503C;&#x5F97;&#x8BDD;&#xFF0C;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#x7684;&#xFF0C;&#x57FA;&#x672C;&#x7684;&#x7B97;&#x6CD5;&#x662F;&#xFF1A;&#x4ECE;&#x5DE6;&#x5230;&#x53F3;&#x8BFB;&#x5165;&#x540E;&#x7F00;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x5404;&#x9879;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x8FD0;&#x7B97;&#x6570;&#xFF1A;&#x5C31;&#x5165;&#x6808;&#xFF1B;&#x5982;&#x679C;&#x662F;&#x8FD0;&#x7B97;&#x7B26;&#x5C31;&#x4ECE;&#x5806;&#x6808;&#x4E2D;&#x5F39;&#x51FA;&#x9002;&#x5F53;&#x6570;&#x91CF;&#x7684;&#x8FD0;&#x7B97;&#x6570;&#xFF0C;&#x8BA1;&#x7B97;&#x5E76;&#x7ED3;&#x679C;&#x5165;&#x6808;&#xFF1B;&#x6700;&#x540E;&#xFF0C;&#x5806;&#x6808;&#x9876;&#x4E0A;&#x7684;&#x5143;&#x7D20;&#x5C31;&#x662F;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x7ED3;&#x679C;&#x503C;&#x3002;</p>
+<p>&#x4F46;&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x4F7F;&#x7528;&#x7684;&#x7B97;&#x662F;&#x7684;&#x4E2D;&#x7F00;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5176;&#x6C42;&#x503C;&#x57FA;&#x672C;&#x7B56;&#x7565;&#xFF1A;&#x5C06;&#x4E2D;&#x7F00;&#x8868;&#x8FBE;&#x5F0F;&#x8F6C;&#x6362;&#x4E3A;&#x540E;&#x7F00;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x540E;&#x6C42;&#x503C;&#x3002;&#x4E2D;&#x7F00;&#x8868;&#x8FBE;&#x5F0F;&#x8F6C;&#x540E;&#x7F00;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x7B97;&#x6CD5;&#x662F;&#xFF1A;&#x4ECE;&#x5934;&#x5230;&#x5C3E;&#x8BFB;&#x53D6;&#x4E2D;&#x7F00;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x4E0D;&#x540C;&#x8C61;&#x6309;&#x4E0D;&#x540C;&#x7684;&#x60C5;&#x51B5;&#x5904;&#x7406;&#x3002;</p>
+<ol>
+<li>&#x8FD0;&#x7B97;&#x6570;&#xFF1A;&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#xFF1B;</li>
+<li>&#x5DE6;&#x62EC;&#x53F7;&#xFF1A;&#x538B;&#x5165;&#x5806;&#x6808;&#xFF1B;</li>
+<li>&#x53F3;&#x62EC;&#x53F7;&#xFF1A;&#x5C06;&#x6808;&#x9876;&#x7684;&#x8FD0;&#x7B97;&#x7B26;&#x5F39;&#x51FA;&#x5E76;&#x8F93;&#x51FA;&#xFF0C;&#x76F4;&#x5230;&#x9047;&#x5230;&#x5DE6;&#x62EC;&#x53F7;&#xFF08;&#x51FA;&#x6808;&#xFF0C;&#x4E0D;&#x8F93;&#x51FA;&#xFF09;&#xFF1B;</li>
+<li>&#x8FD0;&#x7B97;&#x7B26;&#xFF1A;&#x82E5;&#x4F18;&#x5148;&#x7EA7;&#x5927;&#x4E8E;&#x6808;&#x9876;&#x8FD0;&#x7B97;&#x7B26;&#x65F6;&#xFF0C;&#x5219;&#x628A;&#x5B83;&#x538B;&#x6808;&#xFF1B;&#x82E5;&#x4F18;&#x5148;&#x7EA7;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;&#x6808;&#x9876;&#x8FD0;&#x7B97;&#x7B26;&#x65F6;&#xFF0C;&#x5C06;&#x6808;&#x9876;&#x8FD0;&#x7B97;&#x7B26;&#x5F39;&#x51FA;&#x5E76;&#x8F93;&#x51FA;&#xFF1B;&#x518D;&#x6BD4;&#x8F83;&#x65B0;&#x7684;&#x6808;&#x9876;&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;&#x76F4;&#x5230;&#x8BE5;&#x8FD0;&#x7B97;&#x7B26;&#x5927;&#x4E8E;&#x6808;&#x9876;&#x8FD0;&#x7B97;&#x7B26;&#x4F18;&#x5148;&#x7EA7;&#x4E3A;&#x6B62;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x8BE5;&#x8FD0;&#x7B97;&#x7B26;&#x538B;&#x6808;&#xFF1B;</li>
+<li>&#x82E5;&#x5404;&#x5BF9;&#x8C61;&#x5904;&#x7406;&#x5B8C;&#x6BD5;&#xFF0C;&#x5219;&#x628A;&#x5806;&#x6808;&#x4E2D;&#x5B58;&#x7559;&#x7684;&#x8FD0;&#x7B97;&#x7B26;&#x4E00;&#x5E76;&#x8F93;&#x51FA;&#x3002;</li>
+</ol>
+<p>&#x4E0B;&#x9762;&#x662F;&#x5177;&#x4F53;&#x7684;&#x4EE3;&#x7801;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;string.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stack&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iomanip&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">MAX</span> <span class="token expression"><span class="token number">100</span></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">bool</span> <span class="token function">isNumber</span><span class="token punctuation">(</span><span class="token keyword">char</span> c<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>c<span class="token operator">&gt;=</span><span class="token string">&apos;0&apos;</span><span class="token operator">&amp;&amp;</span>c<span class="token operator">&lt;=</span><span class="token string">&apos;9&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">double</span> <span class="token function">readNumber</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span> postfix<span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">&amp;</span> index<span class="token punctuation">,</span><span class="token keyword">double</span><span class="token operator">&amp;</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    n <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> power <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//power &#x5E42;</span>
+    <span class="token keyword">double</span> decimal <span class="token operator">=</span> <span class="token number">1.0</span><span class="token punctuation">;</span>
+    <span class="token keyword">bool</span> isDecimal <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token function">isNumber</span><span class="token punctuation">(</span>postfix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">||</span>postfix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">&apos;.&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isNumber</span><span class="token punctuation">(</span>postfix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            n <span class="token operator">=</span> n<span class="token operator">*</span><span class="token number">10</span> <span class="token operator">+</span> postfix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">-</span><span class="token string">&apos;0&apos;</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>isDecimal<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                power<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            isDecimal <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        index<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>power<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        decimal <span class="token operator">=</span> decimal<span class="token operator">*</span><span class="token number">0.1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    n <span class="token operator">=</span> n<span class="token operator">*</span>decimal<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">double</span> <span class="token function">calculatePostfix</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span> postfix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    stack<span class="token operator">&lt;</span><span class="token keyword">double</span><span class="token operator">&gt;</span> st<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> n<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>postfix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token string">&apos;\0&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>postfix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">&apos; &apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            index<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isNumber</span><span class="token punctuation">(</span>postfix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">readNumber</span><span class="token punctuation">(</span>postfix<span class="token punctuation">,</span>index<span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            st<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>postfix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">&apos;\0&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">char</span> c <span class="token operator">=</span> postfix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            index<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token keyword">double</span> x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>result <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">;</span>
+            x <span class="token operator">=</span> st<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            st<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            y <span class="token operator">=</span> st<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            st<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">switch</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token string">&apos;+&apos;</span><span class="token operator">:</span>
+                    result <span class="token operator">=</span> y<span class="token operator">+</span>x<span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">&apos;-&apos;</span><span class="token operator">:</span>
+                    result <span class="token operator">=</span> y<span class="token operator">-</span>x<span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">&apos;*&apos;</span><span class="token operator">:</span>
+                    result <span class="token operator">=</span> y<span class="token operator">*</span>x<span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">&apos;/&apos;</span><span class="token operator">:</span>
+                    result <span class="token operator">=</span> y<span class="token operator">/</span>x<span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">default</span><span class="token operator">:</span>
+                    cout<span class="token operator">&lt;&lt;</span><span class="token string">&quot;&#x8F93;&#x5165;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x6709;&#x9519;&#x8BEF;&#xFF01;&quot;</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            st<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token function">setiosflags</span><span class="token punctuation">(</span>ios<span class="token operator">::</span>fixed<span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span><span class="token function">setprecision</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>st<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    st<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">getPriority</span><span class="token punctuation">(</span><span class="token keyword">char</span> c<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>c<span class="token operator">==</span><span class="token string">&apos;+&apos;</span><span class="token operator">||</span>c<span class="token operator">==</span><span class="token string">&apos;-&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>c <span class="token operator">==</span><span class="token string">&apos;*&apos;</span><span class="token operator">||</span>c <span class="token operator">==</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">cmp</span><span class="token punctuation">(</span><span class="token keyword">char</span> c1<span class="token punctuation">,</span><span class="token keyword">char</span> c2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">getPriority</span><span class="token punctuation">(</span>c1<span class="token punctuation">)</span><span class="token operator">&gt;</span><span class="token function">getPriority</span><span class="token punctuation">(</span>c2<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">getPriority</span><span class="token punctuation">(</span>c1<span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token function">getPriority</span><span class="token punctuation">(</span>c2<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">infix2postfix</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span> infix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">char</span> temp<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    stack<span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token operator">&gt;</span> st<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>infix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token string">&apos;\0&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>infix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">&apos; &apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            index<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isNumber</span><span class="token punctuation">(</span>infix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">||</span>infix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">&apos;.&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token function">isNumber</span><span class="token punctuation">(</span>infix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">||</span>infix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">&apos;.&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                temp<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> infix<span class="token punctuation">[</span>index<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            temp<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&apos; &apos;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">switch</span><span class="token punctuation">(</span>infix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token string">&apos;(&apos;</span><span class="token operator">:</span>
+                    st<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>infix<span class="token punctuation">[</span>index<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">&apos;)&apos;</span><span class="token operator">:</span>
+                    infix<span class="token punctuation">[</span>index<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                    <span class="token keyword">while</span><span class="token punctuation">(</span>st<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token string">&apos;(&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        temp<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> st<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        temp<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&apos; &apos;</span><span class="token punctuation">;</span>
+                        st<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    st<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string">&apos;+&apos;</span><span class="token operator">:</span>
+                <span class="token keyword">case</span> <span class="token string">&apos;-&apos;</span><span class="token operator">:</span>
+                <span class="token keyword">case</span> <span class="token string">&apos;*&apos;</span><span class="token operator">:</span>
+                <span class="token keyword">case</span> <span class="token string">&apos;/&apos;</span><span class="token operator">:</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">cmp</span><span class="token punctuation">(</span>infix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">,</span>st<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            st<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>infix<span class="token punctuation">[</span>index<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token function">cmp</span><span class="token punctuation">(</span>infix<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">,</span>st<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                temp<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> st<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                temp<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&apos; &apos;</span><span class="token punctuation">;</span>
+                                st<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">}</span>
+                            st<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>infix<span class="token punctuation">[</span>index<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                        st<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>infix<span class="token punctuation">[</span>index<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">default</span><span class="token operator">:</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        temp<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> st<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        temp<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&apos; &apos;</span><span class="token punctuation">;</span>
+        st<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    temp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&apos;\0&apos;</span><span class="token punctuation">;</span>
+    <span class="token function">strcpy</span><span class="token punctuation">(</span>infix<span class="token punctuation">,</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">calculate</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span> expression<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">infix2postfix</span><span class="token punctuation">(</span>expression<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">calculatePostfix</span><span class="token punctuation">(</span>expression<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">char</span> expression<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    cin<span class="token punctuation">.</span><span class="token function">getline</span><span class="token punctuation">(</span>expression<span class="token punctuation">,</span>MAX<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">calculate</span><span class="token punctuation">(</span>expression<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x7A0B;&#x5E8F;&#x6BD4;&#x6211;&#x60F3;&#x8C61;&#x4E2D;&#x8981;&#x590D;&#x6742;&#xFF0C;&#x8FD9;&#x79CD;&#x7B97;&#x6CD5;&#x5C31;&#x662F;&#xFF0C;&#x4F60;&#x5728;&#x5199;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x601D;&#x7EF4;&#x4E00;&#x5B9A;&#x8981;&#x6E05;&#x6670;&#xFF0C;&#x4E0D;&#x7136;&#x5BB9;&#x6613;&#x5FD8;&#x8BB0;&#x4E00;&#x4E9B;&#x7EC6;&#x8282;&#xFF0C;&#x800C;&#x8FD9;&#x4E9B;&#x7EC6;&#x8282;&#xFF0C;&#x5728;&#x5199;&#x7684;&#x65F6;&#x5019;&#x6CE8;&#x610F;&#x5230;&#xFF0C;&#x8981;&#x6BD4;&#x540E;&#x6765;&#x8C03;&#x8BD5;&#x8981;&#x5BB9;&#x6613;&#x4E00;&#x4E9B;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x7A0B;&#x5E8F;&#x4E0D;&#x652F;&#x6301;&#x8D1F;&#x6570;&#xFF0C;&#x53BB;POJ&#x6D4B;&#x8BD5;&#x8FC7;&#x4E86;&#xFF0C;&#x5E94;&#x8BE5;&#x95EE;&#x9898;&#x4E0D;&#x5927;&#x3002;&#x8981;&#x52A0;&#x4E0A;&#x5BF9;&#x8D1F;&#x6570;&#x7684;&#x652F;&#x6301;&#x4E5F;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x3002;&#x5C31;&#x5199;&#x5230;&#x8FD9;&#x91CC;&#x5427;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="CRC编码.html" class="navigation navigation-prev " aria-label="Previous page: CRC编码">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="表达式求值（逆波兰表达式方法）.html" class="navigation navigation-next " aria-label="Next page: 表达式求值（逆波兰表达式方法）">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"表达式求值（逆波兰表达式方法）","level":"1.5.26","depth":2,"next":{"title":"表达式求值（逆波兰表达式方法）","level":"1.5.27","depth":2,"path":"algorithm/表达式求值（逆波兰表达式方法）.md","ref":"algorithm/表达式求值（逆波兰表达式方法）.md","articles":[]},"previous":{"title":"CRC编码","level":"1.5.25","depth":2,"path":"algorithm/CRC编码.md","ref":"algorithm/CRC编码.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algorithm/表达式求值（逆波兰表达式方法）.md","mtime":"2021-03-01T14:21:05.381Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-01T14:25:05.341Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
