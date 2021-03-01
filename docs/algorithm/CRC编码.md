@@ -179,7 +179,7 @@ uint32_t crc32_table2(uint8_t *p_buf, uint8_t *p_end){
 
 ### 简单的测试代码
 
-```
+```cpp
 int main(int argc, char const *argv[])
 {
     /* 测试数据0001020304050607 b4ffce3e*/

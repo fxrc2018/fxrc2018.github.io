@@ -999,6 +999,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.5.28" data-path="使用next_permutation解决排列组合问题.html">
+            
+                <a href="使用next_permutation解决排列组合问题.html">
+            
+                    
+                    使用next_permutation解决排列组合问题
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1327,25 +1340,26 @@ x^{32}+ x^{28}+ x^{27}+ x^{26}+ x^{25}+ x^{23}+ x^{22}+ x^{20}+ x^{19}+ x^{18}+ 
 </code></pre>
 <p>&#x8FD9;&#x4E2A;&#x7B97;&#x6CD5;&#x7684;&#x4E3B;&#x8981;&#x601D;&#x60F3;&#x662F;&#xFF0C;&#x7FFB;&#x8F6C;&#x591A;&#x9879;&#x5F0F;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7FFB;&#x8F6C;&#x6570;&#x636E;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x63D0;&#x9AD8;&#x6548;&#x7387;&#xFF0C;&#x56E0;&#x4E3A;&#x6570;&#x636E;&#x53EF;&#x80FD;&#x4F1A;&#x6BD4;&#x8F83;&#x591A;&#x3002;</p>
 <h3 id="&#x7B80;&#x5355;&#x7684;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;">&#x7B80;&#x5355;&#x7684;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;</h3>
-<pre class="language-"><code>int main(int argc, char const *argv[])
-{
-    /* &#x6D4B;&#x8BD5;&#x6570;&#x636E;0001020304050607 b4ffce3e*/
-    const int n = 8;
-    uint8_t buf[n];
-    for (int i = 0; i &lt; n; i++){
-        buf[i] = (uint8_t)i;
-    }
-    printf(&quot;%x\n&quot;,crc32_naive(buf,buf+n));
-    printf(&quot;%x\n&quot;,crc32_table(buf,buf+n));
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/* &#x6D4B;&#x8BD5;&#x6570;&#x636E;0001020304050607 b4ffce3e*/</span>
+    <span class="token keyword">const</span> <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+    <span class="token keyword">uint8_t</span> buf<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        buf<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">uint8_t</span><span class="token punctuation">)</span>i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;%x\n&quot;</span><span class="token punctuation">,</span><span class="token function">crc32_naive</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span>buf<span class="token operator">+</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;%x\n&quot;</span><span class="token punctuation">,</span><span class="token function">crc32_table</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span>buf<span class="token operator">+</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    for (int i = 0; i &lt; n; i++){
-        buf[i] = (uint8_t)bitsReverse(i,8);
-    }    
-    printf(&quot;%x\n&quot;,crc32_table2(buf,buf+n));
-    system(&quot;pause&quot;);
-    return 0;
-}
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        buf<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">uint8_t</span><span class="token punctuation">)</span><span class="token function">bitsReverse</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>    
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;%x\n&quot;</span><span class="token punctuation">,</span><span class="token function">crc32_table2</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span>buf<span class="token operator">+</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">&quot;pause&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
+
                                 
                                 </section>
                             
@@ -1388,7 +1402,7 @@ x^{32}+ x^{28}+ x^{27}+ x^{26}+ x^{25}+ x^{23}+ x^{22}+ x^{20}+ x^{19}+ x^{18}+ 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"CRC编码","level":"1.5.25","depth":2,"next":{"title":"表达式求值（逆波兰表达式方法）","level":"1.5.26","depth":2,"path":"algorithm/表达式求值（逆波兰表达式方法）.md","ref":"algorithm/表达式求值（逆波兰表达式方法）.md","articles":[]},"previous":{"title":"表达式求值（递归下降法）","level":"1.5.24","depth":2,"path":"algorithm/表达式求值（递归下降法）.md","ref":"algorithm/表达式求值（递归下降法）.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algorithm/CRC编码.md","mtime":"2021-03-01T14:25:02.104Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-01T14:25:05.341Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"CRC编码","level":"1.5.25","depth":2,"next":{"title":"表达式求值（逆波兰表达式方法）","level":"1.5.26","depth":2,"path":"algorithm/表达式求值（逆波兰表达式方法）.md","ref":"algorithm/表达式求值（逆波兰表达式方法）.md","articles":[]},"previous":{"title":"表达式求值（递归下降法）","level":"1.5.24","depth":2,"path":"algorithm/表达式求值（递归下降法）.md","ref":"algorithm/表达式求值（递归下降法）.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algorithm/CRC编码.md","mtime":"2021-03-01T15:10:55.674Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-01T15:19:27.203Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
