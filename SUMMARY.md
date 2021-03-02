@@ -64,6 +64,7 @@
     * [跳跃表](/algorithm/跳跃表.md)
     * [哈夫曼编码](/algorithm/哈夫曼编码.md)
     * [大整数运算](/algorithm/大整数运算.md)
+    * [数学知识](/algorithm/数学知识.md)
     * [KMP算法和正则表达式匹配算法](/algorithm/KMP算法和正则表达式匹配算法.md)
     * [Quake3快速平方根倒数算法](/algorithm/Quake3快速平方根倒数算法.md)
     * [多项式与快速傅里叶变换](/algorithm/多项式与快速傅里叶变换.md)
