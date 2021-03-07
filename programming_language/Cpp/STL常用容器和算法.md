@@ -1,7 +1,10 @@
+## STL常用容器和算法
+
 主要是方便查阅，每次都要去网上找感觉比较麻烦，作为笔记写在这里。这里是我在做算法题的时候，需要去查阅的STL中的容器和算法，所以，最常用的这里没有列举。
 
-##string
-```
+### string
+
+```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -42,10 +45,13 @@ int main(int argc, char const *argv[])
     return 0;
 }
 ```
-###正则表达式
+
+#### 正则表达式
+
 遇到字符串的问题，特别是匹配的问题，可以先考虑能否用正则表达式处理。个人感觉，正则表达式算是一个处理字符串神器。
 
 使用正则表达式需要使用头文件regex，其中，有以下常用组件。
+
 * regex 表示有一个正则表达式的类
 * regex_match 将一个字符序列与一个正则表达式匹配
 * regex_search 寻找第一个与正则表达式匹配的子序列
@@ -53,7 +59,7 @@ int main(int argc, char const *argv[])
 * sregex_iterator 迭代器适配器，调用regex_search来遍历一个string中所匹配的子串
 * smath 容器类，保存在string中搜索的结果
 
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <regex>
@@ -63,7 +69,8 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
     /* 检查一个字符串是否为一个有效的ip地址 regex构造时可能会抛出异常*/
-    regex ip("^((25[0-5]|2[0-4]\\d|[1]{1}\\d{1}\\d{1}|[1-9]{1}\\d{1}|\\d{1})($|(?!\\.$)\\.)){4}$");
+    regex ip("^((25[0-5]|2[0-4]\\d|[1]{1}\\d{1}\\d{1}|
+        [1-9]{1}\\d{1}|\\d{1})($|(?!\\.$)\\.)){4}$");
     vector<string> v = {"127.0.0.1","127.0.1","256.0.0.0"};
     for(int i=0;i<v.size();i++){
         if(regex_match(v[i],ip)){
@@ -94,8 +101,9 @@ int main(int argc, char const *argv[])
 }
 ```
 
-##vector
-```
+### vector
+
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -128,8 +136,9 @@ int main(int argc, char const *argv[])
 }
 ```
 
-##queue、dequeue和priority_queue
-```
+### queue、dequeue和priority_queue
+
+```cpp
 #include <iostream>
 #include <queue>
 using namespace std;
@@ -157,9 +166,10 @@ int main(int argc, char const *argv[])
 }
 ```
 
-##set和map
+### set和map
 set和map在刷题的过程中，主要实现动态地查找和更新。个人感觉需要掌握的就是插入、删除，查找和更新。
-```
+
+```cpp
 #include <iostream>
 #include <set>
 #include <map>
@@ -205,16 +215,20 @@ int main(int argc, char const *argv[])
 
 
 
-##常用算法
-###lambd表达式
+### 常用算法
+
+#### lambd表达式
 C++11支持lambd表达式，个人感觉写算法的时候，还是这个最好用。因为以前使用的是Java，对于不能创建一个匿名对象作为参数还是不习惯。现在C++也支持这种格式。
 
-```
+```cpp
 [capture list](parameter list)->return type {function body}
 ```
+
 capture list表示要捕捉的局部变量。
-##排序和二分查找
-```
+
+### 排序和二分查找
+
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -239,10 +253,3 @@ int main(int argc, char const *argv[])
     return 0;
 }
 ```
-
-
-
-
-
-
-
