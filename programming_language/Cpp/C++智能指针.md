@@ -1,8 +1,10 @@
-##智能指针的基本原理
+## C++智能指针
+
+### 智能指针的基本原理
 
 RAII（Resource Acquisition Is Initialization）,也称为“资源获取就是初始化”，是C++语言的一种管理资源、避免泄漏的惯用法。C++标准保证任何情况下，已构造的对象最终会销毁，即它的析构函数最终会被调用。简单的说，RAII 的做法是使用一个对象，在其构造时获取资源，在对象生命期控制对资源的访问使之始终保持有效，最后在对象析构的时候释放资源。
 
-```
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -70,5 +72,5 @@ int main(int argc, char const *argv[])
 }
 ```
 
-##STL中的智能指针
+### STL中的智能指针
 

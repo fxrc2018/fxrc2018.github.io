@@ -1322,74 +1322,76 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x667A;&#x80FD;&#x6307;&#x9488;&#x7684;&#x57FA;&#x672C;&#x539F;&#x7406;">&#x667A;&#x80FD;&#x6307;&#x9488;&#x7684;&#x57FA;&#x672C;&#x539F;&#x7406;</h2>
+                                <h2 id="c&#x667A;&#x80FD;&#x6307;&#x9488;">C++&#x667A;&#x80FD;&#x6307;&#x9488;</h2>
+<h3 id="&#x667A;&#x80FD;&#x6307;&#x9488;&#x7684;&#x57FA;&#x672C;&#x539F;&#x7406;">&#x667A;&#x80FD;&#x6307;&#x9488;&#x7684;&#x57FA;&#x672C;&#x539F;&#x7406;</h3>
 <p>RAII&#xFF08;Resource Acquisition Is Initialization&#xFF09;,&#x4E5F;&#x79F0;&#x4E3A;&#x201C;&#x8D44;&#x6E90;&#x83B7;&#x53D6;&#x5C31;&#x662F;&#x521D;&#x59CB;&#x5316;&#x201D;&#xFF0C;&#x662F;C++&#x8BED;&#x8A00;&#x7684;&#x4E00;&#x79CD;&#x7BA1;&#x7406;&#x8D44;&#x6E90;&#x3001;&#x907F;&#x514D;&#x6CC4;&#x6F0F;&#x7684;&#x60EF;&#x7528;&#x6CD5;&#x3002;C++&#x6807;&#x51C6;&#x4FDD;&#x8BC1;&#x4EFB;&#x4F55;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5DF2;&#x6784;&#x9020;&#x7684;&#x5BF9;&#x8C61;&#x6700;&#x7EC8;&#x4F1A;&#x9500;&#x6BC1;&#xFF0C;&#x5373;&#x5B83;&#x7684;&#x6790;&#x6784;&#x51FD;&#x6570;&#x6700;&#x7EC8;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;&#x7B80;&#x5355;&#x7684;&#x8BF4;&#xFF0C;RAII &#x7684;&#x505A;&#x6CD5;&#x662F;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5728;&#x5176;&#x6784;&#x9020;&#x65F6;&#x83B7;&#x53D6;&#x8D44;&#x6E90;&#xFF0C;&#x5728;&#x5BF9;&#x8C61;&#x751F;&#x547D;&#x671F;&#x63A7;&#x5236;&#x5BF9;&#x8D44;&#x6E90;&#x7684;&#x8BBF;&#x95EE;&#x4F7F;&#x4E4B;&#x59CB;&#x7EC8;&#x4FDD;&#x6301;&#x6709;&#x6548;&#xFF0C;&#x6700;&#x540E;&#x5728;&#x5BF9;&#x8C61;&#x6790;&#x6784;&#x7684;&#x65F6;&#x5019;&#x91CA;&#x653E;&#x8D44;&#x6E90;&#x3002;</p>
-<pre class="language-"><code>#include <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iostream</span><span class="token punctuation">&gt;</span></span>
-using namespace std;
+<pre class="language-"><code class="lang-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-template<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>typename</span> <span class="token attr-name">T</span><span class="token punctuation">&gt;</span></span>
-class AutoPtr{
-public:
-    AutoPtr(T *ptr = NULL):ptr_(ptr){}
-    ~AutoPtr(){
-        delete ptr_;
-    }
-    /* &#x6784;&#x9020;&#x548C;&#x6307;&#x9488;&#x4E00;&#x6837;&#x7684;&#x8BED;&#x6CD5; */
-    T* operator-&gt;() const{
-        return ptr_;
-    }
-    T&amp; operator*() const{
-        return *ptr_;
-    }
-    /* &#x5B9E;&#x73B0;&#x62F7;&#x8D1D;&#x6784;&#x9020;&#x51FD;&#x6570;&#x548C;&#x7B49;&#x53F7;&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;&#x907F;&#x514D;&#x91CD;&#x590D;&#x91CA;&#x653E;&#x548C;&#x7A7A;&#x60AC;&#x6307;&#x9488; */
-    AutoPtr(AutoPtr&amp; other):ptr_(other.release()){}
-    AutoPtr&amp; operator=(AutoPtr&amp; other){
-        reset(other.release());
-        return *this;
-    }
-    T* release(){
-        T* temp = ptr_;
-        ptr_ = NULL;
-        return temp;
-    }
+<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword">class</span> <span class="token class-name">AutoPtr</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">AutoPtr</span><span class="token punctuation">(</span>T <span class="token operator">*</span>ptr <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">ptr_</span><span class="token punctuation">(</span>ptr<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token operator">~</span><span class="token function">AutoPtr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">delete</span> ptr_<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">/* &#x6784;&#x9020;&#x548C;&#x6307;&#x9488;&#x4E00;&#x6837;&#x7684;&#x8BED;&#x6CD5; */</span>
+    T<span class="token operator">*</span> <span class="token keyword">operator</span><span class="token operator">-&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> ptr_<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    T<span class="token operator">&amp;</span> <span class="token keyword">operator</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">*</span>ptr_<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">/* &#x5B9E;&#x73B0;&#x62F7;&#x8D1D;&#x6784;&#x9020;&#x51FD;&#x6570;&#x548C;&#x7B49;&#x53F7;&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;&#x907F;&#x514D;&#x91CD;&#x590D;&#x91CA;&#x653E;&#x548C;&#x7A7A;&#x60AC;&#x6307;&#x9488; */</span>
+    <span class="token function">AutoPtr</span><span class="token punctuation">(</span>AutoPtr<span class="token operator">&amp;</span> other<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">ptr_</span><span class="token punctuation">(</span>other<span class="token punctuation">.</span><span class="token function">release</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    AutoPtr<span class="token operator">&amp;</span> <span class="token keyword">operator</span><span class="token operator">=</span><span class="token punctuation">(</span>AutoPtr<span class="token operator">&amp;</span> other<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">reset</span><span class="token punctuation">(</span>other<span class="token punctuation">.</span><span class="token function">release</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    T<span class="token operator">*</span> <span class="token function">release</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        T<span class="token operator">*</span> temp <span class="token operator">=</span> ptr_<span class="token punctuation">;</span>
+        ptr_ <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> temp<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    void reset(T* ptr){
-        if(ptr_ != ptr){
-            delete ptr_;
-        }
-        ptr_ = ptr;
-    }
-private:
-    T *ptr_;
-};
+    <span class="token keyword">void</span> <span class="token function">reset</span><span class="token punctuation">(</span>T<span class="token operator">*</span> ptr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>ptr_ <span class="token operator">!=</span> ptr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">delete</span> ptr_<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        ptr_ <span class="token operator">=</span> ptr<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    T <span class="token operator">*</span>ptr_<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-class A{
-public:
-    A(int val):val_(val){
-        cout&lt;&lt;&quot;A::A(&quot;&lt;&lt;val_&lt;&lt;&quot;)&quot;&lt;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>endl;</span>
-    <span class="token attr-name">}</span>
-    <span class="token attr-name">~A(){</span>
-        <span class="token attr-name"><span class="token namespace">cout&lt;&lt;&quot;A:</span>:~A(&quot;&lt;&lt;val_&lt;&lt;&quot;)&quot;&lt;&lt;endl;</span>
-    <span class="token attr-name">}</span>
-    <span class="token attr-name">void</span> <span class="token attr-name">func(){</span>
-        <span class="token attr-name"><span class="token namespace">cout&lt;&lt;&quot;A:</span>:func()&quot;&lt;&lt;endl;</span>
-    <span class="token attr-name">}</span>
-    <span class="token attr-name">int</span> <span class="token attr-name">val_;</span>
-<span class="token attr-name">};</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">A</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">val_</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token string">&quot;A::A(&quot;</span><span class="token operator">&lt;&lt;</span>val_<span class="token operator">&lt;&lt;</span><span class="token string">&quot;)&quot;</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token operator">~</span><span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token string">&quot;A::~A(&quot;</span><span class="token operator">&lt;&lt;</span>val_<span class="token operator">&lt;&lt;</span><span class="token string">&quot;)&quot;</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token string">&quot;A::func()&quot;</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> val_<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 
-<span class="token attr-name">int</span> <span class="token attr-name">main(int</span> <span class="token attr-name">argc,</span> <span class="token attr-name">char</span> <span class="token attr-name">const</span> <span class="token attr-name">*argv[])</span>
-<span class="token attr-name">{</span>
-    <span class="token attr-name">A</span> <span class="token attr-name">*a</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> new</span> <span class="token attr-name">A(1);</span>
-    <span class="token attr-name">AutoPtr&lt;A</span><span class="token punctuation">&gt;</span></span> ptr(a);
-    ptr-&gt;func();
-    cout&lt;&lt;&quot;A::val_ = &quot;&lt;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ptr-</span><span class="token punctuation">&gt;</span></span>val_&lt;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>endl;</span>
-    <span class="token attr-name">AutoPtr&lt;A</span><span class="token punctuation">&gt;</span></span> ptr2 = ptr;
-    AutoPtr<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>A</span><span class="token punctuation">&gt;</span></span> ptr3(new A(2));
-    ptr3 = ptr2;
-    return 0;
-}
-</code></pre><h2 id="stl&#x4E2D;&#x7684;&#x667A;&#x80FD;&#x6307;&#x9488;">STL&#x4E2D;&#x7684;&#x667A;&#x80FD;&#x6307;&#x9488;</h2>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    A <span class="token operator">*</span>a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">A</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    AutoPtr<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span> <span class="token function">ptr</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ptr<span class="token operator">-&gt;</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">&quot;A::val_ = &quot;</span><span class="token operator">&lt;&lt;</span>ptr<span class="token operator">-&gt;</span>val_<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    AutoPtr<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span> ptr2 <span class="token operator">=</span> ptr<span class="token punctuation">;</span>
+    AutoPtr<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span> <span class="token function">ptr3</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token function">A</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ptr3 <span class="token operator">=</span> ptr2<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="stl&#x4E2D;&#x7684;&#x667A;&#x80FD;&#x6307;&#x9488;">STL&#x4E2D;&#x7684;&#x667A;&#x80FD;&#x6307;&#x9488;</h3>
 
                                 
                                 </section>
@@ -1433,7 +1435,7 @@ public:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"C++智能指针","level":"1.2.2.2","depth":3,"next":{"title":"模板","level":"1.2.2.3","depth":3,"path":"programming_language/Cpp/模板.md","ref":"programming_language/Cpp/模板.md","articles":[]},"previous":{"title":"从C到C++","level":"1.2.2.1","depth":3,"path":"programming_language/Cpp/从C到C++.md","ref":"programming_language/Cpp/从C到C++.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"programming_language/Cpp/C++智能指针.md","mtime":"2020-11-18T12:59:40.338Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-07T14:04:11.997Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"C++智能指针","level":"1.2.2.2","depth":3,"next":{"title":"模板","level":"1.2.2.3","depth":3,"path":"programming_language/Cpp/模板.md","ref":"programming_language/Cpp/模板.md","articles":[]},"previous":{"title":"从C到C++","level":"1.2.2.1","depth":3,"path":"programming_language/Cpp/从C到C++.md","ref":"programming_language/Cpp/从C到C++.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"programming_language/Cpp/C++智能指针.md","mtime":"2021-03-07T14:13:10.639Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-07T14:19:03.753Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
