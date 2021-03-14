@@ -89,7 +89,6 @@
     * [CRC编码](/algorithm/CRC编码.md)
     * [利用蒙特卡洛算法计算圆周率](/algorithm/利用蒙特卡洛算法计算圆周率.md)
     * [表达式求值（逆波兰表达式方法）](/algorithm/表达式求值（逆波兰表达式方法）.md)
-    * [表达式求值（逆波兰表达式方法）](/algorithm/表达式求值（逆波兰表达式方法）.md)
     * [使用next_permutation解决排列组合问题](/algorithm/使用next_permutation解决排列组合问题.md)
     
     
