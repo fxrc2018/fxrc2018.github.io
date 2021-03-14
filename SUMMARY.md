@@ -73,6 +73,7 @@
     * [堆](/algorithm/堆.md)
     * [排序](/algorithm/sort.md)
     * [动态规划](/algorithm/DP.md)
+    * [动态规划基本模型](/algorithm/动态规划基本模型.md)
     * [哈希表](/algorithm/哈希表.md)
     * [最短路](/algorithm/最短路.md)
     * [最小生成树](/algorithm/最小生成树.md)
