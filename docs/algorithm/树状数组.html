@@ -1,0 +1,1505 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>树状数组 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="红黑树.html" />
+    
+    
+    <link rel="prev" href="Cocos节点树.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    编程语言
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" >
+            
+                <span>
+            
+                    
+                    C
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../programming_language/C/类型、运算符与表达式.html">
+            
+                <a href="../programming_language/C/类型、运算符与表达式.html">
+            
+                    
+                    类型、运算符与表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../programming_language/C/控制流.html">
+            
+                <a href="../programming_language/C/控制流.html">
+            
+                    
+                    控制流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../programming_language/C/指针和数组.html">
+            
+                <a href="../programming_language/C/指针和数组.html">
+            
+                    
+                    指针和数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="../programming_language/C/函数与程序结构.html">
+            
+                <a href="../programming_language/C/函数与程序结构.html">
+            
+                    
+                    函数与程序结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="../programming_language/C/可变长参数与多返回值.html">
+            
+                <a href="../programming_language/C/可变长参数与多返回值.html">
+            
+                    
+                    可变长参数与多返回值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6" data-path="../programming_language/C/输入与输出.html">
+            
+                <a href="../programming_language/C/输入与输出.html">
+            
+                    
+                    输入与输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" >
+            
+                <span>
+            
+                    
+                    C++
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../programming_language/Cpp/从C到C++.html">
+            
+                <a href="../programming_language/Cpp/从C到C++.html">
+            
+                    
+                    从C到C++
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../programming_language/Cpp/C++智能指针.html">
+            
+                <a href="../programming_language/Cpp/C++智能指针.html">
+            
+                    
+                    C++智能指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../programming_language/Cpp/模板.html">
+            
+                <a href="../programming_language/Cpp/模板.html">
+            
+                    
+                    模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../programming_language/Cpp/友元.html">
+            
+                <a href="../programming_language/Cpp/友元.html">
+            
+                    
+                    友元
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../programming_language/Cpp/类与对象.html">
+            
+                <a href="../programming_language/Cpp/类与对象.html">
+            
+                    
+                    类与对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../programming_language/Cpp/运算符重载.html">
+            
+                <a href="../programming_language/Cpp/运算符重载.html">
+            
+                    
+                    运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="../programming_language/Cpp/C语言简单实现面向对象思想.html">
+            
+                <a href="../programming_language/Cpp/C语言简单实现面向对象思想.html">
+            
+                    
+                    C语言简单实现面向对象思想
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="../programming_language/Cpp/C++对象模型1——虚函数表和虚函数指针.html">
+            
+                <a href="../programming_language/Cpp/C++对象模型1——虚函数表和虚函数指针.html">
+            
+                    
+                    C++对象模型1——虚函数表和虚函数指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="../programming_language/Cpp/C++对象模型2——类对象的数据布局.html">
+            
+                <a href="../programming_language/Cpp/C++对象模型2——类对象的数据布局.html">
+            
+                    
+                    C++对象模型2——类对象的数据布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="../programming_language/Cpp/C++对象模型3——默认构造-拷贝构造函数.html">
+            
+                <a href="../programming_language/Cpp/C++对象模型3——默认构造-拷贝构造函数.html">
+            
+                    
+                    C++对象模型3——默认构造-拷贝构造函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="../programming_language/Cpp/C++对象模型4——函数的调用.html">
+            
+                <a href="../programming_language/Cpp/C++对象模型4——函数的调用.html">
+            
+                    
+                    C++对象模型4——函数的调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="../programming_language/Cpp/C++对象模型5——对象的构造-析构.html">
+            
+                <a href="../programming_language/Cpp/C++对象模型5——对象的构造-析构.html">
+            
+                    
+                    C++对象模型5——对象的构造-析构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.13" data-path="../programming_language/Cpp/STL常用容器和算法.html">
+            
+                <a href="../programming_language/Cpp/STL常用容器和算法.html">
+            
+                    
+                    STL常用容器和算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    计算机基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../basic/ascii_utf_8.html">
+            
+                <a href="../basic/ascii_utf_8.html">
+            
+                    
+                    ASCII、Unicode和UTF-8
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    CSAPP笔记
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../CSAPP/信息的表示和处理.html">
+            
+                <a href="../CSAPP/信息的表示和处理.html">
+            
+                    
+                    信息的表示和处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../CSAPP/Data-Lab.html">
+            
+                <a href="../CSAPP/Data-Lab.html">
+            
+                    
+                    Data Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../CSAPP/程序的机器级表示.html">
+            
+                <a href="../CSAPP/程序的机器级表示.html">
+            
+                    
+                    程序的机器级表示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../CSAPP/Bomb-Lab.html">
+            
+                <a href="../CSAPP/Bomb-Lab.html">
+            
+                    
+                    Bomb Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="../CSAPP/Attack-Lab.html">
+            
+                <a href="../CSAPP/Attack-Lab.html">
+            
+                    
+                    Attak Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="../CSAPP/优化程序性能.html">
+            
+                <a href="../CSAPP/优化程序性能.html">
+            
+                    
+                    优化程序性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" data-path="../CSAPP/存储器层次结构.html">
+            
+                <a href="../CSAPP/存储器层次结构.html">
+            
+                    
+                    存储器层次结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8" data-path="../CSAPP/Cache-Lab.html">
+            
+                <a href="../CSAPP/Cache-Lab.html">
+            
+                    
+                    Cache Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.9" data-path="../CSAPP/动态内存分配.html">
+            
+                <a href="../CSAPP/动态内存分配.html">
+            
+                    
+                    动态内存分配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.10" data-path="../CSAPP/Malloc-Lab.html">
+            
+                <a href="../CSAPP/Malloc-Lab.html">
+            
+                    
+                    Malloc Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.11" data-path="../CSAPP/链接.html">
+            
+                <a href="../CSAPP/链接.html">
+            
+                    
+                    链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.12" data-path="../CSAPP/异常控制流.html">
+            
+                <a href="../CSAPP/异常控制流.html">
+            
+                    
+                    异常控制流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.13" data-path="../CSAPP/Shell-Lab.html">
+            
+                <a href="../CSAPP/Shell-Lab.html">
+            
+                    
+                    Shell Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.14" data-path="../CSAPP/虚拟内存.html">
+            
+                <a href="../CSAPP/虚拟内存.html">
+            
+                    
+                    虚拟内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.15" data-path="../CSAPP/系统级IO.html">
+            
+                <a href="../CSAPP/系统级IO.html">
+            
+                    
+                    系统级IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.16" data-path="../CSAPP/网络编程.html">
+            
+                <a href="../CSAPP/网络编程.html">
+            
+                    
+                    网络编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.17" data-path="../CSAPP/Web服务器.html">
+            
+                <a href="../CSAPP/Web服务器.html">
+            
+                    
+                    Web服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.18" data-path="../CSAPP/Proxy-Lab.html">
+            
+                <a href="../CSAPP/Proxy-Lab.html">
+            
+                    
+                    Proxy Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.19" data-path="../CSAPP/并发编程.html">
+            
+                <a href="../CSAPP/并发编程.html">
+            
+                    
+                    并发编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.20" data-path="../CSAPP/System-V进程间通信.html">
+            
+                <a href="../CSAPP/System-V进程间通信.html">
+            
+                    
+                    System-V进程间通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.21" data-path="../CSAPP/线程.html">
+            
+                <a href="../CSAPP/线程.html">
+            
+                    
+                    线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    算法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="位运算的一些技巧.html">
+            
+                <a href="位运算的一些技巧.html">
+            
+                    
+                    位运算的一些技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="二分查找.html">
+            
+                <a href="二分查找.html">
+            
+                    
+                    二分查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="链表.html">
+            
+                <a href="链表.html">
+            
+                    
+                    链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="vector的简单实现.html">
+            
+                <a href="vector的简单实现.html">
+            
+                    
+                    vector的简单实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.5" data-path="list的简单实现.html">
+            
+                <a href="list的简单实现.html">
+            
+                    
+                    list的简单实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6" data-path="栈和队列.html">
+            
+                <a href="栈和队列.html">
+            
+                    
+                    栈和队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.7" data-path="二叉查找树.html">
+            
+                <a href="二叉查找树.html">
+            
+                    
+                    二叉查找树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.8" data-path="Cocos节点树.html">
+            
+                <a href="Cocos节点树.html">
+            
+                    
+                    Cocos节点树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3.9" data-path="树状数组.html">
+            
+                <a href="树状数组.html">
+            
+                    
+                    树状数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.10" data-path="红黑树.html">
+            
+                <a href="红黑树.html">
+            
+                    
+                    红黑树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.11" data-path="堆.html">
+            
+                <a href="堆.html">
+            
+                    
+                    堆
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.12" data-path="sort.html">
+            
+                <a href="sort.html">
+            
+                    
+                    排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.13" data-path="DP.html">
+            
+                <a href="DP.html">
+            
+                    
+                    动态规划
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.14" data-path="动态规划基本模型.html">
+            
+                <a href="动态规划基本模型.html">
+            
+                    
+                    动态规划基本模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.15" data-path="哈希表.html">
+            
+                <a href="哈希表.html">
+            
+                    
+                    哈希表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.16" data-path="最短路.html">
+            
+                <a href="最短路.html">
+            
+                    
+                    最短路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.17" data-path="最小生成树.html">
+            
+                <a href="最小生成树.html">
+            
+                    
+                    最小生成树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.18" data-path="并查集.html">
+            
+                <a href="并查集.html">
+            
+                    
+                    并查集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.19" data-path="跳跃表.html">
+            
+                <a href="跳跃表.html">
+            
+                    
+                    跳跃表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.20" data-path="哈夫曼编码.html">
+            
+                <a href="哈夫曼编码.html">
+            
+                    
+                    哈夫曼编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.21" data-path="大整数运算.html">
+            
+                <a href="大整数运算.html">
+            
+                    
+                    大整数运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.22" data-path="数学知识.html">
+            
+                <a href="数学知识.html">
+            
+                    
+                    数学知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.23" data-path="KMP算法和正则表达式匹配算法.html">
+            
+                <a href="KMP算法和正则表达式匹配算法.html">
+            
+                    
+                    KMP算法和正则表达式匹配算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.24" data-path="Quake3快速平方根倒数算法.html">
+            
+                <a href="Quake3快速平方根倒数算法.html">
+            
+                    
+                    Quake3快速平方根倒数算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.25" data-path="多项式与快速傅里叶变换.html">
+            
+                <a href="多项式与快速傅里叶变换.html">
+            
+                    
+                    多项式与快速傅里叶变换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.26" data-path="NP完全性和近似算法.html">
+            
+                <a href="NP完全性和近似算法.html">
+            
+                    
+                    NP完全性和近似算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.27" data-path="表达式求值（递归下降法）.html">
+            
+                <a href="表达式求值（递归下降法）.html">
+            
+                    
+                    表达式求值（递归下降法）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.28" data-path="CRC编码.html">
+            
+                <a href="CRC编码.html">
+            
+                    
+                    CRC编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.29" data-path="利用蒙特卡洛算法计算圆周率.html">
+            
+                <a href="利用蒙特卡洛算法计算圆周率.html">
+            
+                    
+                    利用蒙特卡洛算法计算圆周率
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.30" data-path="表达式求值（逆波兰表达式方法）.html">
+            
+                <a href="表达式求值（逆波兰表达式方法）.html">
+            
+                    
+                    表达式求值（逆波兰表达式方法）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.31" data-path="使用next_permutation解决排列组合问题.html">
+            
+                <a href="使用next_permutation解决排列组合问题.html">
+            
+                    
+                    使用next_permutation解决排列组合问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    游戏开发
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../game_development/game_loop.html">
+            
+                <a href="../game_development/game_loop.html">
+            
+                    
+                    游戏程序三要素
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../game_development/Boids算法.html">
+            
+                <a href="../game_development/Boids算法.html">
+            
+                    
+                    Boids算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    图形学
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../game_development/CG/向量和矩阵.html">
+            
+                <a href="../game_development/CG/向量和矩阵.html">
+            
+                    
+                    向量和矩阵
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../game_development/CG/点、线和三角形.html">
+            
+                <a href="../game_development/CG/点、线和三角形.html">
+            
+                    
+                    点、线和三角形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../game_development/CG/深度缓冲.html">
+            
+                <a href="../game_development/CG/深度缓冲.html">
+            
+                    
+                    深度缓冲
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="../game_development/CG/顶点变换.html">
+            
+                <a href="../game_development/CG/顶点变换.html">
+            
+                    
+                    顶点变换
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >树状数组</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x6811;&#x72B6;&#x6570;&#x7EC4;">&#x6811;&#x72B6;&#x6570;&#x7EC4;</h2>
+<p>&#x6811;&#x72B6;&#x6570;&#x7EC4;&#x7684;&#x57FA;&#x672C;&#x7528;&#x9014;&#x662F;&#x7EF4;&#x62A4;&#x5E8F;&#x5217;&#x7684;&#x524D;&#x7F00;&#x548C;&#x3002;&#x5BF9;&#x4E8E;&#x7ED9;&#x5B9A;&#x7684;&#x5E8F;&#x5217;<code>a</code>&#xFF0C;&#x6211;&#x4EEC;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;<code>c</code>&#xFF0C;&#x5176;&#x4E2D;<code>c[x]</code>&#x4FDD;&#x5B58;&#x5E8F;&#x5217;<code>a</code>&#x7684;&#x533A;&#x95F4;<code>[x-lowbit(x)+1, x]</code>&#x4E2D;&#x6240;&#x6709;&#x6570;&#x7684;&#x548C;&#x3002;</p>
+<p>&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x6570;&#x7EC4;<code>c</code>&#x53EF;&#x4EE5;&#x770B;&#x505A;&#x4E00;&#x4E2A;&#x6811;&#x5F62;&#x7ED3;&#x6784;&#xFF0C;&#x8BE5;&#x7ED3;&#x6784;&#x6EE1;&#x8DB3;&#x4EE5;&#x4E0B;&#x6027;&#x8D28;&#xFF1A;</p>
+<ol>
+<li>&#x6BCF;&#x4E2A;&#x5185;&#x90E8;&#x8282;&#x70B9;<code>c[x]</code>&#x4FDD;&#x5B58;&#x4EE5;&#x5B83;&#x4E3A;&#x6839;&#x7684;&#x5B50;&#x6811;&#x4E2D;&#x6240;&#x6709;&#x53F6;&#x8282;&#x70B9;&#x7684;&#x548C;&#x3002;</li>
+<li>&#x6BCF;&#x4E2A;&#x5185;&#x90E8;&#x8282;&#x70B9;<code>c[x]</code>&#x7684;&#x5B50;&#x8282;&#x70B9;&#x4E2A;&#x6570;&#x7B49;&#x4E8E;<code>lowbit(x)</code>&#x7684;&#x4F4D;&#x6570;&#x3002;</li>
+<li>&#x9664;&#x6811;&#x6839;&#x5916;&#xFF0C;&#x6BCF;&#x4E2A;&#x5185;&#x90E8;&#x8282;&#x70B9;<code>c[x]</code>&#x7684;&#x7236;&#x8282;&#x70B9;&#x662F;<code>c[x+lowbit(x)]</code>&#x3002;</li>
+<li>&#x6811;&#x7684;&#x6DF1;&#x5EA6;&#x4E3A;<code>O(logN)</code>&#x3002;</li>
+</ol>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">int</span> <span class="token function">ask</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span>x<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">;</span>x<span class="token operator">-=</span>x<span class="token operator">&amp;</span><span class="token operator">-</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        ans <span class="token operator">+=</span> c<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span>x<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>x<span class="token operator">+=</span>x<span class="token operator">&amp;</span><span class="token operator">-</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        c<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">+=</span> y<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x4F8B;&#x9898;">&#x4F8B;&#x9898;</h3>
+<p>&#x6709;<code>n(n&lt;=1e5)</code>&#x5934;&#x5976;&#x725B;&#xFF0C;&#x5DF2;&#x77E5;&#x5B83;&#x4EEC;&#x7684;&#x8EAB;&#x9AD8;&#x4E3A;<code>1&#x223C;n</code>&#x4E14;&#x5404;&#x4E0D;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x4E0D;&#x77E5;&#x9053;&#x6BCF;&#x5934;&#x5976;&#x725B;&#x7684;&#x5177;&#x4F53;&#x8EAB;&#x9AD8;&#x3002;&#x73B0;&#x5728;&#x8FD9;<code>n</code>&#x5934;&#x5976;&#x725B;&#x7AD9;&#x6210;&#x4E00;&#x5217;&#xFF0C;&#x5DF2;&#x77E5;&#x7B2C;<code>i</code>&#x5934;&#x725B;&#x524D;&#x9762;&#x6709;<code>a[i]</code>&#x5934;&#x725B;&#x6BD4;&#x5B83;&#x4F4E;&#xFF0C;&#x6C42;&#x6BCF;&#x5934;&#x5976;&#x725B;&#x7684;&#x8EAB;&#x9AD8;&#x3002;</p>
+<p>&#x4ECE;&#x6700;&#x540E;&#x4E00;&#x5934;&#x5976;&#x725B;&#x8003;&#x8651;&#xFF0C;&#x524D;&#x9762;&#x6709;<code>a[n]</code>&#x5934;&#x5976;&#x725B;&#x6BD4;&#x5B83;&#x4F4E;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x7684;&#x8EAB;&#x9AD8;&#x4E3A;<code>a[n]+1</code>&#xFF1B;&#x5012;&#x6570;&#x7B2C;&#x4E8C;&#x5934;&#x5976;&#x725B;&#x7684;&#x8EAB;&#x9AD8;&#x4E3A;<code>1~n</code>&#x4E2D;&#x5269;&#x4F59;&#x7684;&#x6570;&#x5B57;&#x4E2D;&#x7B2C;<code>a[n-1]</code>&#x5927;&#x7684;&#x3002;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> c<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> arr<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> v<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> n<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span>x<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>x<span class="token operator">+=</span>x<span class="token operator">&amp;</span><span class="token operator">-</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        c<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">+=</span> y<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">ask</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> res  <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span>x<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">;</span>x<span class="token operator">-=</span>x<span class="token operator">&amp;</span><span class="token operator">-</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        res <span class="token operator">+=</span> c<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">bs</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> l <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> r <span class="token operator">=</span> n<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>l<span class="token operator">&lt;</span>r<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> r<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">ask</span><span class="token punctuation">(</span>mid<span class="token punctuation">)</span> <span class="token operator">&gt;=</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            r <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            l <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> l<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">&quot;%d&quot;</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">//&#x7B2C;&#x4E00;&#x5934;&#x524D;&#x9762;&#x6BD4;&#x5B83;&#x4F4E;&#x7684;&#x5976;&#x725B;&#x4E2A;&#x6570;&#x9ED8;&#x8BA4;&#x4E3A;0 &#x4E0D;&#x8F93;&#x5165;</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">&quot;%d&quot;</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">add</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>n<span class="token punctuation">;</span>i<span class="token operator">&gt;=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token function">bs</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">add</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        v<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> res<span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;%d\n&quot;</span><span class="token punctuation">,</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Cocos节点树.html" class="navigation navigation-prev " aria-label="Previous page: Cocos节点树">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="红黑树.html" class="navigation navigation-next " aria-label="Next page: 红黑树">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"树状数组","level":"2.3.9","depth":2,"next":{"title":"红黑树","level":"2.3.10","depth":2,"path":"algorithm/红黑树.md","ref":"algorithm/红黑树.md","articles":[]},"previous":{"title":"Cocos节点树","level":"2.3.8","depth":2,"path":"algorithm/Cocos节点树.md","ref":"algorithm/Cocos节点树.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algorithm/树状数组.md","mtime":"2021-03-21T03:23:14.142Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-21T03:31:11.147Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
