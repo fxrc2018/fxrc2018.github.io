@@ -53,40 +53,33 @@ int kmp(string str, string substr){
 KMP算法还有另外一种写法。
 
 ```cpp
-int kmp(string str, string p){
-    int n = str.size();
-    int m = p.size();
-    str.insert(0," "); // 下标从1开始比较好计算
-    p.insert(0," ");
-
-    //构造next数组
-    vector<int> ne(m + 1,0);
-    for(int i = 2,j = 0;i<p.size();i++){
-        while(j>0 && p[i] != p[j+1]){
-            j = ne[j];
+vector<int> kmp(string &s, string &p){
+    vector<int> pos;
+    vector<int> next(p.size()+1, 0);
+    for(int i=1;i<p.size();i++){
+        int j = next[i];
+        while(j>0 && p[i] != p[j]){
+            j = next[j];
         }
-        if(p[i] == p[j+1]){
+        next[i+1] = p[i] == p[j]?j+1:0;
+    }
+    int j = 0;
+    for(int i=0;i<s.size();i++){
+        while(j>0 && s[i] != p[j]){
+            j = next[j];
+        }
+        if(s[i] == p[j]){
             j++;
         }
-        ne[i] = j;
-    }
-
-    for(int i=1,j=0;i<str.size();i++){
-        while(j>0 && (j == m || str[i] != p[j+1])){
-            j = ne[j];
-        }
-        if(str[i] == p[j+1]){
-            j++;
-        }
-        if(j == m){
-            return i - m;
+        if(j == p.size()){
+            pos.push_back(i-j+1);
         }
     }
-    return -1;
+    return pos;
 }
 ```
 
-其中，next数组表示（代码中为ne，主要是防止和C++本身的函数重复）的含义为：字符串中以i结尾的非前缀子串（不能包含第一个字符）与字符串的前缀能够匹配的最长长度。当没有非前缀子串时，`next[i] = 0`。
+其中，next数组表示的含义为：字符串中以i结尾的非前缀子串（不能包含第一个字符）与字符串的前缀能够匹配的最长长度。当没有非前缀子串时，`next[i] = 0`。
 
 从这种角度思考KMP会更好理解一点，当匹配失败时，就后退字符串，此时，最优的地方是`next[i-1]`，如果还匹配失败，就后退到`next[next[i-1]]`，直到退回到字符串的首字符。
 
