@@ -4,3 +4,4 @@
 /code/unity/boids/Packages
 /_book
 /node_modules
+*.md
