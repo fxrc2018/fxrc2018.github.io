@@ -108,3 +108,7 @@
     * [点、线和三角形](/game_development/CG/点、线和三角形.md)
     * [深度缓冲](/game_development/CG/深度缓冲.md)
     * [顶点变换](/game_development/CG/顶点变换.md)
+
+* [其他]()
+    * [开发工具Tips](/other/开发工具Tips.md)
+    * [Windows下好用的软件](/other/Windows下好用的软件.md)
