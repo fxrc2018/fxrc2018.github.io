@@ -1,0 +1,1671 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>光线追踪基础 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="顶点变换.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    编程语言
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" >
+            
+                <span>
+            
+                    
+                    C
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../../programming_language/C/类型、运算符与表达式.html">
+            
+                <a href="../../programming_language/C/类型、运算符与表达式.html">
+            
+                    
+                    类型、运算符与表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../../programming_language/C/控制流.html">
+            
+                <a href="../../programming_language/C/控制流.html">
+            
+                    
+                    控制流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../../programming_language/C/指针和数组.html">
+            
+                <a href="../../programming_language/C/指针和数组.html">
+            
+                    
+                    指针和数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="../../programming_language/C/函数与程序结构.html">
+            
+                <a href="../../programming_language/C/函数与程序结构.html">
+            
+                    
+                    函数与程序结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="../../programming_language/C/可变长参数与多返回值.html">
+            
+                <a href="../../programming_language/C/可变长参数与多返回值.html">
+            
+                    
+                    可变长参数与多返回值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6" data-path="../../programming_language/C/输入与输出.html">
+            
+                <a href="../../programming_language/C/输入与输出.html">
+            
+                    
+                    输入与输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" >
+            
+                <span>
+            
+                    
+                    C++
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../../programming_language/Cpp/从C到C++.html">
+            
+                <a href="../../programming_language/Cpp/从C到C++.html">
+            
+                    
+                    从C到C++
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../../programming_language/Cpp/C++智能指针.html">
+            
+                <a href="../../programming_language/Cpp/C++智能指针.html">
+            
+                    
+                    C++智能指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../../programming_language/Cpp/模板.html">
+            
+                <a href="../../programming_language/Cpp/模板.html">
+            
+                    
+                    模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../../programming_language/Cpp/友元.html">
+            
+                <a href="../../programming_language/Cpp/友元.html">
+            
+                    
+                    友元
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../../programming_language/Cpp/类与对象.html">
+            
+                <a href="../../programming_language/Cpp/类与对象.html">
+            
+                    
+                    类与对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../../programming_language/Cpp/运算符重载.html">
+            
+                <a href="../../programming_language/Cpp/运算符重载.html">
+            
+                    
+                    运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="../../programming_language/Cpp/C语言简单实现面向对象思想.html">
+            
+                <a href="../../programming_language/Cpp/C语言简单实现面向对象思想.html">
+            
+                    
+                    C语言简单实现面向对象思想
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="../../programming_language/Cpp/C++对象模型1——虚函数表和虚函数指针.html">
+            
+                <a href="../../programming_language/Cpp/C++对象模型1——虚函数表和虚函数指针.html">
+            
+                    
+                    C++对象模型1——虚函数表和虚函数指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="../../programming_language/Cpp/C++对象模型2——类对象的数据布局.html">
+            
+                <a href="../../programming_language/Cpp/C++对象模型2——类对象的数据布局.html">
+            
+                    
+                    C++对象模型2——类对象的数据布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="../../programming_language/Cpp/C++对象模型3——默认构造-拷贝构造函数.html">
+            
+                <a href="../../programming_language/Cpp/C++对象模型3——默认构造-拷贝构造函数.html">
+            
+                    
+                    C++对象模型3——默认构造-拷贝构造函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="../../programming_language/Cpp/C++对象模型4——函数的调用.html">
+            
+                <a href="../../programming_language/Cpp/C++对象模型4——函数的调用.html">
+            
+                    
+                    C++对象模型4——函数的调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="../../programming_language/Cpp/C++对象模型5——对象的构造-析构.html">
+            
+                <a href="../../programming_language/Cpp/C++对象模型5——对象的构造-析构.html">
+            
+                    
+                    C++对象模型5——对象的构造-析构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.13" data-path="../../programming_language/Cpp/STL常用容器和算法.html">
+            
+                <a href="../../programming_language/Cpp/STL常用容器和算法.html">
+            
+                    
+                    STL常用容器和算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    计算机基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../basic/ascii_utf_8.html">
+            
+                <a href="../../basic/ascii_utf_8.html">
+            
+                    
+                    ASCII、Unicode和UTF-8
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    CSAPP笔记
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../../CSAPP/信息的表示和处理.html">
+            
+                <a href="../../CSAPP/信息的表示和处理.html">
+            
+                    
+                    信息的表示和处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../../CSAPP/Data-Lab.html">
+            
+                <a href="../../CSAPP/Data-Lab.html">
+            
+                    
+                    Data Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../../CSAPP/程序的机器级表示.html">
+            
+                <a href="../../CSAPP/程序的机器级表示.html">
+            
+                    
+                    程序的机器级表示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../../CSAPP/Bomb-Lab.html">
+            
+                <a href="../../CSAPP/Bomb-Lab.html">
+            
+                    
+                    Bomb Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="../../CSAPP/Attack-Lab.html">
+            
+                <a href="../../CSAPP/Attack-Lab.html">
+            
+                    
+                    Attak Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="../../CSAPP/优化程序性能.html">
+            
+                <a href="../../CSAPP/优化程序性能.html">
+            
+                    
+                    优化程序性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" data-path="../../CSAPP/存储器层次结构.html">
+            
+                <a href="../../CSAPP/存储器层次结构.html">
+            
+                    
+                    存储器层次结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8" data-path="../../CSAPP/Cache-Lab.html">
+            
+                <a href="../../CSAPP/Cache-Lab.html">
+            
+                    
+                    Cache Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.9" data-path="../../CSAPP/动态内存分配.html">
+            
+                <a href="../../CSAPP/动态内存分配.html">
+            
+                    
+                    动态内存分配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.10" data-path="../../CSAPP/Malloc-Lab.html">
+            
+                <a href="../../CSAPP/Malloc-Lab.html">
+            
+                    
+                    Malloc Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.11" data-path="../../CSAPP/链接.html">
+            
+                <a href="../../CSAPP/链接.html">
+            
+                    
+                    链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.12" data-path="../../CSAPP/异常控制流.html">
+            
+                <a href="../../CSAPP/异常控制流.html">
+            
+                    
+                    异常控制流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.13" data-path="../../CSAPP/Shell-Lab.html">
+            
+                <a href="../../CSAPP/Shell-Lab.html">
+            
+                    
+                    Shell Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.14" data-path="../../CSAPP/虚拟内存.html">
+            
+                <a href="../../CSAPP/虚拟内存.html">
+            
+                    
+                    虚拟内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.15" data-path="../../CSAPP/系统级IO.html">
+            
+                <a href="../../CSAPP/系统级IO.html">
+            
+                    
+                    系统级IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.16" data-path="../../CSAPP/网络编程.html">
+            
+                <a href="../../CSAPP/网络编程.html">
+            
+                    
+                    网络编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.17" data-path="../../CSAPP/Web服务器.html">
+            
+                <a href="../../CSAPP/Web服务器.html">
+            
+                    
+                    Web服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.18" data-path="../../CSAPP/Proxy-Lab.html">
+            
+                <a href="../../CSAPP/Proxy-Lab.html">
+            
+                    
+                    Proxy Lab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.19" data-path="../../CSAPP/并发编程.html">
+            
+                <a href="../../CSAPP/并发编程.html">
+            
+                    
+                    并发编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.20" data-path="../../CSAPP/System-V进程间通信.html">
+            
+                <a href="../../CSAPP/System-V进程间通信.html">
+            
+                    
+                    System-V进程间通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.21" data-path="../../CSAPP/线程.html">
+            
+                <a href="../../CSAPP/线程.html">
+            
+                    
+                    线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    算法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../../algorithm/位运算的一些技巧.html">
+            
+                <a href="../../algorithm/位运算的一些技巧.html">
+            
+                    
+                    位运算的一些技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../../algorithm/二分查找.html">
+            
+                <a href="../../algorithm/二分查找.html">
+            
+                    
+                    二分查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../../algorithm/链表.html">
+            
+                <a href="../../algorithm/链表.html">
+            
+                    
+                    链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../../algorithm/vector的简单实现.html">
+            
+                <a href="../../algorithm/vector的简单实现.html">
+            
+                    
+                    vector的简单实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.5" data-path="../../algorithm/list的简单实现.html">
+            
+                <a href="../../algorithm/list的简单实现.html">
+            
+                    
+                    list的简单实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6" data-path="../../algorithm/栈和队列.html">
+            
+                <a href="../../algorithm/栈和队列.html">
+            
+                    
+                    栈和队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.7" >
+            
+                <span>
+            
+                    
+                    树
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.7.1" data-path="../../algorithm/二叉查找树.html">
+            
+                <a href="../../algorithm/二叉查找树.html">
+            
+                    
+                    二叉查找树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.7.2" data-path="../../algorithm/Cocos节点树.html">
+            
+                <a href="../../algorithm/Cocos节点树.html">
+            
+                    
+                    Cocos节点树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.7.3" data-path="../../algorithm/树状数组.html">
+            
+                <a href="../../algorithm/树状数组.html">
+            
+                    
+                    树状数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.7.4" data-path="../../algorithm/线段树.html">
+            
+                <a href="../../algorithm/线段树.html">
+            
+                    
+                    线段树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.7.5" data-path="../../algorithm/tree/Treap树.html">
+            
+                <a href="../../algorithm/tree/Treap树.html">
+            
+                    
+                    Treap树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.7.6" data-path="../../algorithm/红黑树.html">
+            
+                <a href="../../algorithm/红黑树.html">
+            
+                    
+                    红黑树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.8" data-path="../../algorithm/堆.html">
+            
+                <a href="../../algorithm/堆.html">
+            
+                    
+                    堆
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.9" data-path="../../algorithm/sort.html">
+            
+                <a href="../../algorithm/sort.html">
+            
+                    
+                    排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.10" data-path="../../algorithm/DP.html">
+            
+                <a href="../../algorithm/DP.html">
+            
+                    
+                    动态规划
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.11" data-path="../../algorithm/动态规划基本模型.html">
+            
+                <a href="../../algorithm/动态规划基本模型.html">
+            
+                    
+                    动态规划基本模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.12" data-path="../../algorithm/哈希表.html">
+            
+                <a href="../../algorithm/哈希表.html">
+            
+                    
+                    哈希表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.13" data-path="../../algorithm/最短路.html">
+            
+                <a href="../../algorithm/最短路.html">
+            
+                    
+                    最短路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.14" data-path="../../algorithm/最小生成树.html">
+            
+                <a href="../../algorithm/最小生成树.html">
+            
+                    
+                    最小生成树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.15" data-path="../../algorithm/并查集.html">
+            
+                <a href="../../algorithm/并查集.html">
+            
+                    
+                    并查集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.16" data-path="../../algorithm/跳跃表.html">
+            
+                <a href="../../algorithm/跳跃表.html">
+            
+                    
+                    跳跃表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.17" data-path="../../algorithm/哈夫曼编码.html">
+            
+                <a href="../../algorithm/哈夫曼编码.html">
+            
+                    
+                    哈夫曼编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.18" data-path="../../algorithm/大整数运算.html">
+            
+                <a href="../../algorithm/大整数运算.html">
+            
+                    
+                    大整数运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.19" data-path="../../algorithm/数学知识.html">
+            
+                <a href="../../algorithm/数学知识.html">
+            
+                    
+                    数学知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.20" data-path="../../algorithm/KMP算法和正则表达式匹配算法.html">
+            
+                <a href="../../algorithm/KMP算法和正则表达式匹配算法.html">
+            
+                    
+                    KMP算法和正则表达式匹配算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.21" data-path="../../algorithm/Quake3快速平方根倒数算法.html">
+            
+                <a href="../../algorithm/Quake3快速平方根倒数算法.html">
+            
+                    
+                    Quake3快速平方根倒数算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.22" data-path="../../algorithm/多项式与快速傅里叶变换.html">
+            
+                <a href="../../algorithm/多项式与快速傅里叶变换.html">
+            
+                    
+                    多项式与快速傅里叶变换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.23" data-path="../../algorithm/NP完全性和近似算法.html">
+            
+                <a href="../../algorithm/NP完全性和近似算法.html">
+            
+                    
+                    NP完全性和近似算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.24" data-path="../../algorithm/表达式求值（递归下降法）.html">
+            
+                <a href="../../algorithm/表达式求值（递归下降法）.html">
+            
+                    
+                    表达式求值（递归下降法）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.25" data-path="../../algorithm/CRC编码.html">
+            
+                <a href="../../algorithm/CRC编码.html">
+            
+                    
+                    CRC编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.26" data-path="../../algorithm/利用蒙特卡洛算法计算圆周率.html">
+            
+                <a href="../../algorithm/利用蒙特卡洛算法计算圆周率.html">
+            
+                    
+                    利用蒙特卡洛算法计算圆周率
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.27" data-path="../../algorithm/表达式求值（逆波兰表达式方法）.html">
+            
+                <a href="../../algorithm/表达式求值（逆波兰表达式方法）.html">
+            
+                    
+                    表达式求值（逆波兰表达式方法）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.28" data-path="../../algorithm/使用next_permutation解决排列组合问题.html">
+            
+                <a href="../../algorithm/使用next_permutation解决排列组合问题.html">
+            
+                    
+                    使用next_permutation解决排列组合问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    游戏开发
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../game_loop.html">
+            
+                <a href="../game_loop.html">
+            
+                    
+                    游戏程序三要素
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../Boids算法.html">
+            
+                <a href="../Boids算法.html">
+            
+                    
+                    Boids算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../UI.html">
+            
+                <a href="../UI.html">
+            
+                    
+                    UI
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    图形学
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="向量和矩阵.html">
+            
+                <a href="向量和矩阵.html">
+            
+                    
+                    向量和矩阵
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="点、线和三角形.html">
+            
+                <a href="点、线和三角形.html">
+            
+                    
+                    点、线和三角形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="深度缓冲.html">
+            
+                <a href="深度缓冲.html">
+            
+                    
+                    深度缓冲
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="顶点变换.html">
+            
+                <a href="顶点变换.html">
+            
+                    
+                    顶点变换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.2.5" data-path="光线追踪基础.html">
+            
+                <a href="光线追踪基础.html">
+            
+                    
+                    光线追踪基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" >
+            
+                <span>
+            
+                    
+                    其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../other/开发工具Tips.html">
+            
+                <a href="../../other/开发工具Tips.html">
+            
+                    
+                    开发工具Tips
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../../other/Windows下好用的软件.html">
+            
+                <a href="../../other/Windows下好用的软件.html">
+            
+                    
+                    Windows下好用的软件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >光线追踪基础</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x5149;&#x7EBF;&#x8FFD;&#x8E2A;&#x57FA;&#x7840;">&#x5149;&#x7EBF;&#x8FFD;&#x8E2A;&#x57FA;&#x7840;</h2>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">for</span> each pixel <span class="token keyword">do</span>
+    compute viewing ray
+    find first object hit by ray <span class="token operator">and</span> its surface normal n
+    set pixel color to value computed from hit point<span class="token punctuation">,</span> light<span class="token punctuation">,</span> <span class="token operator">and</span> n
+</code></pre>
+<pre class="language-"><code class="lang-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cmath&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cfloat&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;fstream&gt;</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;glm/glm.hpp&quot;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> glm<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">float</span> pi <span class="token operator">=</span> <span class="token function">acos</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">Material</span> <span class="token punctuation">{</span>
+    <span class="token function">Material</span><span class="token punctuation">(</span><span class="token keyword">const</span> vec3 <span class="token operator">&amp;</span>color<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">diffuse_color</span><span class="token punctuation">(</span>color<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token function">Material</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">diffuse_color</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    vec3 diffuse_color<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">Light</span> <span class="token punctuation">{</span> <span class="token comment">//&#x70B9;&#x5149;&#x6E90;</span>
+    <span class="token function">Light</span><span class="token punctuation">(</span><span class="token keyword">const</span> vec3 <span class="token operator">&amp;</span>p<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">float</span> <span class="token operator">&amp;</span>i<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">position</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">intensity</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    vec3 position<span class="token punctuation">;</span>
+    <span class="token keyword">float</span> intensity<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Sphere</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    vec3 center<span class="token punctuation">;</span>
+    Material material<span class="token punctuation">;</span>
+    <span class="token keyword">float</span> radius<span class="token punctuation">;</span>
+
+    <span class="token function">Sphere</span><span class="token punctuation">(</span><span class="token keyword">const</span> vec3 <span class="token operator">&amp;</span>c<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">float</span> <span class="token operator">&amp;</span>r<span class="token punctuation">,</span> <span class="token keyword">const</span> Material <span class="token operator">&amp;</span>m<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">center</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">radius</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">material</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token keyword">bool</span> <span class="token function">rayIntersect</span><span class="token punctuation">(</span><span class="token keyword">const</span> vec3 <span class="token operator">&amp;</span>orig<span class="token punctuation">,</span> <span class="token keyword">const</span> vec3 <span class="token operator">&amp;</span>dir<span class="token punctuation">,</span> <span class="token keyword">float</span> <span class="token operator">&amp;</span>t0<span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">{</span>
+        <span class="token comment">//&#x5224;&#x65AD;&#x5706;&#x548C;&#x76F4;&#x7EBF;&#x662F;&#x5426;&#x76F8;&#x4EA4;</span>
+        vec3 L <span class="token operator">=</span> center <span class="token operator">-</span> orig<span class="token punctuation">;</span>
+        <span class="token keyword">float</span> tca <span class="token operator">=</span> <span class="token function">dot</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span>dir<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// auto res = L * L;</span>
+        <span class="token keyword">float</span> d2 <span class="token operator">=</span> <span class="token function">dot</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span>L<span class="token punctuation">)</span> <span class="token operator">-</span> tca<span class="token operator">*</span>tca<span class="token punctuation">;</span>
+        <span class="token comment">// float d2 = L * L - dot(tca,tca);</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>d2 <span class="token operator">&gt;</span> radius<span class="token operator">*</span>radius<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">float</span> thc <span class="token operator">=</span> <span class="token function">sqrtf</span><span class="token punctuation">(</span>radius<span class="token operator">*</span>radius <span class="token operator">-</span> d2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t0       <span class="token operator">=</span> tca <span class="token operator">-</span> thc<span class="token punctuation">;</span>
+        <span class="token keyword">float</span> t1 <span class="token operator">=</span> tca <span class="token operator">+</span> thc<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>t0 <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> t0 <span class="token operator">=</span> t1<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>t0 <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">bool</span> <span class="token function">scene_intersect</span><span class="token punctuation">(</span><span class="token keyword">const</span> vec3 <span class="token operator">&amp;</span>orig<span class="token punctuation">,</span> <span class="token keyword">const</span> vec3 <span class="token operator">&amp;</span>dir<span class="token punctuation">,</span> <span class="token keyword">const</span> std<span class="token operator">::</span>vector<span class="token operator">&lt;</span>Sphere<span class="token operator">&gt;</span> <span class="token operator">&amp;</span>spheres<span class="token punctuation">,</span> vec3 <span class="token operator">&amp;</span>hit<span class="token punctuation">,</span> vec3 <span class="token operator">&amp;</span>N<span class="token punctuation">,</span> Material <span class="token operator">&amp;</span>material<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">float</span> spheres_dist <span class="token operator">=</span> std<span class="token operator">::</span><span class="token class-name">numeric_limits</span><span class="token operator">&lt;</span><span class="token keyword">float</span><span class="token operator">&gt;</span><span class="token operator">::</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>size_t i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> spheres<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">float</span> dist_i<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>spheres<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">rayIntersect</span><span class="token punctuation">(</span>orig<span class="token punctuation">,</span> dir<span class="token punctuation">,</span> dist_i<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> dist_i <span class="token operator">&lt;</span> spheres_dist<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            spheres_dist <span class="token operator">=</span> dist_i<span class="token punctuation">;</span>
+            hit <span class="token operator">=</span> orig <span class="token operator">+</span> dir<span class="token operator">*</span>dist_i<span class="token punctuation">;</span>
+            N <span class="token operator">=</span> <span class="token function">normalize</span><span class="token punctuation">(</span><span class="token punctuation">(</span>hit <span class="token operator">-</span> spheres<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>center<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            material <span class="token operator">=</span> spheres<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>material<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> spheres_dist<span class="token operator">&lt;</span><span class="token number">1000</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+vec3 <span class="token function">castRay</span><span class="token punctuation">(</span><span class="token keyword">const</span> vec3<span class="token operator">&amp;</span>orig<span class="token punctuation">,</span> <span class="token keyword">const</span> vec3 <span class="token operator">&amp;</span>dir<span class="token punctuation">,</span> <span class="token keyword">const</span> vector<span class="token operator">&lt;</span>Sphere<span class="token operator">&gt;</span> <span class="token operator">&amp;</span>spheres<span class="token punctuation">,</span> <span class="token keyword">const</span> vector<span class="token operator">&lt;</span>Light<span class="token operator">&gt;</span> <span class="token operator">&amp;</span>lights<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    vec3 point<span class="token punctuation">,</span> N<span class="token punctuation">;</span>
+    Material material<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">scene_intersect</span><span class="token punctuation">(</span>orig<span class="token punctuation">,</span> dir<span class="token punctuation">,</span> spheres<span class="token punctuation">,</span> point<span class="token punctuation">,</span> N<span class="token punctuation">,</span> material<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">,</span> <span class="token number">0.7</span><span class="token punctuation">,</span> <span class="token number">0.8</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// background color</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// return material.diffuse_color;</span>
+    <span class="token keyword">float</span> diffuse_light_intensity <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>size_t i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>lights<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        vec3 light_dir      <span class="token operator">=</span> <span class="token function">normalize</span><span class="token punctuation">(</span><span class="token punctuation">(</span>lights<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>position <span class="token operator">-</span> point<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">float</span> in <span class="token operator">=</span> <span class="token function">dot</span><span class="token punctuation">(</span>light_dir<span class="token punctuation">,</span>N<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        diffuse_light_intensity  <span class="token operator">+=</span> lights<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>intensity <span class="token operator">*</span> std<span class="token operator">::</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token number">0.0f</span><span class="token punctuation">,</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> material<span class="token punctuation">.</span>diffuse_color <span class="token operator">*</span> diffuse_light_intensity<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">float</span> fov <span class="token operator">=</span> pi <span class="token operator">/</span> <span class="token number">3.0f</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">render</span><span class="token punctuation">(</span><span class="token keyword">const</span> vector<span class="token operator">&lt;</span>Sphere<span class="token operator">&gt;</span> <span class="token operator">&amp;</span>spheres<span class="token punctuation">,</span> <span class="token keyword">const</span> vector<span class="token operator">&lt;</span>Light<span class="token operator">&gt;</span> <span class="token operator">&amp;</span>lights<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token keyword">int</span> width <span class="token operator">=</span> <span class="token number">1024</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token keyword">int</span> height <span class="token operator">=</span> <span class="token number">768</span><span class="token punctuation">;</span>
+    vector<span class="token operator">&lt;</span>vec3<span class="token operator">&gt;</span> <span class="token function">framebuffer</span><span class="token punctuation">(</span>width<span class="token operator">*</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>height<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>width<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">float</span> x <span class="token operator">=</span>  <span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>width  <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">tan</span><span class="token punctuation">(</span>fov<span class="token operator">/</span><span class="token number">2.</span><span class="token punctuation">)</span><span class="token operator">*</span>width<span class="token operator">/</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>height<span class="token punctuation">;</span>
+            <span class="token comment">//&#x76F8;&#x673A;&#x653E;&#x5728;(0,0,0)&#x5C4F;&#x5E55;&#x5728;(0,0,-1),&#x9996;&#x5148;&#x6839;&#x636E;fov&#x8BA1;&#x7B97;&#x51FA;&#x76F8;&#x673A;&#x7684;&#x539F;&#x59CB;&#x5927;&#x5C0F;&#xFF0C; &#x7136;&#x540E;&#x628A;&#x5C4F;&#x5E55;&#x5927;&#x5C0F;&#x6620;&#x5C04;&#x5230;&#x539F;&#x59CB;&#x5927;&#x5C0F;</span>
+            <span class="token comment">//&#x540C;&#x7406;&#xFF0C;&#x5BBD;&#x5EA6;&#x4E5F;&#x662F;&#x7C7B;&#x4F3C;&#x7684;&#x5904;&#x7406;</span>
+            <span class="token keyword">float</span> y <span class="token operator">=</span> <span class="token operator">-</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span><span class="token punctuation">(</span>j <span class="token operator">+</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>height <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">tan</span><span class="token punctuation">(</span>fov<span class="token operator">/</span><span class="token number">2.</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x5C06;y&#x8FDB;&#x884C;&#x4E86;&#x7FFB;&#x8F6C;</span>
+            vec3 dir <span class="token operator">=</span> <span class="token function">normalize</span><span class="token punctuation">(</span><span class="token function">vec3</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            framebuffer<span class="token punctuation">[</span>i<span class="token operator">+</span>j<span class="token operator">*</span>width<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">castRay</span><span class="token punctuation">(</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dir<span class="token punctuation">,</span> spheres<span class="token punctuation">,</span> lights<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    ofstream ofs<span class="token punctuation">;</span>
+    ofs<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">&quot;out.ppm&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ofs<span class="token operator">&lt;&lt;</span><span class="token string">&quot;P3\n&quot;</span><span class="token operator">&lt;&lt;</span>width<span class="token operator">&lt;&lt;</span><span class="token string">&quot; &quot;</span><span class="token operator">&lt;&lt;</span>height<span class="token operator">&lt;&lt;</span><span class="token string">&quot;\n255\n&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>width<span class="token operator">*</span>height<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        vec3 v <span class="token operator">=</span> framebuffer<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        v<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token function">clamp</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>x<span class="token punctuation">,</span><span class="token number">0.0f</span><span class="token punctuation">,</span><span class="token number">1.0f</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        v<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token function">clamp</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>y<span class="token punctuation">,</span><span class="token number">0.0f</span><span class="token punctuation">,</span><span class="token number">1.0f</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        v<span class="token punctuation">.</span>z <span class="token operator">=</span> <span class="token function">clamp</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>z<span class="token punctuation">,</span><span class="token number">0.0f</span><span class="token punctuation">,</span><span class="token number">1.0f</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ofs<span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">255</span> <span class="token operator">*</span> v<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span><span class="token string">&quot; &quot;</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">255</span> <span class="token operator">*</span> v<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; &quot;</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token operator">*</span>v<span class="token punctuation">.</span>z<span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span><span class="token string">&quot;\n&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    ofs<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    vec3 v<span class="token punctuation">;</span>
+
+
+    Material      <span class="token function">ivory</span><span class="token punctuation">(</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0.4</span><span class="token punctuation">,</span> <span class="token number">0.4</span><span class="token punctuation">,</span> <span class="token number">0.3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Material <span class="token function">red_rubber</span><span class="token punctuation">(</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0.3</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    std<span class="token operator">::</span>vector<span class="token operator">&lt;</span>Sphere<span class="token operator">&gt;</span> spheres<span class="token punctuation">;</span>
+    spheres<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">Sphere</span><span class="token punctuation">(</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">,</span>    <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token operator">-</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span>      ivory<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    spheres<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">Sphere</span><span class="token punctuation">(</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1.5</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> red_rubber<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    spheres<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">Sphere</span><span class="token punctuation">(</span><span class="token function">vec3</span><span class="token punctuation">(</span> <span class="token number">1.5</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> red_rubber<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    spheres<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">Sphere</span><span class="token punctuation">(</span><span class="token function">vec3</span><span class="token punctuation">(</span> <span class="token number">7</span><span class="token punctuation">,</span>    <span class="token number">5</span><span class="token punctuation">,</span>   <span class="token operator">-</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span>      ivory<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    std<span class="token operator">::</span>vector<span class="token operator">&lt;</span>Light<span class="token operator">&gt;</span>  lights<span class="token punctuation">;</span>
+    lights<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">Light</span><span class="token punctuation">(</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span>  <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">render</span><span class="token punctuation">(</span>spheres<span class="token punctuation">,</span> lights<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">&quot;Start out.ppm&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">&quot;pause&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="顶点变换.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 顶点变换">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"光线追踪基础","level":"3.2.5","depth":2,"next":{"title":"其他","level":"3.3","depth":1,"ref":"","articles":[{"title":"开发工具Tips","level":"3.3.1","depth":2,"path":"other/开发工具Tips.md","ref":"other/开发工具Tips.md","articles":[]},{"title":"Windows下好用的软件","level":"3.3.2","depth":2,"path":"other/Windows下好用的软件.md","ref":"other/Windows下好用的软件.md","articles":[]}]},"previous":{"title":"顶点变换","level":"3.2.4","depth":2,"path":"game_development/CG/顶点变换.md","ref":"game_development/CG/顶点变换.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"game_development/CG/光线追踪基础.md","mtime":"2021-04-05T14:21:39.208Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-05T14:28:49.118Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
