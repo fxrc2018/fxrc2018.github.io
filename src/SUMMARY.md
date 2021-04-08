@@ -67,6 +67,8 @@
     * [vector的简单实现](/algorithm/vector的简单实现.md)
     * [list的简单实现](/algorithm/list的简单实现.md)
     * [栈和队列](/algorithm/栈和队列.md)
+    * [搜索]()
+        * [BFS](/algorithm/search/BFS.md)
     * [树]()
         * [二叉查找树](/algorithm/二叉查找树.md)
         * [Cocos节点树](/algorithm/Cocos节点树.md)
@@ -112,4 +114,5 @@
 
 * [其他]()
     * [开发工具Tips](/other/开发工具Tips.md)
+    * [Android自定义View基础](/basic/android/自定义View基础.md)
     * [Windows下好用的软件](/other/Windows下好用的软件.md)
