@@ -75,6 +75,7 @@
         * [树状数组](/algorithm/tree/树状数组.md)
         * [线段树](/algorithm/tree/线段树.md)
         * [Treap树](/algorithm/tree/Treap树.md)
+        * [AVL树](/algorithm/tree/AVL树.md)
         * [红黑树](/algorithm/tree/红黑树.md)
     * [堆](/algorithm/堆.md)
     * [排序](/algorithm/sort.md)
