@@ -73,6 +73,7 @@
         * [二叉查找树](/algorithm/tree/二叉查找树.md)
         * [Cocos节点树](/algorithm/tree/Cocos节点树.md)
         * [树状数组](/algorithm/tree/树状数组.md)
+        * [字典树](/algorithm/tree/字典树.md)
         * [线段树](/algorithm/tree/线段树.md)
         * [Treap树](/algorithm/tree/Treap树.md)
         * [AVL树](/algorithm/tree/AVL树.md)
