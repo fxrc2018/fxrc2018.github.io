@@ -1,7 +1,7 @@
 {
     "plugins": [
         "expandable-chapters",
-        "mathjax",
+        "katex",
         "-highlight",
         "prism"
     ]

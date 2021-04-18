@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
                 
             
@@ -969,6 +973,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.5.8.2" data-path="../algorithm/search/DFS.html">
+            
+                <a href="../algorithm/search/DFS.html">
+            
+                    
+                    DFS
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1643,7 +1660,7 @@
                                 <h2 id="&#x7CFB;&#x7EDF;&#x7EA7;io">&#x7CFB;&#x7EDF;&#x7EA7;IO</h2>
 <h3 id="&#x6587;&#x4EF6;&#x7684;&#x57FA;&#x672C;&#x64CD;&#x4F5C;">&#x6587;&#x4EF6;&#x7684;&#x57FA;&#x672C;&#x64CD;&#x4F5C;</h3>
 <p>&#x4E00;&#x4E2A;Linux&#x6587;&#x4EF6;&#x5C31;&#x662F;&#x4E00;&#x4E2A;m&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x5E8F;&#x5217;&#xFF1A;</p>
-<p><script type="math/tex; ">B_0,B_1, ... ,B_k, ... ,B_(m-1)</script></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>B</mi><mn>0</mn></msub><mo separator="true">,</mo><msub><mi>B</mi><mn>1</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>B</mi><mi>k</mi></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>B</mi><mo>(</mo></msub><mi>m</mi><mo>&#x2212;</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">B_0,B_1, ... ,B_k, ... ,B_(m-1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.1052em;vertical-align:-0.3551999999999999em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mpunct">,</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mpunct">,</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist"><span style="top:0.18019999999999992em;margin-right:0.05em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mopen mtight">(</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit">m</span><span class="mbin">&#x2212;</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span></p>
 <p>&#x6240;&#x6709;&#x7684;I/O&#x8BBE;&#x5907;&#xFF08;&#x4F8B;&#x5982;&#x7F51;&#x7EDC;&#x3001;&#x78C1;&#x76D8;&#x548C;&#x7EC8;&#x7AEF;&#xFF09;&#x90FD;&#x88AB;&#x6A21;&#x578B;&#x5316;&#x4E3A;&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x6240;&#x6709;&#x7684;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x90FD;&#x88AB;&#x5F53;&#x4F5C;&#x5BF9;&#x5E94;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x5199;&#x6765;&#x6267;&#x884C;&#x3002;&#x8FD9;&#x79CD;&#x5C06;&#x8BBE;&#x5907;&#x4F18;&#x96C5;&#x5730;&#x6620;&#x5C04;&#x4E3A;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5141;&#x8BB8;Linux&#x5185;&#x6838;&#x5F15;&#x51FA;yield&#x7B80;&#x5355;&#x3001;&#x4F4E;&#x7EA7;&#x7684;&#x5E94;&#x7528;&#x63A5;&#x53E3;&#xFF0C;&#x79F0;&#x4E3A;Unix I/O&#xFF0C;&#x8FD9;&#x4F7F;&#x5F97;&#x6240;&#x6709;&#x7684;&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x90FD;&#x80FD;&#x4EE5;&#x4E00;&#x79CD;&#x7EDF;&#x4E00;&#x4E14;&#x4E00;&#x81F4;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x6267;&#x884C;&#xFF1A;</p>
 <ul>
 <li>&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x3002;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x901A;&#x8FC7;&#x8981;&#x6C42;&#x5185;&#x6838;&#x6253;&#x5F00;&#x76F8;&#x5E94;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x6765;&#x5BA3;&#x544A;&#x5B83;&#x60F3;&#x8981;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;I/O&#x8BBE;&#x5907;&#x3002;&#x5185;&#x6838;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5C0F;&#x7684;&#x975E;&#x8D1F;&#x6574;&#x6570;&#xFF0C;&#x53EB;&#x505A;&#x63CF;&#x8FF0;&#x7B26;&#xFF0C;&#x5B83;&#x5728;&#x540E;&#x7EED;&#x5BF9;&#x6B64;&#x6587;&#x4EF6;&#x7684;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x4E2D;&#x6807;&#x8BC6;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x3002;&#x5185;&#x6838;&#x8BB0;&#x5F55;&#x6709;&#x5173;&#x8FD9;&#x4E2A;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x7684;&#x6240;&#x6709;&#x4FE1;&#x606F;&#x3002;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x53EA;&#x9700;&#x8981;&#x8BB0;&#x4F4F;&#x8FD9;&#x4E2A;&#x63CF;&#x8FF0;&#x7B26;&#x3002;Linux shell&#x521B;&#x5EFA;&#x7684;&#x6BCF;&#x4E2A;&#x8FDB;&#x7A0B;&#x5F00;&#x59CB;&#x65F6;&#x90FD;&#x6709;&#x4E09;&#x4E2A;&#x6253;&#x5F00;&#x7684;&#x6587;&#x4EF6;&#xFF1A;&#x6807;&#x51C6;&#x8F93;&#x5165;&#xFF08;&#x63CF;&#x8FF0;&#x7B26;&#x4E3A;0&#xFF0C;&#x5B8F;&#x4E3A;STDIN_FILENO&#xFF09;&#xFF0C;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#xFF08;&#x63CF;&#x8FF0;&#x7B26;&#x4E3A;1&#xFF0C;&#x5B8F;&#x4E3A;STDOUT_FILENO&#xFF09;&#xFF0C;&#x6807;&#x51C6;&#x9519;&#x8BEF;&#xFF08;&#x63CF;&#x8FF0;&#x7B26;&#x4E3A;2&#xFF0C;STDERR_FILENO&#xFF09;&#x3002;</li>
@@ -1995,7 +2012,7 @@ c1 = 1, c2 = 2.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"系统级IO","level":"1.4.15","depth":2,"next":{"title":"网络编程","level":"1.4.16","depth":2,"path":"csapp/网络编程.md","ref":"csapp/网络编程.md","articles":[]},"previous":{"title":"虚拟内存","level":"1.4.14","depth":2,"path":"csapp/虚拟内存.md","ref":"csapp/虚拟内存.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","mathjax","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"csapp/系统级IO.md","mtime":"2021-04-01T13:35:05.248Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-14T14:58:31.895Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"系统级IO","level":"1.4.15","depth":2,"next":{"title":"网络编程","level":"1.4.16","depth":2,"path":"csapp/网络编程.md","ref":"csapp/网络编程.md","articles":[]},"previous":{"title":"虚拟内存","level":"1.4.14","depth":2,"path":"csapp/虚拟内存.md","ref":"csapp/虚拟内存.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"csapp/系统级IO.md","mtime":"2021-04-01T13:35:05.248Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-18T07:49:31.964Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -2006,14 +2023,6 @@ c1 = 1, c2 = 2.
     
         
         <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
-        
-    
-        
-        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
         
     
         
