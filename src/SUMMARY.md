@@ -118,6 +118,8 @@
     * [点、线和三角形](/game_development/CG/点、线和三角形.md)
     * [深度缓冲](/game_development/CG/深度缓冲.md)
     * [顶点变换](/game_development/CG/顶点变换.md)
+    * [反射与折射向量](/game_development/CG/反射与折射向量.md)
+    * [标准光照模型](/game_development/CG/标准光照模型.md)
     * [光线步进](/game_development/CG/光线步进.md)
     * [光线追踪基础](/game_development/CG/光线追踪基础.md)
 
