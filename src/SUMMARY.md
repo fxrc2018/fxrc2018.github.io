@@ -93,8 +93,8 @@
         * [Splay树](/algorithm/tree/Splay树.md)
         * [红黑树](/algorithm/tree/红黑树.md)
     * [图]()
-        * [最短路](/algorithm/最短路.md)
-        * [最小生成树](/algorithm/最小生成树.md)
+        * [最短路](/algorithm/graph/最短路.md)
+        * [最小生成树](/algorithm/graph/最小生成树.md)
     * [排序](/algorithm/sort.md)
     * [算法思想]()
         * [动态规划](/algorithm/DP.md)
@@ -127,6 +127,7 @@
     * [标准光照模型](/cg/标准光照模型.md)
     * [光线步进](/cg/光线步进.md)
     * [光线追踪基础](/cg/光线追踪基础.md)
+    * [烟花效果](/cg/烟花效果.md)
 
 * [其他]()
     * [开发工具Tips](/other/开发工具Tips.md)

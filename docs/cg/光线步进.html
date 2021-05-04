@@ -1283,9 +1283,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.6.1" data-path="../algorithm/最短路.html">
+        <li class="chapter " data-level="1.5.6.1" data-path="../algorithm/graph/最短路.html">
             
-                <a href="../algorithm/最短路.html">
+                <a href="../algorithm/graph/最短路.html">
             
                     
                     最短路
@@ -1296,9 +1296,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.6.2" data-path="../algorithm/最小生成树.html">
+        <li class="chapter " data-level="1.5.6.2" data-path="../algorithm/graph/最小生成树.html">
             
-                <a href="../algorithm/最小生成树.html">
+                <a href="../algorithm/graph/最小生成树.html">
             
                     
                     最小生成树
@@ -1631,9 +1631,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.3" data-path="obj文件简介.md">
+        <li class="chapter " data-level="1.7.3" data-path="obj文件简介.html">
             
-                <span>
+                <a href="obj文件简介.html">
             
                     
                     obj文件简介
@@ -1715,6 +1715,19 @@
             
                     
                     光线追踪基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="烟花效果.html">
+            
+                <a href="烟花效果.html">
+            
+                    
+                    烟花效果
             
                 </a>
             
@@ -1833,13 +1846,13 @@
                                 <h2 id="&#x5149;&#x7EBF;&#x6B65;&#x8FDB;">&#x5149;&#x7EBF;&#x6B65;&#x8FDB;</h2>
 <h3 id="signed-distance-functions">Signed Distance Functions</h3>
 <p><a href="http://jamie-wong.com/2016/07/15/ray-marching-signed-distance-functions/" target="_blank">http://jamie-wong.com/2016/07/15/ray-marching-signed-distance-functions/</a></p>
-<pre class="language-"><code class="lang-glsl"><span class="token keyword">const</span> <span class="token keyword">int</span> MAX_STEPS <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> MAX_STEPS <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token keyword">float</span> MAX_DIST <span class="token operator">=</span>  <span class="token number">100.0</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token keyword">float</span> SURF_DIST <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">;</span>
 
 <span class="token comment">//&#x8BA1;&#x7B97;&#x4E00;&#x4E2A;&#x70B9;&#x5230;&#x573A;&#x666F;&#x7684;&#x8DDD;&#x79BB;&#x662F;&#x591A;&#x5C11;</span>
-<span class="token keyword">float</span> <span class="token function">getDist</span><span class="token punctuation">(</span><span class="token keyword">vec3</span> p<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">vec4</span> sphere <span class="token operator">=</span> <span class="token keyword">vec4</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">float</span> <span class="token function">getDist</span><span class="token punctuation">(</span>vec3 p<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    vec4 sphere <span class="token operator">=</span> <span class="token function">vec4</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">float</span> sphereDist <span class="token operator">=</span> <span class="token function">length</span><span class="token punctuation">(</span>sphere<span class="token punctuation">.</span>xyz<span class="token operator">-</span>p<span class="token punctuation">)</span><span class="token operator">-</span>sphere<span class="token punctuation">.</span>w<span class="token punctuation">;</span>
     <span class="token keyword">float</span> planeDist <span class="token operator">=</span> p<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
     <span class="token keyword">float</span> d <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>sphereDist<span class="token punctuation">,</span>planeDist<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1847,10 +1860,10 @@
 <span class="token punctuation">}</span>
 
 <span class="token comment">//&#x5F97;&#x5230;&#x6CD5;&#x7EBF;</span>
-<span class="token keyword">vec3</span> <span class="token function">getNormal</span><span class="token punctuation">(</span><span class="token keyword">vec3</span> p<span class="token punctuation">)</span><span class="token punctuation">{</span>
+vec3 <span class="token function">getNormal</span><span class="token punctuation">(</span>vec3 p<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">float</span> d <span class="token operator">=</span> <span class="token function">getDist</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">vec2</span> e <span class="token operator">=</span> <span class="token keyword">vec2</span><span class="token punctuation">(</span><span class="token number">0.01</span><span class="token punctuation">,</span><span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">vec3</span> n <span class="token operator">=</span> d <span class="token operator">-</span> <span class="token keyword">vec3</span><span class="token punctuation">(</span>
+    vec2 e <span class="token operator">=</span> <span class="token function">vec2</span><span class="token punctuation">(</span><span class="token number">0.01</span><span class="token punctuation">,</span><span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    vec3 n <span class="token operator">=</span> d <span class="token operator">-</span> <span class="token function">vec3</span><span class="token punctuation">(</span>
         <span class="token function">getDist</span><span class="token punctuation">(</span>p<span class="token operator">-</span>e<span class="token punctuation">.</span>xyy<span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token function">getDist</span><span class="token punctuation">(</span>p<span class="token operator">-</span>e<span class="token punctuation">.</span>yxy<span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token function">getDist</span><span class="token punctuation">(</span>p<span class="token operator">-</span>e<span class="token punctuation">.</span>yyx<span class="token punctuation">)</span>
@@ -1859,10 +1872,10 @@
 <span class="token punctuation">}</span>
 
 <span class="token comment">//&#x5149;&#x7EBF;&#x524D;&#x8FDB;</span>
-<span class="token keyword">float</span> <span class="token function">rayMarching</span><span class="token punctuation">(</span><span class="token keyword">vec3</span> ro<span class="token punctuation">,</span> <span class="token keyword">vec3</span> rd<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token keyword">float</span> <span class="token function">rayMarching</span><span class="token punctuation">(</span>vec3 ro<span class="token punctuation">,</span> vec3 rd<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">float</span> d <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>MAX_STEPS<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">vec3</span> p <span class="token operator">=</span> ro <span class="token operator">+</span> rd<span class="token operator">*</span>d<span class="token punctuation">;</span>
+        vec3 p <span class="token operator">=</span> ro <span class="token operator">+</span> rd<span class="token operator">*</span>d<span class="token punctuation">;</span>
         <span class="token keyword">float</span> ds <span class="token operator">=</span> <span class="token function">getDist</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x6BCF;&#x6B21;&#x524D;&#x8FDB;&#x5230;&#x573A;&#x666F;&#x7684;&#x8DDD;&#x79BB;</span>
         d <span class="token operator">+=</span> ds<span class="token punctuation">;</span>
         <span class="token comment">//&#x76F4;&#x5230;&#x548C;&#x573A;&#x666F;&#x7684;&#x67D0;&#x4E2A;&#x7269;&#x4F53;&#x76F8;&#x4EA4;&#x6216;&#x5230;&#x8FBE;&#x573A;&#x666F;&#x4E4B;&#x5916;</span>
@@ -1873,11 +1886,11 @@
     <span class="token keyword">return</span> d<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">float</span> <span class="token function">getLight</span><span class="token punctuation">(</span><span class="token keyword">vec3</span> p<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">vec3</span> lightPos <span class="token operator">=</span> <span class="token keyword">vec3</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span><span class="token number">5.0</span><span class="token punctuation">,</span><span class="token number">6.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    lightPos<span class="token punctuation">.</span>xz <span class="token operator">+=</span> <span class="token keyword">vec2</span><span class="token punctuation">(</span><span class="token function">cos</span><span class="token punctuation">(</span>iTime<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">sin</span><span class="token punctuation">(</span>iTime<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2.0</span><span class="token punctuation">;</span>
-    <span class="token keyword">vec3</span> l <span class="token operator">=</span> <span class="token function">normalize</span><span class="token punctuation">(</span>lightPos <span class="token operator">-</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">vec3</span> n <span class="token operator">=</span> <span class="token function">getNormal</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">float</span> <span class="token function">getLight</span><span class="token punctuation">(</span>vec3 p<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    vec3 lightPos <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span><span class="token number">5.0</span><span class="token punctuation">,</span><span class="token number">6.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    lightPos<span class="token punctuation">.</span>xz <span class="token operator">+=</span> <span class="token function">vec2</span><span class="token punctuation">(</span><span class="token function">cos</span><span class="token punctuation">(</span>iTime<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">sin</span><span class="token punctuation">(</span>iTime<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2.0</span><span class="token punctuation">;</span>
+    vec3 l <span class="token operator">=</span> <span class="token function">normalize</span><span class="token punctuation">(</span>lightPos <span class="token operator">-</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    vec3 n <span class="token operator">=</span> <span class="token function">getNormal</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">float</span> hitDist <span class="token operator">=</span> <span class="token function">rayMarching</span><span class="token punctuation">(</span>p<span class="token operator">+</span>n<span class="token operator">*</span>SURF_DIST<span class="token operator">*</span><span class="token number">2.0</span><span class="token punctuation">,</span>l<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">float</span> dif <span class="token operator">=</span> <span class="token function">clamp</span><span class="token punctuation">(</span><span class="token function">dot</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>l<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0.0</span><span class="token punctuation">,</span><span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x8BA1;&#x7B97;&#x4ECE;&#x8BE5;&#x70B9;&#x5230;&#x8FBE;&#x5149;&#x6E90;&#x7684;&#x8DDD;&#x79BB;</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>hitDist<span class="token operator">&lt;</span><span class="token function">length</span><span class="token punctuation">(</span>lightPos<span class="token operator">-</span>p<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">// &#x6CA1;&#x6709;&#x8FBE;&#x5230;&#x5149;&#x6E90;&#xFF0C;&#x4E2D;&#x95F4;&#x88AB;&#x7269;&#x4F53;&#x6321;&#x4F4F;&#x4E86;&#xFF0C;&#x6B64;&#x65F6;&#x5904;&#x4E8E;&#x9634;&#x5F71;&#x4E2D;</span>
@@ -1886,17 +1899,17 @@
     <span class="token keyword">return</span> dif<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">void</span> <span class="token function">mainImage</span><span class="token punctuation">(</span><span class="token keyword">out</span> <span class="token keyword">vec4</span> fragColor<span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token keyword">vec2</span> fragCoord<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">vec2</span> uv <span class="token operator">=</span> <span class="token punctuation">(</span>fragCoord <span class="token operator">-</span> <span class="token number">0.5</span><span class="token operator">*</span>iResolution<span class="token punctuation">.</span>xy<span class="token punctuation">)</span><span class="token operator">/</span>iResolution<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
-    <span class="token keyword">vec3</span> col <span class="token operator">=</span> <span class="token keyword">vec3</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">vec3</span> ro <span class="token operator">=</span> <span class="token keyword">vec3</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span><span class="token number">1.0</span><span class="token punctuation">,</span><span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//ray origin &#x76F8;&#x673A;&#x7684;&#x4F4D;&#x7F6E;</span>
-    <span class="token keyword">vec3</span> rd <span class="token operator">=</span> <span class="token function">normalize</span><span class="token punctuation">(</span><span class="token keyword">vec3</span><span class="token punctuation">(</span>uv<span class="token punctuation">.</span>x<span class="token punctuation">,</span>uv<span class="token punctuation">.</span>y<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x5C4F;&#x5E55;&#x5728;&#x76F8;&#x673A;&#x524D;1&#x4E2A;&#x5355;&#x4F4D;</span>
+<span class="token keyword">void</span> <span class="token function">mainImage</span><span class="token punctuation">(</span>out vec4 fragColor<span class="token punctuation">,</span> in vec2 fragCoord<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    vec2 uv <span class="token operator">=</span> <span class="token punctuation">(</span>fragCoord <span class="token operator">-</span> <span class="token number">0.5</span><span class="token operator">*</span>iResolution<span class="token punctuation">.</span>xy<span class="token punctuation">)</span><span class="token operator">/</span>iResolution<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+    vec3 col <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    vec3 ro <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span><span class="token number">1.0</span><span class="token punctuation">,</span><span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//ray origin &#x76F8;&#x673A;&#x7684;&#x4F4D;&#x7F6E;</span>
+    vec3 rd <span class="token operator">=</span> <span class="token function">normalize</span><span class="token punctuation">(</span><span class="token function">vec3</span><span class="token punctuation">(</span>uv<span class="token punctuation">.</span>x<span class="token punctuation">,</span>uv<span class="token punctuation">.</span>y<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x5C4F;&#x5E55;&#x5728;&#x76F8;&#x673A;&#x524D;1&#x4E2A;&#x5355;&#x4F4D;</span>
     <span class="token keyword">float</span> d <span class="token operator">=</span> <span class="token function">rayMarching</span><span class="token punctuation">(</span>ro<span class="token punctuation">,</span>rd<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">vec3</span> p <span class="token operator">=</span> ro <span class="token operator">+</span> rd<span class="token operator">*</span>d<span class="token punctuation">;</span>
+    vec3 p <span class="token operator">=</span> ro <span class="token operator">+</span> rd<span class="token operator">*</span>d<span class="token punctuation">;</span>
     d <span class="token operator">/=</span> <span class="token number">6.0</span><span class="token punctuation">;</span>
     <span class="token keyword">float</span> dif <span class="token operator">=</span> <span class="token function">getLight</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    col <span class="token operator">=</span> <span class="token keyword">vec3</span><span class="token punctuation">(</span>dif<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    fragColor <span class="token operator">=</span> <span class="token keyword">vec4</span><span class="token punctuation">(</span>col<span class="token punctuation">,</span><span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    col <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span>dif<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    fragColor <span class="token operator">=</span> <span class="token function">vec4</span><span class="token punctuation">(</span>col<span class="token punctuation">,</span><span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <pre class="language-"><code class="lang-glsl"><span class="token keyword">void</span> <span class="token function">mainImage</span><span class="token punctuation">(</span> <span class="token keyword">out</span> <span class="token keyword">vec4</span> fragColor<span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token keyword">vec2</span> fragCoord <span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -1983,7 +1996,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"光线步进","level":"1.7.8","depth":2,"next":{"title":"光线追踪基础","level":"1.7.9","depth":2,"path":"cg/光线追踪基础.md","ref":"cg/光线追踪基础.md","articles":[]},"previous":{"title":"标准光照模型","level":"1.7.7","depth":2,"path":"cg/标准光照模型.md","ref":"cg/标准光照模型.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cg/光线步进.md","mtime":"2021-04-22T14:58:22.539Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-28T14:29:08.362Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"光线步进","level":"1.7.8","depth":2,"next":{"title":"光线追踪基础","level":"1.7.9","depth":2,"path":"cg/光线追踪基础.md","ref":"cg/光线追踪基础.md","articles":[]},"previous":{"title":"标准光照模型","level":"1.7.7","depth":2,"path":"cg/标准光照模型.md","ref":"cg/标准光照模型.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cg/光线步进.md","mtime":"2021-05-04T06:12:09.320Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-04T09:49:49.680Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
