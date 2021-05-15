@@ -1,0 +1,208 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <vector>
+using namespace std;
+
+// 测试用
+// #include "glm/glm.hpp" 
+// using namespace glm;
+
+#include "sglm.h"
+
+const int WIDTH = 1024;
+const int HEIGHT = 768;
+const float PI = acos(-1.0f);
+const float MAX_DISTANCE = 1000.0f;
+const float EPSILON = 0.0001f;
+
+vec3 red(0.4f, 0.4f, 0.3f);
+vec3 COLOR_BG(0.2f, 0.7f, 0.8f);
+
+
+vec3 pixels[WIDTH * HEIGHT];
+string filename = "output.ppm";
+
+struct Light {
+    Light(const vec3 &p, const float i) : position(p), intensity(i) {}
+    vec3 position;
+    float intensity;
+};
+
+struct Material {
+    Material(const float r, const vec4 &a, const vec3 &color, const float spec) : 
+        refractive_index(r), albedo(a), diffuse_color(color), specular_exponent(spec) {}
+    Material() : refractive_index(1), albedo(1,0,0,0), diffuse_color(), specular_exponent() {}
+    float refractive_index;
+    vec4 albedo;
+    vec3 diffuse_color;
+    float specular_exponent;
+};
+
+struct Ray{
+    vec3 pos;
+    vec3 dir;
+    Ray(){}
+    Ray(vec3 pos,vec3 dir):pos(pos),dir(dir){}
+};
+
+struct Sphere{
+    vec3 pos; 
+    float r;
+    Material material;
+
+    Sphere(){}
+    Sphere(vec3 pos, float r, Material material):pos(pos),r(r),material(material){}
+
+    //判断一条光线是否和自己相交 
+    float isIntersect(Ray ray){
+        vec3 oc = ray.pos - pos;
+        float a = dot(ray.dir, ray.dir);
+        float b = 2.0 * dot(ray.dir, oc);
+        float c = dot(oc, oc) - r * r;
+        float discriminant = b * b - 4 * a * c;
+        float root1 =  (-b - sqrt(discriminant))/(2*a); 
+        float root2 =  (-b + sqrt(discriminant))/(2*a);
+        if(root1 < 0){
+            root1 = root2;
+        }
+        if(root1 < 0 ){
+            return MAX_DISTANCE;
+        }
+        return root1;
+    }
+};
+
+// 场景信息
+Material      ivory(1.0, vec4(0.6,  0.3, 0.1, 0.0), vec3(0.4, 0.4, 0.3),   50.);
+Material      glass(1.5, vec4(0.0,  0.5, 0.1, 0.8), vec3(0.6, 0.7, 0.8),  125.);
+Material red_rubber(1.0, vec4(0.9,  0.1, 0.0, 0.0), vec3(0.3, 0.1, 0.1),   10.);
+Material     mirror(1.0, vec4(0.0, 10.0, 0.8, 0.0), vec3(1.0, 1.0, 1.0), 1425.);
+
+vector<Sphere> spheres = {
+    Sphere(vec3(-3,    0,   -16), 2,      ivory),
+    Sphere(vec3(-1.0, -1.5, -12), 2,      glass),
+    Sphere(vec3( 1.5, -0.5, -18), 3, red_rubber),
+    Sphere(vec3( 7,    5,   -18), 4,     mirror),
+};
+
+vector<Light>  lights = {
+    Light(vec3(-20, 20,  20), 1.5),
+    Light(vec3( 30, 50, -25), 1.8),
+    Light(vec3( 30, 20,  30), 1.7),
+};
+
+vec3 reflect(vec3 l,  vec3 n) {
+    return 2.0f*dot(n,l)*n - l;
+}
+
+vec3 refract(const vec3 &I, const vec3 &N, const float eta_t, const float eta_i=1.f) { 
+    // Snell's law
+    float cosi = - std::max(-1.f, std::min(1.f, dot(I,N)));
+    if (cosi<0) return refract(I, -N, eta_i, eta_t); 
+    // if the ray comes from the inside the object, swap the air and the media
+    float eta = eta_i / eta_t;
+    float k = 1 - eta*eta*(1 - cosi*cosi);
+    return k<0 ? vec3(1,0,0) : I*eta + N*(eta*cosi - sqrtf(k)); 
+    // k<0 = total reflection, no ray to refract. I refract it anyways, this has no physical meaning
+}
+
+float getSceneDist(Ray ray, Sphere &hitSphere){
+    float hitDist = MAX_DISTANCE;
+    int hitSphereIdx = 0;
+    for(int i=0;i<spheres.size();i++){
+        float d = spheres[i].isIntersect(ray);
+        if(d < hitDist){
+            hitDist = d;
+            hitSphereIdx = i;
+        }
+    }
+    if(hitDist < MAX_DISTANCE){
+        hitSphere = spheres[hitSphereIdx];
+    }
+    return hitDist;
+}
+
+// 向场景中投射光线，返回击中物体的颜色
+vec3 castRay(Ray ray, int depth = 0){
+    Sphere hitSphere;
+    float hitDist = getSceneDist(ray,hitSphere);    
+    if(hitDist == MAX_DISTANCE || depth > 4){
+        return COLOR_BG;
+    }
+    Material material = hitSphere.material;
+    vec3 hitPos = ray.pos + ray.dir * hitDist;
+    float diffuse_light_intensity = 0.0f, specular_light_intensity = 0.0f;;
+    vec3 n = normalize(hitPos - hitSphere.pos);
+
+    //计算其他物体反射到这里的颜色
+    vec3 reflect_dir = reflect(-ray.dir,n);
+    vec3 reflect_orig = dot(reflect_dir,n) < 0 ? hitPos - n *EPSILON : hitPos + n * EPSILON;
+    vec3 reflect_color = castRay(Ray(reflect_orig,reflect_dir),depth+1);
+
+    //计算折射到这里的颜色
+    vec3 refract_dir = normalize(refract(ray.dir,n,material.refractive_index));  
+    vec3 refract_orig = dot(refract_dir,n) < 0 ? hitPos - n *EPSILON : hitPos + n * EPSILON;
+    vec3 refract_color = castRay(Ray(refract_orig,refract_dir),depth+1);
+
+    //计算光照
+    for(int i=0;i<lights.size();i++){
+        vec3 l = normalize(lights[i].position - hitPos);
+        // 如果当前点到场景的距离，小于到光线的距离，说明光线照不到该点，即该点处于阴影之中
+        float lDist = length(lights[i].position - hitPos);
+        Sphere t;
+        //对阴影点进行偏移，避免和自己相交，这样会导致一些点处于阴影之中
+        vec3 shadow_orig = dot(l,n) < 0 ? hitPos - n*EPSILON : hitPos + n*EPSILON;
+        float sDist = getSceneDist(Ray(shadow_orig,l),t);
+        if(sDist < lDist){
+            continue;
+        }
+        diffuse_light_intensity += lights[i].intensity * std::max(0.0f,dot(l,n));
+        vec3 r = normalize(reflect(l,n));
+        specular_light_intensity += powf(std::max(0.0f, dot(-ray.dir,r)), material.specular_exponent)*lights[i].intensity;
+    }
+    return material.diffuse_color * diffuse_light_intensity * material.albedo[0] + vec3(1.0f,1.0f,1.0f) * specular_light_intensity * material.albedo[1] 
+        + reflect_color * material.albedo[2] + refract_color * material.albedo[3];
+}
+
+void render(){
+    //产生光线
+    //屏幕在(0,0,-1) 相机在(0,0,0) 相机看向的是-z轴 相机的fov=(h/2)/1 屏幕的宽高比为WITHD/HEIGHT
+    for(int i=0;i<WIDTH;i++){
+        for(int j=0;j<HEIGHT;j++){
+            float y = -(2.0f* (j+0.5f)/(float)HEIGHT - 1); //归一化到[-1 1] 像素在中心位置，所以要加上0.5f
+            float x = (2.0f* (i+0.5f)/(float)WIDTH - 1) * (float)WIDTH/HEIGHT; //归一化到[-WIDTH/HEIGHT,WIDTH/HEIGHT]
+            float fov = PI/3.0f; //60度
+            y *= tan(fov/2);
+            x *= tan(fov/2);
+            Ray ray;
+            ray.pos = vec3(0.0f,0.0f,0.0f);
+            ray.dir = normalize(vec3(x,y,-1.0f) - ray.pos);
+            pixels[i+j*WIDTH] = castRay(ray);
+        }
+    }
+}
+
+
+void outputImage(){
+    ofstream ofs;
+    ofs.open(filename);
+    ofs<<"P3\n"<<WIDTH<<" "<<HEIGHT<<"\n255\n";
+    for(int i=0;i<WIDTH*HEIGHT;i++){
+        vec3 v = pixels[i];
+        v.x = clamp(v.x,0.0f,1.0f);
+        v.y = clamp(v.y,0.0f,1.0f);
+        v.z = clamp(v.z,0.0f,1.0f);
+        ofs<<(int)(255 * v.x)<<" "<<(int)(255 * v.y) << " "<<(int)(255*v.z)<<"\n";
+    }
+    ofs.close();
+}
+
+int main(int argc, char const *argv[])
+{
+    render();
+    outputImage();
+    system("Start output.ppm");
+    system("pause");
+    return 0;
+}
