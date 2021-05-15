@@ -3,7 +3,7 @@
 #include <sstream>
 #include "model.h"
 
-Model::Model(const std::string filename) : verts_(), uv_(), norms_(), facet_vrt_(), facet_tex_(), facet_nrm_(), diffusemap_(), normalmap_(), specularmap_() {
+Model::Model(const std::string filename) : verts_(), uv_(), norms_(), facet_vrt_(), facet_tex_(), facet_nrm_(), diffusemap_(), normalmap_(), specularmap_(),mMatrix(1.0f) {
     std::ifstream in;
     in.open (filename, std::ifstream::in);
     if (in.fail()) return;
@@ -102,7 +102,7 @@ void Model::load_texture(std::string filename, const std::string suffix, TGAImag
 vec4 Model::diffuse(const vec2 &uvf) const {
     TGAColor c = diffusemap_.get(uvf[0]*diffusemap_.get_width(), uvf[1]*diffusemap_.get_height());
     vec4 ret(1.0f);
-    for(int i=0;i<c.bytespp;i++){
+    for(int i=0;i<3;i++){
         ret[2-i] = c[i] / 255.0f;
     }
     return ret;

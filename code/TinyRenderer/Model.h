@@ -20,6 +20,7 @@ private:
     void load_texture(const std::string filename, const std::string suffix, TGAImage &img);
 public:
     Model(const std::string filename);
+    mat4 mMatrix;
     int nverts() const;
     int nfaces() const;
     vec3 normal(const int iface, const int nthvert) const;  // per triangle corner normal vertex
@@ -33,7 +34,6 @@ public:
     std::vector<vec3> getFace(int idx);
     std::vector<vec3> getVn(int idx);
     std::vector<vec2> getVt(int idx);
-    
 };
 #endif //__MODEL_H__
 
