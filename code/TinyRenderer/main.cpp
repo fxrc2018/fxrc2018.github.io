@@ -68,15 +68,18 @@ void init(){
     screen = new TGAImage(W,H,TGAImage::Format::RGBA);
     background = TGAColor(0,0,0,255);
 
-    scene.push_back(Model("obj/diablo3_pose.obj"));
    
     scene.push_back(Model("obj/floor.obj"));
-    // scene[1].mMatrix = scale(scene[1].mMatrix,vec3(3.0f));
-    // scene[1].mMatrix = translate(scene[1].mMatrix,vec3(-0.0f,0.0f,-0.5f));
+    // scene[0].mMatrix = scale(scene[0].mMatrix,vec3(3.0f));
+    // scene[0].mMatrix = translate(scene[0].mMatrix,vec3(-0.0f,0.0f,-0.5f));
+
+    // scene.push_back(Model("obj/african_head.obj"));
+    scene.push_back(Model("obj/diablo3_pose.obj"));
+
     
 
     directLight = normalize(vec3(1,1,-1));
-    cameraWorldPos = vec3(0.0f,1.0f,3.0f) ;
+    cameraWorldPos = vec3(1.0f,1.0f,3.0f) ;
     mMatrixIT = transpose(inverse(mMatrix));
     vMatrix = lookAt(cameraWorldPos,vec3(0,0,0),vec3(0,1,0));
     projMatrix = perspective(3.14f/3.0f,(float)W/H,0.1f,1000.0f);
@@ -158,6 +161,8 @@ vec3 calcNewNorm(){
     return nm;
 }
 
+bool sFlag = true;
+
 float getShadow(){
     // 变换到光线视角
     vec4 sp =   vMatrixI * vec4(pointViewPos,1.0f);
@@ -170,13 +175,16 @@ float getShadow(){
     sp = viewport * sp;
     int pos = floor(sp.x) + floor(sp.y) * W; // 吐了，是这里的问题
     if(pos >= W*H || pos < 0){ // check
-        cout<<"depth pos out of bound"<<endl;
+        // cout<<"depth pos out of bound"<<endl;
         return 1.0f;
     }
-    if(z < shadowDepth[pos]){
+    if(z <= shadowDepth[pos]){
         return 1.0f;
     }else{
-        // cout<<"here"<<endl;
+        if(sFlag){
+            cout<<"here"<<endl;
+            sFlag = false;
+        }
 
         return 0.0f;
     }
@@ -185,18 +193,19 @@ float getShadow(){
 //输入屏幕上的位置 输出对应的颜色
 vec4 fragment(){
     // 环境光 漫反射 高光占比为 0.1 0.7 0.2
+    // 感觉还是1:1:1吧 不知道为啥，这种效果最好
     vec4 textureColor = scene[modelIdx].diffuse(pointUV);
     glColor = scene[modelIdx].diffuse2(pointUV);
-    vec4 color = textureColor * 0.1f; // 环境光
+    vec4 color = textureColor * 1.0f; // 环境光
     pointViewNorm = calcNewNorm(); // 法线贴图
     float diff = std::max(dot(viewDirectLight, pointViewNorm), 0.0f); 
-    vec4 diffColor = textureColor * diff * 0.7f;
+    vec4 diffColor = textureColor * diff ;
     // 在世界空间下计算高光
     vec3 r = 2.0f * dot(pointViewNorm, viewDirectLight) * pointViewNorm - viewDirectLight;
     r = normalize(r);
     vec3 eye = normalize(vec3(0,0,0) - pointViewPos);
     float spec = pow(std::max(dot(eye,r),0.0f),50.0f);
-    vec4 specColor = vec4(1.0f) * spec * 0.2f;
+    vec4 specColor = vec4(1.0f) * spec ;
     // 如果不在阴影中，加上反射和高光
     color += (diffColor + specColor) * getShadow();
     color = clamp(color,0.0f,1.0f);
@@ -343,7 +352,12 @@ void calcDepth(){
     for(modelIdx=0; modelIdx<scene.size(); modelIdx++){
         vMatrix = lookAt(directLight * directLightLen, vec3(0,0,0),vec3(0,1,0));
         // 将物体移向光源
-        mvMatrix = vMatrix * translate(scene[modelIdx].mMatrix,directLight * 0.1f);
+        if(modelIdx == 0){
+            mvMatrix = vMatrix * translate(scene[modelIdx].mMatrix,-directLight * 0.1f);
+        }else{
+            mvMatrix = vMatrix * translate(scene[modelIdx].mMatrix,directLight * 0.0f);
+
+        }
         mvpMatrix = shadowP * mvMatrix;
         shadowVP = shadowP * vMatrix;
         for(triangleIdx=0;triangleIdx<scene[modelIdx].nfaces();triangleIdx++){
