@@ -6,6 +6,7 @@
 #include "tgaimage.h"
 #include "Model.h"
 
+const float MAX_DEPTH = 1000.0f;
 const float PI = 3.14f;
 #include <cmath>
 
@@ -17,11 +18,11 @@ TGAImage* screen = NULL;
 const int W = 800;
 const int H = 800;
 vector<Model> scene; // 场景有许多物体
-vec3 triangleWorldPos[3];
+vec3 triangleViewPos[3];
 vec3 cameraWorldPos;
-vec3 pointWorldPos;
-vec3 triangleWorldNorm[3];
-vec3 pointWorldNorm; // 插值之后点的法线
+vec3 pointViewPos;
+vec3 triangleViewNorm[3];
+vec3 pointViewNorm; // 插值之后点的法线
 vec3 triangleUV[3]; //纹理坐标
 vec3 directLight;
 vec3 viewDirectLight;
@@ -53,7 +54,7 @@ mat4 viewport(
     0,0,1.0f/2.0f,0.0f,
     W/2,H/2,1.0f/2.0f,1.0f
 );
-float directLightLen = 10.0f;
+float directLightLen = 5.0f;
 // 插值之后的数据 该点在屏幕上的坐标 该点的纹理坐标 该点的法线
 bool isDepth;
 
@@ -67,14 +68,15 @@ void init(){
     screen = new TGAImage(W,H,TGAImage::Format::RGBA);
     background = TGAColor(0,0,0,255);
 
+    scene.push_back(Model("obj/diablo3_pose.obj"));
+   
     scene.push_back(Model("obj/floor.obj"));
-    scene[0].mMatrix = translate(scene[0].mMatrix,vec3(1.0f,-1.0f,1.0f));
-    scene[0].mMatrix = scale(scene[0].mMatrix,vec3(3.0f));
-    scene.push_back(Model("obj/african_head.obj"));
+    // scene[1].mMatrix = scale(scene[1].mMatrix,vec3(3.0f));
+    // scene[1].mMatrix = translate(scene[1].mMatrix,vec3(-0.0f,0.0f,-0.5f));
     
 
-    directLight = normalize(vec3(0,0,-1));
-    cameraWorldPos = vec3(0.0f,1.0f,3.0f);
+    directLight = normalize(vec3(1,1,-1));
+    cameraWorldPos = vec3(0.0f,1.0f,3.0f) ;
     mMatrixIT = transpose(inverse(mMatrix));
     vMatrix = lookAt(cameraWorldPos,vec3(0,0,0),vec3(0,1,0));
     projMatrix = perspective(3.14f/3.0f,(float)W/H,0.1f,1000.0f);
@@ -88,13 +90,14 @@ void init(){
         0,0,1/(1000.0f-0.1f),0,
         0,0,-0.1f/(1000.0f - 0.1f),1.0f
     );
+    shadowP = projMatrix;
     shadowVP = shadowP * lookAt(directLight * directLightLen, vec3(0,0,0),vec3(0,1,0));
     vMatrixI = inverse(vMatrix);
 }
 
-void drawPixel(int x, int y, vec4 color){
+void drawPixel(int x, int y, vec4 color, TGAImage *image = screen){
     TGAColor c(color.x*255, color.y*255,color.z*255,255);
-    screen->set(x,y,c);
+    image->set(x,y,c);
 }
 
 vec3 barycentric(const vector<vec3> &triangle, vec3 P) {
@@ -140,13 +143,13 @@ void drawLine(int x1, int y1, int x2, int y2, vec4 color){
 
 vec3 calcNewNorm(){
     // 构造切线空间到世界空间的变换矩阵tbn
-    vec3 deltaPos1 = triangleWorldPos[1] - triangleWorldPos[0];
-    vec3 deltaPos2 = triangleWorldPos[2] - triangleWorldPos[0];
+    vec3 deltaPos1 = triangleViewPos[1] - triangleViewPos[0];
+    vec3 deltaPos2 = triangleViewPos[2] - triangleViewPos[0];
     vec3 deltaUV1 = triangleUV[1] - triangleUV[0];
     vec3 deltaUV2 = triangleUV[2] - triangleUV[0];
     vec3 tangent = normalize((deltaPos1 * deltaUV2.y   - deltaPos2 * deltaUV1.y));
     vec3 bitangent = normalize((deltaPos2 * deltaUV1.x   - deltaPos1 * deltaUV2.x));
-    mat3 tbn(tangent,bitangent,pointWorldNorm);
+    mat3 tbn(tangent,bitangent,pointViewNorm);
 
     // 从法线贴图中查询法向量，并执行转换
     vec3 nm = scene[modelIdx].normal(vec2(pointUV.x,pointUV.y));
@@ -156,17 +159,25 @@ vec3 calcNewNorm(){
 }
 
 float getShadow(){
-    vec4 sp = shadowVP * vMatrixI * vec4(pointWorldPos,1.0f);
+    // 变换到光线视角
+    vec4 sp =   vMatrixI * vec4(pointViewPos,1.0f);
+    vec4 t1 = sp;
+    sp = shadowVP * sp;
+    vec4 t2 = sp;
+    float z = sp.w;
     sp /= sp.w;
+    vec4 t = sp;
     sp = viewport * sp;
-    int pos = sp.x + sp.y * W;
-    // if(pos >= W*H || pos < 0){
-    //     return 1.0f;
-    // }
-    if(sp.z  < shadowDepth[pos] + 0.01f){
+    int pos = floor(sp.x) + floor(sp.y) * W; // 吐了，是这里的问题
+    if(pos >= W*H || pos < 0){ // check
+        cout<<"depth pos out of bound"<<endl;
+        return 1.0f;
+    }
+    if(z < shadowDepth[pos]){
         return 1.0f;
     }else{
-        cout<<"here"<<endl;
+        // cout<<"here"<<endl;
+
         return 0.0f;
     }
 }
@@ -176,22 +187,22 @@ vec4 fragment(){
     // 环境光 漫反射 高光占比为 0.1 0.7 0.2
     vec4 textureColor = scene[modelIdx].diffuse(pointUV);
     glColor = scene[modelIdx].diffuse2(pointUV);
-    vec4 color = textureColor * 1.0f; // 环境光
-    pointWorldNorm = calcNewNorm(); // 法线贴图
-    float diff = std::max(dot(viewDirectLight, pointWorldNorm), 0.0f); 
+    vec4 color = textureColor * 0.1f; // 环境光
+    pointViewNorm = calcNewNorm(); // 法线贴图
+    float diff = std::max(dot(viewDirectLight, pointViewNorm), 0.0f); 
     vec4 diffColor = textureColor * diff * 0.7f;
     // 在世界空间下计算高光
-    vec3 r = 2.0f * dot(pointWorldNorm, viewDirectLight) * pointWorldNorm - viewDirectLight;
+    vec3 r = 2.0f * dot(pointViewNorm, viewDirectLight) * pointViewNorm - viewDirectLight;
     r = normalize(r);
-    vec3 eye = normalize(vec3(0,0,0) - pointWorldPos);
+    vec3 eye = normalize(vec3(0,0,0) - pointViewPos);
     float spec = pow(std::max(dot(eye,r),0.0f),50.0f);
     vec4 specColor = vec4(1.0f) * spec * 0.2f;
     // 如果不在阴影中，加上反射和高光
     color += (diffColor + specColor) * getShadow();
     color = clamp(color,0.0f,1.0f);
-    if(getShadow() == 0.0f){
-        color = vec4(0);
-    }
+    // if(getShadow() == 0.0f){
+    //     color = vec4(0);
+    // }
     color.w = 1.0f;
     // 在切线空间下计算着色
     return color;
@@ -235,10 +246,10 @@ void drawTriangle(){
                 continue;
             } 
             // 法线插值
-            pointWorldNorm = bc.x * triangleWorldNorm[0] + bc.y * triangleWorldNorm[1] + bc.z * triangleWorldNorm[2];
-            pointWorldNorm = normalize(pointWorldNorm);
+            pointViewNorm = bc.x * triangleViewNorm[0] + bc.y * triangleViewNorm[1] + bc.z * triangleViewNorm[2];
+            pointViewNorm = normalize(pointViewNorm);
             // 对点的世界坐标进行插值
-            pointWorldPos = bc.x * triangleWorldPos[0] + bc.y * triangleWorldPos[1] + bc.z * triangleWorldPos[2];
+            pointViewPos = bc.x * triangleViewPos[0] + bc.y * triangleViewPos[1] + bc.z * triangleViewPos[2];
             //深度插值
             float pz = bc.x* 1.0f/ zval[0] + bc.y*1.0f / zval[1] + bc.z* 1.0f / zval[2];
             pz = 1.0f / pz;
@@ -246,8 +257,8 @@ void drawTriangle(){
             p.z = bc.x*pts[0].z + bc.y*pts[1].z + bc.z*pts[2].z;
            int pos = p.x + p.y*W;
             if(isDepth){
-                if(shadowDepth[pos] > p.z){
-                    shadowDepth[pos] = p.z;
+                if(shadowDepth[pos] > pz){
+                    shadowDepth[pos] = pz;
                 }
                 continue;
             }
@@ -282,8 +293,8 @@ void vertex(){
         vec3 pos = triangle[i];
         vec3 n = normals[i];
         triangleUV[i] = vec3(uvs[i],0);
-        triangleWorldPos[i] = vec3(mvMatrix * vec4(pos,1.0f));
-        triangleWorldNorm[i] = vMatrix * vec4(vec3(mvMatrixIT * vec4(n,0.0f)),0.0f);
+        triangleViewPos[i] = vec3(mvMatrix * vec4(pos,1.0f));
+        triangleViewNorm[i] = vMatrix * vec4(vec3(mvMatrixIT * vec4(n,0.0f)),0.0f);
         glPosition[i] = mvpMatrix* vec4(pos,1.0f);;
     }
 }
@@ -326,14 +337,15 @@ void calcDepth(){
     isDepth = true;
     for(int i =0;i<W;i++){
         for(int j=0;j<H;j++){
-            shadowDepth[i + j * W ] = 1.0f; // 最远
+            shadowDepth[i + j * W ] = MAX_DEPTH; // 最远
         }
     }
     for(modelIdx=0; modelIdx<scene.size(); modelIdx++){
         vMatrix = lookAt(directLight * directLightLen, vec3(0,0,0),vec3(0,1,0));
-        mvMatrix = vMatrix * scene[modelIdx].mMatrix;
-        mvpMatrix = projMatrix * mvMatrix;
-        shadowVP = projMatrix * vMatrix;
+        // 将物体移向光源
+        mvMatrix = vMatrix * translate(scene[modelIdx].mMatrix,directLight * 0.1f);
+        mvpMatrix = shadowP * mvMatrix;
+        shadowVP = shadowP * vMatrix;
         for(triangleIdx=0;triangleIdx<scene[modelIdx].nfaces();triangleIdx++){
             vertex();
             drawTriangle();
@@ -342,14 +354,17 @@ void calcDepth(){
 }
 
 void showDepth(){
+    TGAImage *depthImage = new TGAImage(W,H,TGAImage::Format::RGBA);
     for(int i =0;i<W;i++){
         for(int j=0;j<H;j++){
             vec4 color = (1.0f - shadowDepth[i + j * W ]) * vec4(1.0f,1.0f,1.0f,1.0f);
             float d = (1.0f - shadowDepth[i + j * W ]);
-            // d = ;
-            drawPixel(i,j,vec4(d,d,d,1.0));
+            d /= MAX_DEPTH / 50;
+            drawPixel(i,j,vec4(d,d,d,1.0),depthImage);
         }
     }
+    depthImage->write_tga_file("depth.tga");
+    delete depthImage;
 }
 
 // 在渲染场景之前，准备好场景数据
@@ -368,7 +383,7 @@ void drawScreen(){
     isDepth = false;
     vMatrix = lookAt(cameraWorldPos,vec3(0,0,0),vec3(0,1,0));
     vMatrixI = inverse(vMatrix);
-    shadowVP = projMatrix * lookAt(directLight * directLightLen, vec3(0,0,0),vec3(0,1,0));
+    shadowVP = shadowP * lookAt(directLight * directLightLen, vec3(0,0,0),vec3(0,1,0));
     viewDirectLight = vMatrix * vec4(directLight,0.0f);
     viewDirectLight = normalize(viewDirectLight);
     // 依次渲染场景中的每个物品的每个面
@@ -382,7 +397,7 @@ void drawScreen(){
         }
     }
     
-    // showDepth();
+    showDepth();
 
     // ao(); // 环境光照，非常慢
 
