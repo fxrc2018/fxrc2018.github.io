@@ -1,6 +1,6 @@
 ## Mask和反向Mask
 
-```
+```csharp
 public class CutoutMaskUI : Image
 {
     public override Material materialForRendering {
@@ -15,7 +15,7 @@ public class CutoutMaskUI : Image
 
 unity新手引导遮罩
 
-```
+```cpp
 Shader "UI/GuideMask"
 {
 	Properties
