@@ -26,6 +26,7 @@
         * [C++对象模型4——函数的调用](/programming_language/Cpp/C++对象模型4——函数的调用.md)
         * [C++对象模型5——对象的构造-析构](/programming_language/Cpp/C++对象模型5——对象的构造-析构.md)
         * [STL常用容器和算法](/programming_language/Cpp/STL常用容器和算法.md)
+        * [C++常见错误](/programming_language/Cpp/C++常见错误.md)
     
     * [Lua]()
         * [Lua元表](/programming_language/Lua/Lua元表.md)
