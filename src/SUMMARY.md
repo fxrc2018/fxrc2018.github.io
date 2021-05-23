@@ -138,3 +138,6 @@
     * [开发工具Tips](/other/开发工具Tips.md)
     * [Android自定义View基础](/basic/android/自定义View基础.md)
     * [Windows下好用的软件](/other/Windows下好用的软件.md)
+
+* [生活]()
+    * [《社会性动物》笔记](/life/《社会性动物》笔记.md)
