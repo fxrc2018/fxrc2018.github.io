@@ -83,6 +83,7 @@
     * [搜索]()
         * [BFS](/algorithm/search/BFS.md)
         * [DFS](/algorithm/search/DFS.md)
+        * [模拟退火算法](/algorithm/search/模拟退火算法.md)
     * [树]()
         * [二叉查找树](/algorithm/tree/二叉查找树.md)
         * [Cocos节点树](/algorithm/tree/Cocos节点树.md)
