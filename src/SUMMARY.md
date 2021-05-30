@@ -80,6 +80,7 @@
         * [哈希表](/algorithm/哈希表.md)
         * [并查集](/algorithm/并查集.md)
         * [跳跃表](/algorithm/跳跃表.md)
+        * [AC自动机](/algorithm/datastructure/AC自动机.md)
     * [搜索]()
         * [BFS](/algorithm/search/BFS.md)
         * [DFS](/algorithm/search/DFS.md)
