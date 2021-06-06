@@ -65,7 +65,7 @@
     * [基础算法]()
         * [位运算](/algorithm/basic/位运算.md)
         * [双指针](/algorithm/双指针.md)
-        * [单调栈和单调队列](/algorithm/单调栈和单调队列.md)
+        * [单调栈和单调队列](/algorithm/basic/单调栈和单调队列.md)
         * [二分查找](/algorithm/二分查找.md)
         * [前缀和与差分](/algorithm/前缀和与差分.md)
         * [排序](/algorithm/basic/排序.md)

@@ -889,9 +889,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.1.3" data-path="单调栈和单调队列.md">
+        <li class="chapter " data-level="1.5.1.3" data-path="basic/单调栈和单调队列.html">
             
-                <span>
+                <a href="basic/单调栈和单调队列.html">
             
                     
                     单调栈和单调队列
@@ -1862,6 +1862,64 @@
                 <span>
             
                     
+                    软件工程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" >
+            
+                <span>
+            
+                    
+                    设计模式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" >
+            
+                <span>
+            
+                    
+                    整洁代码
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" >
+            
+                <span>
+            
+                    
+                    敏捷开发
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
                     其他
             
                 </span>
@@ -1871,7 +1929,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.8.1" data-path="../other/开发工具Tips.html">
+        <li class="chapter " data-level="1.9.1" data-path="../other/开发工具Tips.html">
             
                 <a href="../other/开发工具Tips.html">
             
@@ -1884,7 +1942,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.2" data-path="../basic/android/自定义View基础.html">
+        <li class="chapter " data-level="1.9.2" data-path="../basic/android/自定义View基础.html">
             
                 <a href="../basic/android/自定义View基础.html">
             
@@ -1897,7 +1955,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.3" data-path="../other/Windows下好用的软件.html">
+        <li class="chapter " data-level="1.9.3" data-path="../other/Windows下好用的软件.html">
             
                 <a href="../other/Windows下好用的软件.html">
             
@@ -1968,17 +2026,17 @@
 
 <p>&#x8981;&#x8BA1;&#x7B97;&#x8FD9;&#x4E2A;&#x89E3;&#x6790;&#x540E;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x5C31;&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#x4E86;&#xFF0C;&#x5C31;&#x662F;&#x5DE6;&#x5B50;&#x6811;&#x7684;&#x7ED3;&#x679C;&#x52A0;&#x4E0A;&#x53F3;&#x5B50;&#x6811;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
 <p>&#x8981;&#x89E3;&#x6790;&#x4E3A;&#x8FD9;&#x4E2A;&#x6811;&#xFF0C;&#x6240;&#x7528;&#x5230;&#x7684;&#x7B97;&#x6CD5;&#x6A21;&#x578B;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre class="language-"><code class="lang-cPP">&#x8868;&#x8FBE;&#x5F0F; = &#x9879; + &#x8868;&#x8FBE;&#x5F0F;    &#x6216;
-&#x8868;&#x8FBE;&#x5F0F; = &#x9879; - &#x8868;&#x8FBE;&#x5F0F;    &#x6216; 
-&#x8868;&#x8FBE;&#x5F0F; = &#x9879;
+<pre class="language-"><code class="lang-cpp">&#x8868;&#x8FBE;&#x5F0F; <span class="token operator">=</span> &#x9879; <span class="token operator">+</span> &#x8868;&#x8FBE;&#x5F0F;    &#x6216;
+&#x8868;&#x8FBE;&#x5F0F; <span class="token operator">=</span> &#x9879; <span class="token operator">-</span> &#x8868;&#x8FBE;&#x5F0F;    &#x6216; 
+&#x8868;&#x8FBE;&#x5F0F; <span class="token operator">=</span> &#x9879;
 
-&#x9879; = &#x56E0;&#x5B50; * &#x9879;    &#x6216;
-&#x9879; = &#x56E0;&#x5B50; / &#x9879;    &#x6216;
-&#x9879; = &#x56E0;&#x5B50;
+&#x9879; <span class="token operator">=</span> &#x56E0;&#x5B50; <span class="token operator">*</span> &#x9879;    &#x6216;
+&#x9879; <span class="token operator">=</span> &#x56E0;&#x5B50; <span class="token operator">/</span> &#x9879;    &#x6216;
+&#x9879; <span class="token operator">=</span> &#x56E0;&#x5B50;
 
-&#x56E0;&#x5B50; = &#x6570;&#x5B57;    &#x6216;
-&#x56E0;&#x5B50; = -&#x56E0;&#x5B50;   &#x6216; 
-&#x56E0;&#x5B50; = ( &#x8868;&#x8FBE;&#x5F0F; )
+&#x56E0;&#x5B50; <span class="token operator">=</span> &#x6570;&#x5B57;    &#x6216;
+&#x56E0;&#x5B50; <span class="token operator">=</span> <span class="token operator">-</span>&#x56E0;&#x5B50;   &#x6216; 
+&#x56E0;&#x5B50; <span class="token operator">=</span> <span class="token punctuation">(</span> &#x8868;&#x8FBE;&#x5F0F; <span class="token punctuation">)</span>
 </code></pre>
 <p>&#x8FD9;&#x4E2A;&#x7B97;&#x6CD5;&#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x662F;&#x5B83;&#x7684;&#x8BED;&#x6CD5;&#x662F;&#x53F3;&#x7ED3;&#x5408;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;1-2+3&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x4E3A;1-(2+3)&#xFF0C;&#x8981;&#x66F4;&#x6539;&#x8FD9;&#x4E00;&#x70B9;&#xFF0C;&#x53EF;&#x4EE5;&#x53D8;&#x4E3A;&#x5DE6;&#x7ED3;&#x5408;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x4F1A;&#x5BFC;&#x81F4;&#x65E0;&#x7A77;&#x9012;&#x5F52;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x8981;&#x89E3;&#x51B3;&#x65E0;&#x7A77;&#x9012;&#x5F52;&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;&#xFF0C;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x662F;&#x6539;&#x53D8;&#x8868;&#x8FBE;&#x5F0F;&#x548C;&#x9879;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x6539;&#x53D8;&#x4E4B;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x5982;&#x4E0B;.</p>
 <pre class="language-"><code class="lang-cpp">&#x8868;&#x8FBE;&#x5F0F; <span class="token operator">=</span> &#x591A;&#x4E2A;&#x9879;&#x76F8;&#x52A0;&#x51CF;
@@ -2324,7 +2382,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"表达式求值（递归下降法）","level":"1.5.14","depth":2,"next":{"title":"CRC编码","level":"1.5.15","depth":2,"path":"algorithm/CRC编码.md","ref":"algorithm/CRC编码.md","articles":[]},"previous":{"title":"NP完全性和近似算法","level":"1.5.13","depth":2,"path":"algorithm/NP完全性和近似算法.md","ref":"algorithm/NP完全性和近似算法.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algorithm/表达式求值（递归下降法）.md","mtime":"2021-04-01T13:38:02.610Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-04T14:14:58.300Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"表达式求值（递归下降法）","level":"1.5.14","depth":2,"next":{"title":"CRC编码","level":"1.5.15","depth":2,"path":"algorithm/CRC编码.md","ref":"algorithm/CRC编码.md","articles":[]},"previous":{"title":"NP完全性和近似算法","level":"1.5.13","depth":2,"path":"algorithm/NP完全性和近似算法.md","ref":"algorithm/NP完全性和近似算法.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algorithm/表达式求值（递归下降法）.md","mtime":"2021-06-06T12:28:28.998Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-06T14:05:14.528Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
