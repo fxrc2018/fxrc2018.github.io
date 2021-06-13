@@ -71,6 +71,7 @@
     * [数学]()
         * [大整数运算](/algorithm/大整数运算.md)
         * [数学知识](/algorithm/数学知识.md)
+        * [下一个排列](/algorithm/math/下一个排列.md)
         * [利用蒙特卡洛算法计算圆周率](/algorithm/利用蒙特卡洛算法计算圆周率.md)
     * [数据结构]()
         * [链表](/algorithm/datastructure/链表.md)
@@ -115,7 +116,6 @@
         * [表达式求值（递归下降法）](/algorithm/表达式求值（递归下降法）.md)
         * [CRC编码](/algorithm/CRC编码.md)
         * [表达式求值（逆波兰表达式方法）](/algorithm/表达式求值（逆波兰表达式方法）.md)
-        * [使用next_permutation解决排列组合问题](/algorithm/使用next_permutation解决排列组合问题.md)
     * [参考资料](/algorithm/参考资料.md)
     
 * [游戏开发]()
