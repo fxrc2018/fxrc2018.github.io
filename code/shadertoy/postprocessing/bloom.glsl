@@ -1,34 +1,30 @@
-#iChannel0 "file://sakura0.jpg"
+#iChannel0 "file://sakura1.jpg"
 
+const int kSize = (5 - 1)/2;
+// 预计算得到的权重值
+const float kernel[5] = float[5](0.0545,0.2442,0.4026,0.2442,0.0545);
+const int blurSize = 2;
 
-vec4 BlurColor (in vec2 Coord, in sampler2D Tex, in float MipBias)
-{
-	vec2 TexelSize = MipBias/iChannelResolution[0].xy;
-    
-    vec4  Color = texture(Tex, Coord, MipBias);
-    Color += texture(Tex, Coord + vec2(TexelSize.x,0.0), MipBias);    	
-    Color += texture(Tex, Coord + vec2(-TexelSize.x,0.0), MipBias);    	
-    Color += texture(Tex, Coord + vec2(0.0,TexelSize.y), MipBias);    	
-    Color += texture(Tex, Coord + vec2(0.0,-TexelSize.y), MipBias);    	
-    Color += texture(Tex, Coord + vec2(TexelSize.x,TexelSize.y), MipBias);    	
-    Color += texture(Tex, Coord + vec2(-TexelSize.x,TexelSize.y), MipBias);    	
-    Color += texture(Tex, Coord + vec2(TexelSize.x,-TexelSize.y), MipBias);    	
-    Color += texture(Tex, Coord + vec2(-TexelSize.x,-TexelSize.y), MipBias);    
-
-    return Color/9.0;
+float luminance(vec4 color){
+    return 0.2125 * color.r + 0.7154 * color.g + 0.0721 * color.b;
 }
 
+vec4 getBlurColor(vec2 fragCoord){
+    vec4 color = vec4(0.0);
+	for(int i=-kSize;i<=kSize;i++){
+		for(int j=-kSize;j<=kSize;j++){
+			// 采样相邻的像素
+            vec2 offset = vec2(float(i * blurSize),float(j * blurSize));
+			vec4 c = texture(iChannel0,(fragCoord.xy + offset)/iResolution.xy);
+			color +=  c * kernel[i + kSize] * kernel[j+kSize];
+		}
+	}
+    float val = clamp(luminance(color) - 0.2,0.0,1.0);
+    return color * val;
+}
 
-void mainImage( out vec4 fragColor, in vec2 fragCoord )
-{
-float Threshold = 0.0+iMouse.y/iResolution.y*1.0;
-float Intensity = 2.0-iMouse.x/iResolution.x*2.0;
-float BlurSize = 6.0-iMouse.x/iResolution.x*6.0;
-	vec2 uv = (fragCoord.xy/iResolution.xy)*vec2(1.0,-1.0);
-    
-    vec4 Color = texture(iChannel0, uv);
-    
-    vec4 Highlight = clamp(BlurColor(uv, iChannel0, BlurSize)-Threshold,0.0,1.0)*1.0/(1.0-Threshold);
-        
-    fragColor = 1.0-(1.0-Color)*(1.0-Highlight*Intensity); //Screen Blend Mode
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+    vec4 color = texture(iChannel0,fragCoord.xy / iResolution.xy);
+    vec4 blurColor = getBlurColor(fragCoord);
+	fragColor = color + blurColor;
 }
