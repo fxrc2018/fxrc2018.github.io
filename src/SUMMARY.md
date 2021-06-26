@@ -37,6 +37,9 @@
 * [计算机基础]()
     * [ASCII、Unicode和UTF-8](/basic/ascii_utf_8.md)
     
+* [Android]()
+    * [Android自定义View基础](/android/自定义View基础.md)
+
 * [CSAPP笔记]()
     * [信息的表示和处理](/csapp/信息的表示和处理.md)
     * [Data Lab](/csapp/Data-Lab.md)
@@ -147,5 +150,4 @@
 
 * [其他]()
     * [开发工具Tips](/other/开发工具Tips.md)
-    * [Android自定义View基础](/basic/android/自定义View基础.md)
     * [Windows下好用的软件](/other/Windows下好用的软件.md)
