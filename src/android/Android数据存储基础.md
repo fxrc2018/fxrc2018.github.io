@@ -1,8 +1,10 @@
+## Android数据存储基础
+
 Android的数据存储主要分为以下几类：SharedPreferences、文件存储、SQLite 数据库、网络存储、ContentProvider。下面就上面这几个方面写写我个人的一些理解。
 
-##SharedPreferences
+### SharedPreferences
 
-```
+```java
 private static final String SHARED_PREFERENCES_NAME = "shared_preferences_name";
 private static SharedPreferences sharedPreferences;
 public static int getInt(Context context, String key, int defValue) {
@@ -19,10 +21,10 @@ public static void putInt(Context context, String key, int value) {
 }
 ```
 
-##文件存储
+### 文件存储
 
-##SQLite 数据库
+### SQLite 数据库
 
-##网络存储
+### 网络存储
 
-##ContentProvider
+### ContentProvider

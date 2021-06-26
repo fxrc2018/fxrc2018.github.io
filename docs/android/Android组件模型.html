@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ASCII、Unicode和UTF-8 · GitBook</title>
+        <title>Android组件模型 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,6 +65,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    
+    <link rel="prev" href="Android中使用FFmpeg.html" />
     
 
     </head>
@@ -521,9 +523,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="ascii_utf_8.html">
+        <li class="chapter " data-level="1.3.1" data-path="../basic/ascii_utf_8.html">
             
-                <a href="ascii_utf_8.html">
+                <a href="../basic/ascii_utf_8.html">
             
                     
                     ASCII、Unicode和UTF-8
@@ -553,9 +555,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../android/自定义View基础.html">
+        <li class="chapter " data-level="1.4.1" data-path="自定义View基础.html">
             
-                <a href="../android/自定义View基础.html">
+                <a href="自定义View基础.html">
             
                     
                     Android自定义View基础
@@ -566,9 +568,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../android/Android解析XML和JSON.html">
+        <li class="chapter " data-level="1.4.2" data-path="Android解析XML和JSON.html">
             
-                <a href="../android/Android解析XML和JSON.html">
+                <a href="Android解析XML和JSON.html">
             
                     
                     Android解析XML和JSON
@@ -579,9 +581,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../android/Android中使用FFmpeg.html">
+        <li class="chapter " data-level="1.4.3" data-path="Android中使用FFmpeg.html">
             
-                <a href="../android/Android中使用FFmpeg.html">
+                <a href="Android中使用FFmpeg.html">
             
                     
                     Android中使用FFmpeg
@@ -592,9 +594,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="../android/Android组件模型.html">
+        <li class="chapter active" data-level="1.4.4" data-path="Android组件模型.html">
             
-                <a href="../android/Android组件模型.html">
+                <a href="Android组件模型.html">
             
                     
                     Android组件模型
@@ -2115,7 +2117,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >ASCII、Unicode和UTF-8</a>
+        <a href=".." >Android组件模型</a>
     </h1>
 </div>
 
@@ -2130,113 +2132,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="ascii&#x3001;unicode&#x548C;utf-8">ASCII&#x3001;Unicode&#x548C;UTF-8</h2>
-<p>&#x5927;&#x591A;&#x6570;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7B97;&#x6CD5;&#x90FD;&#x662F;&#x4EE5;ASCII&#x7801;&#x4E3A;&#x4F8B;&#x7684;&#xFF0C;&#x4F46;&#x5728;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x5E38;&#x5E38;&#x8981;&#x7528;&#x5230;UTF-8&#x7F16;&#x7801;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x4E86;&#x89E3;&#x4E00;&#x70B9;&#x4E24;&#x79CD;&#x7F16;&#x7801;&#x7684;&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#xFF0C;&#x624D;&#x80FD;&#x6B63;&#x786E;&#x7684;&#x8FD0;&#x7528;&#x5DF2;&#x6709;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7B97;&#x6CD5;&#x3002;</p>
-<h3 id="&#x6807;&#x51C6;ascii&#x7801;">&#x6807;&#x51C6;ASCII&#x7801;</h3>
-<p>&#x6807;&#x51C6;ASCII &#x7801;&#x4E5F;&#x53EB;&#x57FA;&#x7840;ASCII&#x7801;&#xFF0C;&#x4F7F;&#x7528;7 &#x4F4D;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#xFF08;&#x5269;&#x4E0B;&#x7684;1&#x4F4D;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;0&#xFF09;&#x6765;&#x8868;&#x793A;&#x6240;&#x6709;&#x7684;&#x5927;&#x5199;&#x548C;&#x5C0F;&#x5199;&#x5B57;&#x6BCD;&#xFF0C;&#x6570;&#x5B57;0 &#x5230;9&#x3001;&#x6807;&#x70B9;&#x7B26;&#x53F7;&#xFF0C;&#x4EE5;&#x53CA;&#x5728;&#x7F8E;&#x5F0F;&#x82F1;&#x8BED;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x7279;&#x6B8A;&#x63A7;&#x5236;&#x5B57;&#x7B26;&#x3002;</p>
-<p>ASCII&#x7801;&#x53EA;&#x662F;&#x7528;&#x4E86;7&#x4F4D;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#xFF0C;&#x7528;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x8868;&#x793A;&#x65F6;&#xFF0C;&#x5B83;&#x7B2C;&#x4E00;&#x4F4D;&#x603B;&#x662F;&#x4E3A;0&#x3002;UTF-8&#x5C31;&#x662F;&#x5229;&#x7528;&#x4E86;&#x8FD9;&#x4E00;&#x7279;&#x70B9;&#xFF0C;&#x5728;&#x517C;&#x5BB9;ASCII&#x7801;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5BF9;ASCII&#x7801;&#x8FDB;&#x884C;&#x4E86;&#x6269;&#x5C55;&#x3002;</p>
-<h3 id="unicode">Unicode</h3>
-<p>&#x5982;&#x679C;&#x53EA;&#x8868;&#x793A;&#x82F1;&#x6587;&#xFF0C;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x662F;&#x591F;&#x7528;&#x7684;&#xFF0C;&#x4F46;&#x8981;&#x8868;&#x793A;&#x4E16;&#x754C;&#x4E0A;&#x6240;&#x6709;&#x7684;&#x6587;&#x5B57;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x591A;&#x4E2A;&#x5B57;&#x8282;&#x624D;&#x884C;&#x3002;Unicode&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x80FD;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x4E2D;&#x8868;&#x793A;&#x6240;&#x6709;&#x7684;&#x6587;&#x5B57;&#x3002;&#x5B83;&#x4E3A;&#x6BCF;&#x79CD;&#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5B57;&#x7B26;&#x8BBE;&#x5B9A;&#x4E86;&#x7EDF;&#x4E00;&#x5E76;&#x4E14;&#x552F;&#x4E00;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x7F16;&#x7801;&#xFF0C;&#x4EE5;&#x6EE1;&#x8DB3;&#x8DE8;&#x8BED;&#x8A00;&#x3001;&#x8DE8;&#x5E73;&#x53F0;&#x8FDB;&#x884C;&#x6587;&#x672C;&#x8F6C;&#x6362;&#x3001;&#x5904;&#x7406;&#x7684;&#x8981;&#x6C42;&#x3002;</p>
-<p>Unicode&#x53EF;&#x4EE5;&#x770B;&#x505A;&#x662F;&#x662F;&#x4E00;&#x672C;&#x5F88;&#x539A;&#x7684;&#x5B57;&#x5178;&#xFF0C;&#x8BB0;&#x5F55;&#x7740;&#x4E16;&#x754C;&#x4E0A;&#x6240;&#x6709;&#x5B57;&#x7B26;&#x5BF9;&#x5E94;&#x7684;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x3002;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x5212;&#x5206;&#x901A;&#x5E38;&#x9075;&#x5FAA;&#x4E86;&#x4E00;&#x4E9B;&#x89C4;&#x5F8B;&#xFF0C;&#x5229;&#x7528;&#x8FD9;&#x4E9B;&#x89C4;&#x5F8B;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5339;&#x914D;&#x7279;&#x5B9A;&#x7684;&#x5B57;&#x7B26;&#x3002;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x5339;&#x914D;&#x4E2D;&#x6587;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E2D;&#x6587;&#x7684;&#x5F00;&#x59CB;&#x548C;&#x7ED3;&#x675F;&#x7684;&#x7F16;&#x53F7;&#x6765;&#x5339;&#x914D;&#x3002;</p>
-<h3 id="utf-8&#x7801;">UTF-8&#x7801;</h3>
-<p>UTF-8&#x7F16;&#x7801;&#x89C4;&#x5219;&#xFF1A;</p>
-<ul>
-<li><p>&#x5BF9;&#x4E8E;&#x5355;&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x7B2C;&#x4E00;&#x4F4D;&#x8BBE;&#x4E3A; 0&#xFF0C;&#x540E;&#x9762;&#x7684; 7 &#x4F4D;&#x5BF9;&#x5E94;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x7684; Unicode &#x7801;&#x70B9;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5BF9;&#x4E8E;&#x82F1;&#x6587;&#x4E2D;&#x7684; 0 - 127 &#x53F7;&#x5B57;&#x7B26;&#xFF0C;&#x4E0E; ASCII &#x7801;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740; ASCII &#x7801;&#x90A3;&#x4E2A;&#x5E74;&#x4EE3;&#x7684;&#x6587;&#x6863;&#x7528; UTF-8 &#x7F16;&#x7801;&#x6253;&#x5F00;&#x5B8C;&#x5168;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x3002;</p>
-</li>
-<li><p>&#x5BF9;&#x4E8E;&#x9700;&#x8981;&#x4F7F;&#x7528; N &#x4E2A;&#x5B57;&#x8282;&#x6765;&#x8868;&#x793A;&#x7684;&#x5B57;&#x7B26;&#xFF08;N &gt; 1&#xFF09;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x524D; N &#x4F4D;&#x90FD;&#x8BBE;&#x4E3A; 1&#xFF0C;&#x7B2C; N + 1 &#x4F4D;&#x8BBE;&#x4E3A;0&#xFF0C;&#x5269;&#x4F59;&#x7684; N - 1 &#x4E2A;&#x5B57;&#x8282;&#x7684;&#x524D;&#x4E24;&#x4F4D;&#x90FD;&#x8BBE;&#x4F4D; 10&#xFF0C;&#x5269;&#x4E0B;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#x5219;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x7684; Unicode &#x7801;&#x70B9;&#x6765;&#x586B;&#x5145;&#x3002;</p>
-</li>
-</ul>
-<p>&#x4ECE;UTF-8&#x7684;&#x7F16;&#x7801;&#x89C4;&#x5219;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5728;UTF-8&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#xFF0C;&#x641C;&#x7D22;&#x4E00;&#x4E2A;&#x82F1;&#x6587;&#x5B57;&#x7B26;&#x4E32;&#x548C;&#x4E00;&#x4E2A;&#x4E2D;&#x6587;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x91CD;&#x590D;&#x7684;&#x90E8;&#x5206;&#x3002;</p>
-<p>&#x77E5;&#x9053;&#x4E86;UTF-8&#x7684;&#x7F16;&#x7801;&#x89C4;&#x5219;&#xFF0C;&#x53EF;&#x4EE5;&#x5199;&#x4E00;&#x4E2A;&#x8BA1;&#x7B97;UTF-8&#x7684;&#x5B57;&#x7B26;&#x6570;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
-<pre class="language-"><code class="lang-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h&gt;</span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">utf8Len</span><span class="token punctuation">(</span><span class="token keyword">const</span> string <span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">unsigned</span> <span class="token keyword">char</span> c <span class="token operator">=</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>j <span class="token operator">&lt;</span> <span class="token number">8</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>c <span class="token operator">&amp;</span> <span class="token number">0x80</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">//&#x67E5;&#x627E;&#x5F00;&#x59CB;&#x7684;1&#xFF0C;&#x8FDE;&#x7EED;&#x51E0;&#x4E2A;1&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x7F16;&#x7801;&#x957F;&#x5EA6;</span>
-            j<span class="token operator">++</span><span class="token punctuation">;</span>
-            c <span class="token operator">&lt;&lt;=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>j <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">//&#x7279;&#x6B8A;&#xFF0C;&#x5982;&#x679C;&#x5F00;&#x59CB;&#x5C31;&#x662F;0&#xFF0C;&#x957F;&#x5EA6;&#x4E3A;1&#x4E2A;&#x5B57;&#x8282;</span>
-            j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>j <span class="token operator">&gt;</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            cout<span class="token operator">&lt;&lt;</span><span class="token string">&quot;eror: not a utf-8 code string&quot;</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        i <span class="token operator">+=</span> j<span class="token punctuation">;</span>
-        res<span class="token operator">++</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    string s <span class="token operator">=</span> <span class="token string">&quot;&#x4F60;&#x597D;&#xFF0C;&#x4E16;&#x754C;&#xFF0C;hello world&quot;</span><span class="token punctuation">;</span>
-    cout<span class="token operator">&lt;&lt;</span><span class="token function">utf8Len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span> <span class="token comment">//17</span>
-    <span class="token comment">//29 &#x5360;&#x7528;&#x4E86;29&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x56E0;&#x4E3A;&#x4E00;&#x4E2A;&#x6C49;&#x5B57;&#x5360;3&#x4F4D; </span>
-    <span class="token comment">//&#x8FD9;&#x662F;utf-8&#x7684;&#x4E00;&#x4E2A;&#x7F3A;&#x70B9;&#xFF0C;&#x65E0;&#x6CD5;&#x76F4;&#x89C2;&#x7684;&#x770B;&#x51FA;&#x5360;&#x7528;&#x4E86;&#x591A;&#x5C11;&#x5B57;&#x8282;</span>
-    cout<span class="token operator">&lt;&lt;</span>s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span> 
-    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">&quot;pause&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="&#x5339;&#x914D;&#x4E2D;&#x6587;">&#x5339;&#x914D;&#x4E2D;&#x6587;</h3>
-<p>&#x8981;&#x5339;&#x914D;&#x4E2D;&#x6587;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x770B;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x662F;&#x5426;&#x5728;&#x4E2D;&#x6587;&#x7684;Unicode&#x7801;&#x5185;&#x3002;&#x4F46;&#x8FD9;&#x91CC;&#x6700;&#x597D;&#x4F7F;&#x7528;&#x5BBD;&#x5B57;&#x7B26;&#xFF0C;&#x76F4;&#x63A5;&#x7528;Unicode&#x8868;&#x793A;&#xFF0C;&#x5982;&#x679C;&#x7528;UTF-8&#x6709;&#x95EE;&#x9898;&#x3002;</p>
-<pre class="language-"><code class="lang-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h&gt;</span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token comment">//&#x4E0D;&#x8FD9;&#x6837;&#x521D;&#x59CB;&#x5316;wcout&#x65E0;&#x6CD5;&#x8F93;&#x51FA;&#x4E2D;&#x6587;&#x5B57;&#x7B26;&#xFF0C;&#x5177;&#x4F53;&#x539F;&#x7406;&#x8FD8;&#x4E0D;&#x6E05;&#x695A;</span>
-    ios<span class="token operator">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    locale<span class="token operator">::</span><span class="token function">global</span><span class="token punctuation">(</span><span class="token function">locale</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">setlocale</span><span class="token punctuation">(</span>LC_CTYPE<span class="token punctuation">,</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    wcout<span class="token punctuation">.</span><span class="token function">imbue</span><span class="token punctuation">(</span><span class="token function">locale</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    wstring s1 <span class="token operator">=</span> L<span class="token string">&quot;&#x4F60;&#x597D;&#xFF0C;&#x4E16;&#x754C;&quot;</span><span class="token punctuation">;</span>
-    wregex <span class="token function">p1</span><span class="token punctuation">(</span>L<span class="token string">&quot;[\u4e00-\u9fa5]+&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x4E2D;&#x6587;&#x7684;&#x8D77;&#x6B62;&#x7F16;&#x53F7;</span>
-    wsmatch r1<span class="token punctuation">;</span>
-    wstring<span class="token operator">::</span>const_iterator is <span class="token operator">=</span> s1<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    wstring<span class="token operator">::</span>const_iterator ie <span class="token operator">=</span> s1<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token function">regex_search</span><span class="token punctuation">(</span>is<span class="token punctuation">,</span>ie<span class="token punctuation">,</span>r1<span class="token punctuation">,</span>p1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        wcout<span class="token operator">&lt;&lt;</span>r1<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-        is <span class="token operator">=</span> r1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>second<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    wstring wstr <span class="token operator">=</span> <span class="token function">regex_replace</span><span class="token punctuation">(</span>s1<span class="token punctuation">,</span>p1<span class="token punctuation">,</span>L<span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    wcout <span class="token operator">&lt;&lt;</span>L<span class="token string">&quot;&#x66FF;&#x6362;&#x4E4B;&#x540E;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF1A;&quot;</span><span class="token operator">&lt;&lt;</span>wstr<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">&quot;pause&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>&#x5982;&#x679C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;UTF-8&#x8FDB;&#x884C;&#x5339;&#x914D;&#xFF0C;&#x4F1A;&#x51FA;&#x73B0;&#x4E00;&#x4E9B;&#x5947;&#x602A;&#x7684;&#x73B0;&#x8C61;&#x3002;</p>
-<pre class="language-"><code class="lang-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h&gt;</span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">&quot;chcp 65001&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x6539;&#x53D8;&#x547D;&#x4EE4;&#x884C;&#x7684;&#x7F16;&#x7801;</span>
-    string s <span class="token operator">=</span> <span class="token string">&quot;&#x4F60;&#x597D;&#xFF0C;&#x4E16;&#x754C;&quot;</span><span class="token punctuation">;</span>
-    regex <span class="token function">p</span><span class="token punctuation">(</span><span class="token string">&quot;[\u4e00-\u9fa5]+&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    smatch r<span class="token punctuation">;</span>
-    string<span class="token operator">::</span>const_iterator is <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    string<span class="token operator">::</span>const_iterator ie <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token function">regex_search</span><span class="token punctuation">(</span>is<span class="token punctuation">,</span>ie<span class="token punctuation">,</span>r<span class="token punctuation">,</span>p<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        cout<span class="token operator">&lt;&lt;</span>r<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-        is <span class="token operator">=</span> r<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>second<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment">//&#x6267;&#x884C;&#x5230;&#x8FD9;&#x91CC;&#x6D41;&#x51FA;&#x9519;&#x4E86; &#x8F93;&#x51FA;&#x4E0D;&#x4E86;</span>
-    string s1 <span class="token operator">=</span> <span class="token function">regex_replace</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span>p<span class="token punctuation">,</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    cout<span class="token operator">&lt;&lt;</span><span class="token string">&quot;&#x66FF;&#x6362;&#x4E4B;&#x540E;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF1A;&quot;</span><span class="token operator">&lt;&lt;</span>s1<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span> <span class="token comment">//&#x66FF;&#x6362;&#x7684;&#x7ED3;&#x679C;&#x4E3A;&#x7A7A;&#xFF0C;&#x9519;&#x4E86;</span>
-    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">&quot;pause&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>&#x6309;&#x6211;&#x7684;&#x7406;&#x89E3;&#xFF0C;&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x662F;&#x884C;&#x4E0D;&#x901A;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;UTF-8&#x9700;&#x8981;&#x89E3;&#x7801;&#x624D;&#x80FD;&#x5F97;&#x5230;Unicode&#xFF0C;&#x76F4;&#x63A5;&#x5339;&#x914D;&#x4F1A;&#x51FA;&#x9519;&#x3002;&#x4E0D;&#x6E05;&#x695A;&#x6B63;&#x5219;&#x5339;&#x914D;&#x4E2D;\u&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x4F46;&#x662F;&#x76F4;&#x63A5;&#x7528;&#x786E;&#x5B9E;&#x662F;&#x6709;&#x95EE;&#x9898;&#x3002;&#x8981;&#x5339;&#x914D;&#x4E2D;&#x6587;&#xFF0C;&#x6700;&#x597D;&#x8FD8;&#x662F;&#x5148;&#x5904;&#x7406;&#x6210;Unicode&#x5BBD;&#x5B57;&#x7B26;&#x6BD4;&#x8F83;&#x597D;&#x3002;</p>
+                                <h2 id="android&#x7EC4;&#x4EF6;&#x6A21;&#x578B;">Android&#x7EC4;&#x4EF6;&#x6A21;&#x578B;</h2>
+<p>Android&#x5E94;&#x7528;&#x6A21;&#x578B;&#x7684;&#x8BBE;&#x8BA1;&#x601D;&#x60F3;&#x53D6;&#x81EA;Web 2.0&#x7684;Mashup&#x6982;&#x5FF5;&#xFF0C;&#x662F;&#x57FA;&#x4E8E;&#x7EC4;&#x4EF6;&#x7684;&#x5E94;&#x7528;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x3002;&#x5728;&#x8BE5;&#x6A21;&#x578B;&#x4E0B;&#xFF0C;&#x6BCF;&#x4E2A;&#x5E94;&#x7528;&#x90FD;&#x6709;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x7EC4;&#x4EF6;&#x642D;&#x5EFA;&#x800C;&#x6210;&#xFF0C;&#x7EC4;&#x4EF6;&#x901A;&#x8FC7;&#x5E94;&#x7528;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x529F;&#x80FD;&#x3002;Android&#x4F9D;&#x7167;&#x7EC4;&#x4EF6;&#x7684;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#xFF0C;&#x4E86;&#x89E3;&#x5404;&#x4E2A;&#x7EC4;&#x4EF6;&#x7684;&#x529F;&#x80FD;&#x5E76;&#x8FDB;&#x884C;&#x8C03;&#x5EA6;&#x3002;</p>
+<p>Android&#x4E2D;&#x6709;&#x56DB;&#x5927;&#x7EC4;&#x4EF6;&#xFF0C;&#x5206;&#x522B;&#x662F;&#x754C;&#x9762;&#x7EC4;&#x4EF6;Activity&#x3001;&#x670D;&#x52A1;&#x7EC4;&#x4EF6;Service&#x3001;&#x6570;&#x636E;&#x6E90;&#x7EC4;&#x4EF6;Content Provider&#x4EE5;&#x53CA;&#x89E6;&#x53D1;&#x5668;&#x7EC4;&#x4EF6;Broadcast Receiver&#x3002;&#x6BCF;&#x4E2A;Android&#x5E94;&#x7528;&#xFF0C;&#x90FD;&#x7531;&#x8FD9;&#x56DB;&#x7C7B;&#x7EC4;&#x4EF6;&#x5171;&#x540C;&#x642D;&#x5EFA;&#x800C;&#x6210;&#x3002;&#x5728;Mashup&#x7684;&#x6982;&#x5FF5;&#x4E0B;&#x6784;&#x9020;Android&#x5E94;&#x7528;&#xFF0C;&#x6709;&#x4E09;&#x4E2A;&#x57FA;&#x672C;&#x8981;&#x7D20;&#xFF1A;&#x7EC4;&#x4EF6;&#x3001;&#x8FDE;&#x63A5;&#x548C;&#x914D;&#x7F6E;&#x3002;</p>
+<h3 id="&#x7EC4;&#x4EF6;">&#x7EC4;&#x4EF6;</h3>
+<p>&#x7EC4;&#x4EF6;&#x5C31;&#x662F;&#x6709;&#x7279;&#x5B9A;&#x529F;&#x80FD;&#x548C;&#x63A5;&#x53E3;&#x89C4;&#x8303;&#x7684;&#x5B9E;&#x73B0;&#x5355;&#x5143;&#x3002;</p>
+<h3 id="&#x8FDE;&#x63A5;">&#x8FDE;&#x63A5;</h3>
+<h3 id="&#x914D;&#x7F6E;">&#x914D;&#x7F6E;</h3>
 
                                 
                                 </section>
@@ -2264,6 +2166,10 @@
 
             
                 
+                <a href="Android中使用FFmpeg.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Android中使用FFmpeg">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
                 
             
         
@@ -2272,7 +2178,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ASCII、Unicode和UTF-8","level":"1.3.1","depth":2,"next":{"title":"Android","level":"1.4","depth":1,"ref":"","articles":[{"title":"Android自定义View基础","level":"1.4.1","depth":2,"path":"android/自定义View基础.md","ref":"android/自定义View基础.md","articles":[]},{"title":"Android解析XML和JSON","level":"1.4.2","depth":2,"path":"android/Android解析XML和JSON.md","ref":"android/Android解析XML和JSON.md","articles":[]},{"title":"Android中使用FFmpeg","level":"1.4.3","depth":2,"path":"android/Android中使用FFmpeg.md","ref":"android/Android中使用FFmpeg.md","articles":[]},{"title":"Android组件模型","level":"1.4.4","depth":2,"path":"android/Android组件模型.md","ref":"android/Android组件模型.md","articles":[]}]},"previous":{"title":"计算机基础","level":"1.3","depth":1,"ref":"","articles":[{"title":"ASCII、Unicode和UTF-8","level":"1.3.1","depth":2,"path":"basic/ascii_utf_8.md","ref":"basic/ascii_utf_8.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"basic/ascii_utf_8.md","mtime":"2021-04-01T13:35:03.311Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-26T09:46:39.547Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Android组件模型","level":"1.4.4","depth":2,"next":{"title":"CSAPP笔记","level":"1.5","depth":1,"ref":"","articles":[{"title":"信息的表示和处理","level":"1.5.1","depth":2,"path":"csapp/信息的表示和处理.md","ref":"csapp/信息的表示和处理.md","articles":[]},{"title":"Data Lab","level":"1.5.2","depth":2,"path":"csapp/Data-Lab.md","ref":"csapp/Data-Lab.md","articles":[]},{"title":"程序的机器级表示","level":"1.5.3","depth":2,"path":"csapp/程序的机器级表示.md","ref":"csapp/程序的机器级表示.md","articles":[]},{"title":"Bomb Lab","level":"1.5.4","depth":2,"path":"csapp/Bomb-Lab.md","ref":"csapp/Bomb-Lab.md","articles":[]},{"title":"Attak Lab","level":"1.5.5","depth":2,"path":"csapp/Attack-Lab.md","ref":"csapp/Attack-Lab.md","articles":[]},{"title":"优化程序性能","level":"1.5.6","depth":2,"path":"csapp/优化程序性能.md","ref":"csapp/优化程序性能.md","articles":[]},{"title":"存储器层次结构","level":"1.5.7","depth":2,"path":"csapp/存储器层次结构.md","ref":"csapp/存储器层次结构.md","articles":[]},{"title":"Cache Lab","level":"1.5.8","depth":2,"path":"csapp/Cache-Lab.md","ref":"csapp/Cache-Lab.md","articles":[]},{"title":"动态内存分配","level":"1.5.9","depth":2,"path":"csapp/动态内存分配.md","ref":"csapp/动态内存分配.md","articles":[]},{"title":"Malloc Lab","level":"1.5.10","depth":2,"path":"csapp/Malloc-Lab.md","ref":"csapp/Malloc-Lab.md","articles":[]},{"title":"链接","level":"1.5.11","depth":2,"path":"csapp/链接.md","ref":"csapp/链接.md","articles":[]},{"title":"异常控制流","level":"1.5.12","depth":2,"path":"csapp/异常控制流.md","ref":"csapp/异常控制流.md","articles":[]},{"title":"Shell Lab","level":"1.5.13","depth":2,"path":"csapp/Shell-Lab.md","ref":"csapp/Shell-Lab.md","articles":[]},{"title":"虚拟内存","level":"1.5.14","depth":2,"path":"csapp/虚拟内存.md","ref":"csapp/虚拟内存.md","articles":[]},{"title":"系统级IO","level":"1.5.15","depth":2,"path":"csapp/系统级IO.md","ref":"csapp/系统级IO.md","articles":[]},{"title":"网络编程","level":"1.5.16","depth":2,"path":"csapp/网络编程.md","ref":"csapp/网络编程.md","articles":[]},{"title":"Web服务器","level":"1.5.17","depth":2,"path":"csapp/Web服务器.md","ref":"csapp/Web服务器.md","articles":[]},{"title":"Proxy Lab","level":"1.5.18","depth":2,"path":"csapp/Proxy-Lab.md","ref":"csapp/Proxy-Lab.md","articles":[]},{"title":"并发编程","level":"1.5.19","depth":2,"path":"csapp/并发编程.md","ref":"csapp/并发编程.md","articles":[]},{"title":"System-V进程间通信","level":"1.5.20","depth":2,"path":"csapp/System-V进程间通信.md","ref":"csapp/System-V进程间通信.md","articles":[]},{"title":"线程","level":"1.5.21","depth":2,"path":"csapp/线程.md","ref":"csapp/线程.md","articles":[]}]},"previous":{"title":"Android中使用FFmpeg","level":"1.4.3","depth":2,"path":"android/Android中使用FFmpeg.md","ref":"android/Android中使用FFmpeg.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex","-highlight","prism"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"android/Android组件模型.md","mtime":"2021-06-26T09:45:17.516Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-26T09:46:39.547Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

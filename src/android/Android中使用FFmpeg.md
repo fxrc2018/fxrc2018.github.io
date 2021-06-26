@@ -1,3 +1,5 @@
+## Android中使用FFmpeg得到视频中的PCM和YUV数据
+
 使用FFmpeg获取PCM和YUV数据的流程基本上一样的，下面就以获取YUV数据的流程为例，说明这个过程：
 * 初始化AVFormatContext 。
 * 打开文件，获取流信息，获取视频流/音频流。
@@ -7,7 +9,7 @@
 * 读取一帧数据，然后把数据写入到文件。
 * 读完数据后，释放内存。
 
-```
+```cpp
 #include <jni.h>
 #include <string.h>
 #include <stdlib.h>

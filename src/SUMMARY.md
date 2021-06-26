@@ -39,6 +39,9 @@
     
 * [Android]()
     * [Android自定义View基础](/android/自定义View基础.md)
+    * [Android解析XML和JSON](/android/Android解析XML和JSON.md)
+    * [Android中使用FFmpeg](/android/Android中使用FFmpeg.md)
+    * [Android组件模型](/android/Android组件模型.md)
 
 * [CSAPP笔记]()
     * [信息的表示和处理](/csapp/信息的表示和处理.md)
@@ -112,6 +115,7 @@
     * [问题选编]()
         * [哈夫曼编码](/algorithm/哈夫曼编码.md)
         * [水壶问题](/algorithm/problem/水壶问题.md)
+        * [约瑟夫问题](/algorithm/problem/约瑟夫问题.md)
         * [KMP算法和正则表达式匹配算法](/algorithm/KMP算法和正则表达式匹配算法.md)
         * [Quake3快速平方根倒数算法](/algorithm/Quake3快速平方根倒数算法.md)
         * [多项式与快速傅里叶变换](/algorithm/多项式与快速傅里叶变换.md)
