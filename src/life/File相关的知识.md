@@ -1,6 +1,8 @@
-##读写文件的标准操作
+### 读写文件的标准操作
+
 文件读写是一个基本的操作，不难，但是我觉得对于java来说，异常的处理比较麻烦。下面的代码来自《java编程思想》，个人感觉这种写法确实不错。
-```
+
+```java
 public static Object readObject(String path){
     Object object = null;
     try {
