@@ -95,6 +95,8 @@
         * [DFS](/algorithm/search/DFS.md)
         * [模拟退火算法](/algorithm/search/模拟退火算法.md)
     * [树]()
+        * [树的直径](/algorithm/tree/树的直径.md)
+        * [最近公共祖先](/algorithm/tree/最近公共祖先.md)
         * [二叉查找树](/algorithm/tree/二叉查找树.md)
         * [Cocos节点树](/algorithm/tree/Cocos节点树.md)
         * [树状数组](/algorithm/tree/树状数组.md)
